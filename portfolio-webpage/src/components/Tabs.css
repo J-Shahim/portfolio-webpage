@@ -1,0 +1,78 @@
+.header-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  position: relative;
+  z-index: 100;
+}
+
+.tab-group {
+  display: flex;
+  gap: 24px;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: #5f1d7a;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+
+.tab-btn:focus,
+.tab-btn:hover {
+  background: #266da7;
+  color: #fff;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(38, 109, 167, 0.18);
+  flex-direction: column;
+  z-index: 9999;
+  padding: 8px 0;
+  display: none;
+}
+
+.tab:hover .dropdown,
+.tab:focus-within .dropdown {
+  display: flex;
+}
+
+.dropdown a,
+.dropdown .tab-btn {
+  color: #5f1d7a;
+  padding: 10px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  display: block;
+  text-align: left;
+}
+
+.dropdown a:hover,
+.dropdown a:focus {
+  background: #266da7;
+  color: #fff;
+}
