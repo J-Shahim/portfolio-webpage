@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './Header.css';
-import './Header.css';
+import React, { useMemo, useRef, useState, useEffect } from "react";
+import MenuBubble from "./MenuBubble";
+import Carousel from "./Carousel";
+import "./Header.css";
 
-// Dynamically import all images and videos from src/assets
+/* --------------------------------------------------------------------------
+   Asset Import Helpers
+-------------------------------------------------------------------------- */
 function importAll(r, type) {
     return r.keys().map((file) => ({
         type,
@@ -10,108 +13,165 @@ function importAll(r, type) {
     }));
 }
 
-const imageFiles = importAll(require.context('../assets/images', false, /\.(png|jpe?g|gif)$/), 'image');
-const videoFiles = importAll(require.context('../assets/videos', false, /\.(mp4|webm|ogg)$/), 'video');
+const allImageSets = {
+    home: importAll(require.context('../assets/images/home', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+    about: importAll(require.context('../assets/images/about', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+    skills: importAll(require.context('../assets/images/skills', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+    web: importAll(require.context('../assets/images/web', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+    mobile: importAll(require.context('../assets/images/mobile', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+    email: importAll(require.context('../assets/images/email', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+    social: importAll(require.context('../assets/images/social', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+};
 
-const backgrounds = [...imageFiles, ...videoFiles];
+const allVideoSets = {
+    home: importAll(require.context('../assets/videos/home', false, /\.(mp4|webm|ogg)$/), 'video'),
+    about: importAll(require.context('../assets/videos/about', false, /\.(mp4|webm|ogg)$/), 'video'),
+    skills: importAll(require.context('../assets/videos/skills', false, /\.(mp4|webm|ogg)$/), 'video'),
+    web: importAll(require.context('../assets/videos/web', false, /\.(mp4|webm|ogg)$/), 'video'),
+    mobile: importAll(require.context('../assets/videos/mobile', false, /\.(mp4|webm|ogg)$/), 'video'),
+    email: importAll(require.context('../assets/videos/email', false, /\.(mp4|webm|ogg)$/), 'video'),
+    social: importAll(require.context('../assets/videos/social', false, /\.(mp4|webm|ogg)$/), 'video'),
+};
 
 const getIndex = (i, length) => (i + length) % length;
 
-const Header = () => {
-    const [index, setIndex] = useState(0);
-    const [isHovering, setIsHovering] = useState(false);
-    const timerRef = useRef();
+const Header = ({ imageDir = "home", videoDir = "home" }) => {
+  const headerRef = useRef(null);
+  const menuBubbleRef = useRef(null);
 
-    const prevIndex = getIndex(index - 1, backgrounds.length);
-    const nextIndex = getIndex(index + 1, backgrounds.length);
-    const farPrevIndex = getIndex(index - 2, backgrounds.length);
-    const farNextIndex = getIndex(index + 2, backgrounds.length);
+  const [collapsed, setCollapsed] = useState(true);
+  const [showMenuBubble, setShowMenuBubble] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
+  const [shrinking, setShrinking] = useState(false);
 
-    const handlePrev = () => setIndex(prevIndex);
-    const handleNext = () => setIndex(nextIndex);
-/*
-    useEffect(() => {
-        if (!isHovering) {
-            timerRef.current = setInterval(() => {
-                setIndex((prev) => (prev + 1) % backgrounds.length);
-            }, AUTO_TRANSITION_MS);
-        }
-        return () => clearInterval(timerRef.current);
-    }, [isHovering]);
-*/
-
-    // Helper to render a background item
-    const renderBg = (bg, position, isActive) => {
-        const classNames = [
-            'carousel-item',
-            position,
-            isActive ? 'center' : '',
-        ].join(' ');
-        if (bg.type === 'video') {
-            return (
-                <video
-                    key={bg.src + position}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={classNames}
-                >
-                    <source src={bg.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            );
-        } else {
-            return (
-                <img
-                    key={bg.src + position}
-                    src={bg.src}
-                    alt=""
-                    className={classNames}
-                />
-            );
-        }
+  useEffect(() => {
+    function updateMenuBubble() {
+      setShowMenuBubble(true);
+    }
+    window.addEventListener("scroll", updateMenuBubble);
+    window.addEventListener("resize", updateMenuBubble);
+    updateMenuBubble();
+    return () => {
+      window.removeEventListener("scroll", updateMenuBubble);
+      window.removeEventListener("resize", updateMenuBubble);
     };
+  }, []);
 
-    return (
-        <header className="header">
-            {/* Carousel items */}
-            <div className="carousel-container">
-                {renderBg(backgrounds[farPrevIndex], 'far-left', false)}
-                {renderBg(backgrounds[prevIndex], 'left', false)}
-                {renderBg(backgrounds[index], 'center', true)}
-                {renderBg(backgrounds[nextIndex], 'right', false)}
-                {renderBg(backgrounds[farNextIndex], 'far-right', false)}
-            </div>
-            {/* Arrow buttons */}
-            <button
-                onClick={handlePrev}
-                aria-label="Previous"
-                className="arrow-btn arrow-btn-left"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-            >
-                &#8592;
-            </button>
-            <button
-                onClick={handleNext}
-                aria-label="Next"
-                className="arrow-btn arrow-btn-right"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-            >
-                &#8594;
-            </button>
-            {/* Navigation */}
-            <nav className="header-content">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  const backgrounds = useMemo(() => {
+    const images = allImageSets[imageDir] || [];
+    const videos = allVideoSets[videoDir] || [];
+    return [...images, ...videos];
+  }, [imageDir, videoDir]);
+
+  const hasBackgrounds = backgrounds.length > 0;
+  const [index, setIndex] = useState(0);
+  const prevIndex = getIndex(index - 1, backgrounds.length);
+  const nextIndex = getIndex(index + 1, backgrounds.length);
+  const farPrevIndex = getIndex(index - 2, backgrounds.length);
+  const farNextIndex = getIndex(index + 2, backgrounds.length);
+
+  const renderBg = (bg, position, isCenter) => {
+    if (!bg) return null;
+    const uniqueKey = `${bg.src}-${position}`;
+    if (bg.type === "image") {
+      return (
+        <img
+          key={uniqueKey}
+          src={bg.src}
+          alt=""
+          className={`carousel-item ${position}${isCenter ? " center" : ""}`}
+        />
+      );
+    }
+    if (bg.type === "video") {
+      return (
+        <video
+          key={uniqueKey}
+          src={bg.src}
+          className={`carousel-item ${position}${isCenter ? " center" : ""}`}
+          autoPlay
+          loop
+          muted
+        />
+      );
+    }
+    return null;
+  };
+
+  const handlePrev = () => setIndex((prev) => getIndex(prev - 1, backgrounds.length));
+  const handleNext = () => setIndex((prev) => getIndex(prev + 1, backgrounds.length));
+
+  // Fade duration in ms (should match your CSS)
+  const FADE_DURATION = 5000;
+
+  return (
+    <>
+      {collapsed ? (
+        <button
+          className="header-float-expand-btn"
+          onClick={() => {
+            setCollapsed(false);      // Show header (but keep shrinking)
+            setShrinking(true);       // Start small and invisible
+            setContentVisible(false); // Content invisible
+            setTimeout(() => {
+              setShrinking(false);    // Animate to full size and visible
+              setContentVisible(true);
+            }, 50); // Short delay to ensure DOM update
+          }}
+          aria-label="Expand gallery"
+          title="Expand Gallery"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="5" width="18" height="14" rx="2" fill="#fff" stroke="#5f1d7a" strokeWidth="2"/>
+            <circle cx="8" cy="10" r="2" fill="#5f1d7a"/>
+            <path d="M21 19l-5.5-7-4.5 6-3-4-4 5" stroke="#5f1d7a" strokeWidth="2" fill="none"/>
+          </svg>
+        </button>
+      ) : (
+        <header
+          className={`header${collapsed ? " collapsed" : ""}${shrinking ? " shrink-out" : ""}`}
+          ref={headerRef}
+        >
+          <button
+            className="header-collapse-btn"
+            onClick={() => {
+              setContentVisible(false); // Fade out content
+              setShrinking(true);       // Shrink header
+              setTimeout(() => {
+                setShrinking(false);
+                setCollapsed(true);     // Hide header after animation
+              }, 700); // Match CSS transition duration
+            }}
+            aria-label="Collapse gallery"
+          >
+            X
+          </button>
+          <div className={`header-content${contentVisible ? " visible" : ""}`}>
+            <Carousel
+              backgrounds={backgrounds}
+              index={index}
+              renderBg={renderBg}
+              prevIndex={prevIndex}
+              nextIndex={nextIndex}
+              farPrevIndex={farPrevIndex}
+              farNextIndex={farNextIndex}
+              hasBackgrounds={hasBackgrounds}
+              handlePrev={handlePrev}
+              handleNext={handleNext}
+            />
+          </div>
         </header>
-    );
+      )}
+
+      <MenuBubble
+        collapsed={collapsed}
+        show={showMenuBubble}
+        tabBubbleRef={menuBubbleRef}
+      />
+    </>
+  );
 };
 
 export default Header;
+
+
