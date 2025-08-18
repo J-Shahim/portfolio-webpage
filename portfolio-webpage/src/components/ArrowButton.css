@@ -1,3 +1,8 @@
+/* --------------------------------------------------------------------------
+   Arrow Button Base Styles
+   Shared styles for both carousel and profile navigation arrows.
+   Applies to .arrow-btn and .profile-arrow.
+-------------------------------------------------------------------------- */
 .arrow-btn,
 .profile-arrow {
   position: absolute;
@@ -29,6 +34,11 @@
     box-shadow 0.4s;
 }
 
+/* --------------------------------------------------------------------------
+   Arrow Button Hover/Focus
+   Visual feedback for user interaction.
+   Applies to both carousel and profile arrows.
+-------------------------------------------------------------------------- */
 .arrow-btn:hover,
 .arrow-btn:focus,
 .profile-arrow:hover,
@@ -43,6 +53,10 @@
     0 8px 24px -4px rgba(180,180,255,0.12);
 }
 
+/* --------------------------------------------------------------------------
+   Carousel Arrow Positioning
+   Positions left and right arrow buttons for carousel navigation.
+-------------------------------------------------------------------------- */
 .arrow-btn-left {
   left: 20px;
   right: auto;
@@ -53,6 +67,11 @@
   left: auto;
 }
 
+/* --------------------------------------------------------------------------
+   Profile Arrow Positioning
+   Positions left and right arrow buttons for profile block navigation.
+   Uses smaller offsets to keep arrows inside the profile block.
+-------------------------------------------------------------------------- */
 .profile-arrow {
   position: absolute;
   top: 50%;
@@ -61,12 +80,12 @@
 }
 
 .profile-arrow.arrow-btn-left {
-  left: 5px;  /* adjust as needed */
+  left: 5px;  /* adjust as needed for profile block */
   right: auto;
 }
 
 .profile-arrow.arrow-btn-right {
-  right: 5px; /* adjust as needed */
+  right: 5px; /* adjust as needed for profile block */
   left: auto;
 }
 

@@ -5,6 +5,7 @@
 
 /* --------------------------------------------------------------------------
    Global Styles
+   Sets background gradient, font, and base color for the whole page.
 -------------------------------------------------------------------------- */
 body {
   background: linear-gradient(
@@ -22,7 +23,10 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Header Styles
+   Header Block Styles
+   Main header block at the top of the page.
+   Includes border, rounded corners, animated gradient background, and glow.
+   Stays at the top when scrolling (sticky).
 -------------------------------------------------------------------------- */
 .header {
   margin: 20px;
@@ -30,8 +34,9 @@ body {
   border: 6px solid #5e04b3;
   border-radius: 24px;
   box-shadow:
-    0 8px 32px rgba(120,120,180,0.25),
-    0 16px 48px -8px rgba(180,180,255,0.25);
+    0 10px 43px 0px #4a37f3,                /* Blue glow around header */
+    0 5px 21px 0px rgba(97, 130, 240, 0.445),    /* Softer blue glow */
+    0 10px 32px -5px rgba(202, 185, 248, 0.452);  /* Diffused blue glow */
   background: linear-gradient(
     120deg,
     rgba(15, 0, 38, 0.75) 0%,
@@ -43,7 +48,7 @@ body {
   background-size: 600% 600%;
   animation: gradientMove 15s ease-in-out infinite;
   box-sizing: border-box;
-  position: sticky;
+  position: sticky; /* Keeps header at top while scrolling */
   top: 0px;
   z-index: 1000;
   overflow: hidden;
@@ -52,17 +57,24 @@ body {
     box-shadow 0.4s,
     opacity 1.5s cubic-bezier(.4,2,.6,1),
     transform 1.5s cubic-bezier(.4,2,.6,1);
-  clip-path: inset(0 0 0 0);
   opacity: 1;
-  transform-origin: 56px 80px; /* Adjust to match the center of your gallery bubble button */
+  transform-origin: 56px 80px; /* Center for scaling/shrinking animation */
   transform: scale(1);
 }
 
+/* --------------------------------------------------------------------------
+   Header Hover/Focus
+   Changes border and glow for interactivity.
+-------------------------------------------------------------------------- */
 .header:hover, .header:focus-within {
   border-color: #5f1d7a;
   box-shadow: 0 12px 48px rgba(167,38,147,0.45);
 }
 
+/* --------------------------------------------------------------------------
+   Animated Gradient Keyframes
+   Used for animated gradient background in header.
+-------------------------------------------------------------------------- */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -71,6 +83,7 @@ body {
 
 /* --------------------------------------------------------------------------
    Header Collapse/Expand Button Styles
+   Button to collapse the header, positioned top-right inside header.
 -------------------------------------------------------------------------- */
 .header-collapse-btn {
   position: absolute;
@@ -89,12 +102,17 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 
+/* Collapse button hover/focus: color change for feedback */
 .header-collapse-btn:hover,
 .header-collapse-btn:focus {
   background: #266da7;
   color: #fff;
 }
 
+/* --------------------------------------------------------------------------
+   Collapsed Header Styles
+   Hides content and shrinks header.
+-------------------------------------------------------------------------- */
 .header.collapsed {
   opacity: 0;
   height: 36px !important;
@@ -106,13 +124,14 @@ body {
     padding 5s cubic-bezier(.4,2,.6,1);
 }
 
-/* Hide header content when collapsed */
+/* Hide carousel or other content when header is collapsed */
 .header.collapsed .carousel-placeholder {
   display: none !important;
 }
 
 /* --------------------------------------------------------------------------
-   Header Expand Button Styles (Floating)
+   Floating Expand Button Styles
+   Floating button to expand header, styled with animated glow and gradients.
 -------------------------------------------------------------------------- */
 .header-float-expand-btn {
   display: flex;
@@ -146,9 +165,9 @@ body {
   margin-bottom: 6px;
   background-clip: padding-box;
   overflow: visible;
-  position: fixed;
 }
 
+/* Floating expand button: animated glowing border using ::before */
 .header-float-expand-btn::before {
   content: "";
   position: absolute;
@@ -167,6 +186,7 @@ body {
   filter: blur(0.5px) brightness(1.1);
 }
 
+/* Floating expand button: animated gradient background using ::after */
 .header-float-expand-btn::after {
   content: "";
   position: absolute;
@@ -186,12 +206,14 @@ body {
   transition: opacity 0.3s;
 }
 
+/* Expand button hover/focus: increases glow intensity */
 .header-float-expand-btn:hover::after,
 .header-float-expand-btn:focus::after {
   opacity: 1;
-  filter: brightness(1.15);
+  filter: brightness(3);
 }
 
+/* Keyframes for animated gradients on expand button */
 @keyframes tabBorderMoveReverse {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -204,6 +226,10 @@ body {
   100% { background-position: 100% 50%; }
 }
 
+/* --------------------------------------------------------------------------
+   Header Content Visibility
+   Controls fade-in/fade-out of header content.
+-------------------------------------------------------------------------- */
 .header-content {
   opacity: 0;
   transition: opacity 5s cubic-bezier(.4,2,.6,1);
@@ -213,6 +239,10 @@ body {
   opacity: 1;
 }
 
+/* --------------------------------------------------------------------------
+   Header Shrink/Collapse Animation
+   Used for animated shrinking/collapsing of header.
+-------------------------------------------------------------------------- */
 .header.shrink-out,
 .header.collapsed {
   opacity: 0;

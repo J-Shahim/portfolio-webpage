@@ -2,6 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./MenuBubble.css";
 
+/* --------------------------------------------------------------------------
+   MenuBubble Component
+   Floating menu bubble for navigation.
+   Props:
+     - collapsed: whether the header is collapsed
+     - show: whether to show the bubble
+     - tabBubbleRef: ref for the bubble element
+-------------------------------------------------------------------------- */
 export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
   const btnRef = useRef();
   const [invisible, setInvisible] = useState(false);
@@ -23,7 +31,12 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
         invisible ? " invisible" : ""
       }`}
       ref={tabBubbleRef}
+      tabIndex={-1}
     >
+      {/* ----------------------------------------------------------------------
+        Menu Bubble Button
+        Triggers the dropdown menu.
+      ---------------------------------------------------------------------- */}
       <button
         className={`menu-bubble-btn${invisible ? " invisible" : ""}`}
         ref={btnRef}
@@ -32,6 +45,11 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
         {/* Your menu icon here */}
         <span style={{ fontSize: "0.9em" }}>&#9776;</span>
       </button>
+
+      {/* ----------------------------------------------------------------------
+        Dropdown Menu
+        Navigation links, shown on hover/focus of the bubble.
+      ---------------------------------------------------------------------- */}
       <div className="menu-bubble-dropdown">
         <Link to="/">Home</Link>
         <Link to="/about-me">About Me</Link>

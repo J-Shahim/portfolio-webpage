@@ -1,3 +1,8 @@
+/* --------------------------------------------------------------------------
+   Menu Bubble Container
+   Fixed position bubble menu on the left side of the page.
+   Contains the menu button and dropdown links.
+-------------------------------------------------------------------------- */
 .menu-bubble {
   position:fixed;
   left: 32px;
@@ -11,15 +16,22 @@
   visibility: visible;
 }
 
+/* Hide menu bubble (used for transitions/animations) */
 .menu-bubble.hide {
   opacity: 0;
   visibility: hidden;
 }
 
+/* Collapsed state: moves bubble to top of page */
 .menu-bubble.collapsed {
   top: 32px;
 }
 
+/* --------------------------------------------------------------------------
+   Menu Bubble Button
+   Circular button that triggers the dropdown menu.
+   Includes glowing box-shadow and animated gradient border/background.
+-------------------------------------------------------------------------- */
 .menu-bubble-btn {
   display: flex;
   align-items: center;
@@ -32,9 +44,9 @@
   border: 2px solid #5f1d7a;
   border-radius: 999px;
   box-shadow:
-    0 0 16px 4px #c0a4e66c,
-    0 4px 16px rgba(120,120,180,0.15),
-    0 8px 24px -4px rgba(180,180,255,0.12);
+    0 0 16px 4px #c0a4e66c,                      /* Purple glow around button */
+    0 4px 16px rgba(120,120,180,0.15),            /* Soft blue glow */
+    0 8px 24px -4px rgba(180,180,255,0.12);       /* Diffused blue glow */
   margin-bottom: 6px;
   cursor: pointer;
   position: relative;
@@ -52,24 +64,32 @@
   pointer-events: auto;
 }
 
+/* Invisible state for button (used for transitions/animations) */
 .menu-bubble-btn.invisible {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s cubic-bezier(.4,2,.6,1);
 }
 
+/* Invisible state for bubble container (used for transitions/animations) */
 .menu-bubble.invisible {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s cubic-bezier(.4,2,.6,1);
 }
 
+/* Redundant opacity/pointer-events for bubble (ensures visibility) */
 .menu-bubble {
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.8s cubic-bezier(.4,2,.6,1);
 }
 
+/* --------------------------------------------------------------------------
+   Animated Glow Effects for Button
+   ::before - Animated gradient border glow (blurred)
+   ::after  - Animated gradient background glow
+-------------------------------------------------------------------------- */
 .menu-bubble-btn::before {
   content: "";
   position: absolute;
@@ -85,9 +105,10 @@
   );
   background-size: 600% 600%;
   animation: tabBorderMoveReverse 15s ease-in-out infinite;
-  filter: blur(0.5px) brightness(1.1);
+  filter: blur(0.5px) brightness(2);
 }
 
+/* Animated gradient background for button */
 .menu-bubble-btn::after {
   content: "";
   position: absolute;
@@ -107,12 +128,18 @@
   transition: opacity 0.3s;
 }
 
+/* Increase glow intensity on hover/focus */
 .menu-bubble-btn:hover::after,
 .menu-bubble-btn:focus::after {
   opacity: 1;
-  filter: brightness(1.15);
+  filter: brightness(2);
 }
 
+/* --------------------------------------------------------------------------
+   Dropdown Menu Styles
+   Hidden by default, shown on hover/focus of menu bubble.
+   Contains navigation links.
+-------------------------------------------------------------------------- */
 .menu-bubble-dropdown {
   display: none;
   flex-direction: column;
@@ -128,11 +155,13 @@
   z-index: 2100;
 }
 
+/* Show dropdown on hover/focus of menu bubble */
 .menu-bubble:hover .menu-bubble-dropdown,
 .menu-bubble:focus-within .menu-bubble-dropdown {
   display: flex;
 }
 
+/* Dropdown links: rounded, colored, with shadow and transitions */
 .menu-bubble-dropdown a {
   position: relative;
   z-index: 1;
@@ -157,12 +186,17 @@
   margin: 6px 0;
 }
 
+/* Dropdown link hover/focus: color change for feedback */
 .menu-bubble-dropdown a:hover,
 .menu-bubble-dropdown a:focus {
   background: #266da7;
   color: #fff;
 }
 
+/* --------------------------------------------------------------------------
+   Animated Gradient Keyframes
+   Used for glowing border/background on menu bubble button.
+-------------------------------------------------------------------------- */
 @keyframes tabBorderMoveReverse {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }

@@ -1,3 +1,7 @@
+/* --------------------------------------------------------------------------
+   Carousel Container
+   Main wrapper for the carousel. Holds all carousel items and navigation arrows.
+-------------------------------------------------------------------------- */
 .carousel-container {
   position: relative;
   width: 100%;
@@ -8,6 +12,13 @@
   overflow: visible;
 }
 
+/* --------------------------------------------------------------------------
+   Carousel Items
+   Each image or video in the carousel. Positioned absolutely for overlap.
+   .center: Main item, larger and in front.
+   .left/.right: Adjacent items, slightly smaller.
+   .far-left/.far-right: Edge items, smallest and furthest back.
+-------------------------------------------------------------------------- */
 .carousel-item {
   position: absolute;
   top: 50%;
@@ -29,6 +40,7 @@
   object-fit: cover;
 }
 
+/* Center item: main focus, largest, highest z-index */
 .carousel-item.center {
   left: 50%;
   transform: translate(-50%, -50%) scale(1.05);
@@ -41,13 +53,13 @@
   pointer-events: auto;
 }
 
+/* Left and right items: adjacent to center, slightly smaller */
 .carousel-item.left {
   left: 35%;
   transform: translate(-50%, -50%) scale(0.8);
   opacity: 1 !important;
   z-index: 1;
 }
-
 .carousel-item.right {
   left: 65%;
   transform: translate(-50%, -50%) scale(0.8);
@@ -55,13 +67,13 @@
   z-index: 1;
 }
 
+/* Far left and far right items: edge of carousel, smallest */
 .carousel-item.far-left {
   left: 20%;
   transform: translate(-50%, -50%) scale(0.6);
   opacity: 1 !important;
   z-index: 0;
 }
-
 .carousel-item.far-right {
   left: 80%;
   transform: translate(-50%, -50%) scale(0.6);
@@ -69,6 +81,10 @@
   z-index: 0;
 }
 
+/* --------------------------------------------------------------------------
+   Carousel Placeholder
+   Shown when there are no items in the carousel.
+-------------------------------------------------------------------------- */
 .carousel-placeholder {
   width: 100%;
   height: 100%;
@@ -79,6 +95,11 @@
   border-radius: 18px;
 }
 
+/* --------------------------------------------------------------------------
+   Carousel Navigation Arrows
+   Left and right arrow buttons for navigation.
+   Styled with gradient, shadow, and hover effects.
+-------------------------------------------------------------------------- */
 .arrow-btn {
   position: absolute;
   top: 50%;
@@ -109,16 +130,19 @@
     box-shadow 0.4s;
 }
 
+/* Position left arrow to the left of carousel */
 .arrow-btn-left {
   left: -58px;
   right: auto;
 }
 
+/* Position right arrow to the right of carousel */
 .arrow-btn-right {
   right: -58px;
   left: auto;
 }
 
+/* Arrow hover/focus: brighter background and border, stronger glow */
 .arrow-btn:hover,
 .arrow-btn:focus {
   background: #266da7;

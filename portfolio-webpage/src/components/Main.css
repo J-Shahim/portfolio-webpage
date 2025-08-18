@@ -1,21 +1,34 @@
-/* Flex container for main and profile */
-.main-profile-container {
+/* --- Layout Containers --- */
+.main-profile-container,
+.main-flex-row {
   display: flex;
-  justify-content: flex-start;
   align-items: flex-start;
-  gap: 68px; /* space between main and profile */
-  max-width: 1100px;
-  margin: 64px auto; /* Increased top margin */
+  width: 100%;
+  margin: 64px auto;
+  box-sizing: border-box;
 }
 
-/* Main block stays left */
+.main-profile-container {
+  justify-content: flex-start;
+  gap: 68px;
+  max-width: 1100px;
+}
+
+.main-flex-row {
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  max-width: 1200px;
+}
+
+/* --- Main Block --- */
 .main-block {
   flex: 2 1 0;
-  max-width: 700px;
+  max-width: 1600px;
   min-width: 0;
-  max-height: 700px;
+  max-height: 1000px;
   height: 100%;
-  overflow-y: auto;
+  margin-top: 18px;
   padding: 32px 24px;
   border: 6px solid #141118;
   border-radius: 24px;
@@ -28,60 +41,56 @@
   box-shadow:
     0 4px 16px rgba(120,120,180,0.15),
     0 8px 24px -4px rgba(180,180,255,0.12);
-  text-align: center;
-  scroll-behavior: smooth;
   color: #010c05;
+  text-align: center;
+  font-size: 1.25rem;
   position: relative;
+  overflow-y: auto;
+  scroll-behavior: smooth;
   transition:
     border-color 0.4s cubic-bezier(.4,2,.6,1),
     box-shadow 0.4s,
     transform 2.5s cubic-bezier(.4,2,.6,1),
     margin-top 2.5s cubic-bezier(.4,2,.6,1);
-  font-size: 1.25rem;
-  margin-top: 18px;
 }
 
-/* Rounded scrollbars for .main-block */
+/* --- Main Block Scrollbars --- */
 .main-block::-webkit-scrollbar {
   width: 14px;
   background: transparent;
 }
-
 .main-block::-webkit-scrollbar-thumb {
   background: #bfa4e6;
   border-radius: 16px;
-  min-height: 40px;
   border: 3px solid rgba(255,255,255,0.5);
+  min-height: 40px;
 }
-
 .main-block::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 16px;
 }
-
-/* For Firefox */
+/* Firefox */
 .main-block {
   scrollbar-width: thin;
   scrollbar-color: #3c3349 transparent;
-  border-radius: 16px;
 }
 
-/* Profile block on the right */
+/* --- Profile Block --- */
 .profile-block {
-  position: relative;
+  position: relative; /* Ensure the profile block is a positioning context */
   flex: 1 1 300px;
   aspect-ratio: 1 / 1;
   height: 320px;
   min-width: 220px;
   max-width: 340px;
+  margin-top: 18px;
   padding: 0;
   border: 6px solid #141118;
   border-radius: 24px;
-  margin-top: 18px;
+  background: #fff;
   box-shadow:
     0 4px 24px rgba(38,109,167,0.18),
     0 8px 32px -4px rgba(38,109,167,0.12);
-  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,32 +99,21 @@
   z-index: 1;
 }
 
-/* Profile image style */
+/* --- Profile Image --- */
 .profile-img {
   width: 100%;
   height: 100%;
-  max-width: 100%;
-  max-height: 100%;
   border-radius: 28px;
   box-shadow: 0 2px 50px rgba(38,109,167,0.18);
-  margin-bottom: 0;
   object-fit: cover;
   aspect-ratio: 1 / 1;
   display: block;
+  margin-bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-/* New main flex row class */
-.main-flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 25px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 64px auto;
-}
-
+/* --- Text Block --- */
 .text-block {
   margin-bottom: 1.5em;
   text-align: left;
@@ -124,6 +122,7 @@
   color: #222;
 }
 
+/* --- Responsive Styles --- */
 @media (max-width: 800px) {
   .main-flex-row {
     flex-direction: column;
@@ -135,19 +134,17 @@
   }
 }
 
-/* Only stretch height on About Me page */
+/* --- Page-Specific Styles --- */
 .about-main-content {
   min-height: 100vh;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 .about-main-content .main-flex-row {
   flex: 1 1 auto;
   display: flex;
 }
-
 .about-main-content .main-block {
   flex: 1 1 auto;
   display: flex;

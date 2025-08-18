@@ -5,6 +5,7 @@ import "./Header.css";
 
 /* --------------------------------------------------------------------------
    Asset Import Helpers
+   Dynamically imports all images and videos from asset folders for use in the carousel.
 -------------------------------------------------------------------------- */
 function importAll(r, type) {
     return r.keys().map((file) => ({
@@ -33,17 +34,31 @@ const allVideoSets = {
     social: importAll(require.context('../assets/videos/social', false, /\.(mp4|webm|ogg)$/), 'video'),
 };
 
+/* --------------------------------------------------------------------------
+   Carousel Index Helper
+   Ensures carousel index wraps around correctly.
+-------------------------------------------------------------------------- */
 const getIndex = (i, length) => (i + length) % length;
 
+/* --------------------------------------------------------------------------
+   Header Component
+   Displays the animated header with carousel and menu bubble.
+   Handles expand/collapse, background transitions, and responsive behavior.
+-------------------------------------------------------------------------- */
 const Header = ({ imageDir = "home", videoDir = "home" }) => {
+  // Refs for DOM elements
   const headerRef = useRef(null);
   const menuBubbleRef = useRef(null);
 
+  // State for header visibility and animation
   const [collapsed, setCollapsed] = useState(true);
   const [showMenuBubble, setShowMenuBubble] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
   const [shrinking, setShrinking] = useState(false);
 
+  /* ------------------------------------------------------------------------
+     Show menu bubble on scroll/resize
+  ------------------------------------------------------------------------ */
   useEffect(() => {
     function updateMenuBubble() {
       setShowMenuBubble(true);
@@ -57,6 +72,9 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
     };
   }, []);
 
+  /* ------------------------------------------------------------------------
+     Combine images and videos for carousel backgrounds
+  ------------------------------------------------------------------------ */
   const backgrounds = useMemo(() => {
     const images = allImageSets[imageDir] || [];
     const videos = allVideoSets[videoDir] || [];
@@ -64,12 +82,17 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
   }, [imageDir, videoDir]);
 
   const hasBackgrounds = backgrounds.length > 0;
+
+  // Carousel index management
   const [index, setIndex] = useState(0);
   const prevIndex = getIndex(index - 1, backgrounds.length);
   const nextIndex = getIndex(index + 1, backgrounds.length);
   const farPrevIndex = getIndex(index - 2, backgrounds.length);
   const farNextIndex = getIndex(index + 2, backgrounds.length);
 
+  /* ------------------------------------------------------------------------
+     Renders a background image or video for the carousel
+  ------------------------------------------------------------------------ */
   const renderBg = (bg, position, isCenter) => {
     if (!bg) return null;
     const uniqueKey = `${bg.src}-${position}`;
@@ -98,15 +121,22 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
     return null;
   };
 
+  // Carousel navigation handlers
   const handlePrev = () => setIndex((prev) => getIndex(prev - 1, backgrounds.length));
   const handleNext = () => setIndex((prev) => getIndex(prev + 1, backgrounds.length));
 
   // Fade duration in ms (should match your CSS)
   const FADE_DURATION = 5000;
 
+  /* ------------------------------------------------------------------------
+     Render
+     Shows either the floating expand button (when collapsed) or the header.
+     Handles expand/collapse animation and passes backgrounds to Carousel.
+  ------------------------------------------------------------------------ */
   return (
     <>
       {collapsed ? (
+        // Floating expand button (shows when header is collapsed)
         <button
           className="header-float-expand-btn"
           onClick={() => {
@@ -128,10 +158,12 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
           </svg>
         </button>
       ) : (
+        // Main header block with carousel and collapse button
         <header
           className={`header${collapsed ? " collapsed" : ""}${shrinking ? " shrink-out" : ""}`}
           ref={headerRef}
         >
+          {/* Collapse button (top-right) */}
           <button
             className="header-collapse-btn"
             onClick={() => {
@@ -146,6 +178,7 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
           >
             X
           </button>
+          {/* Carousel content (fades in/out) */}
           <div className={`header-content${contentVisible ? " visible" : ""}`}>
             <Carousel
               backgrounds={backgrounds}
@@ -163,6 +196,7 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
         </header>
       )}
 
+      {/* Floating menu bubble (always visible) */}
       <MenuBubble
         collapsed={collapsed}
         show={showMenuBubble}

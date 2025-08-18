@@ -1,3 +1,7 @@
+/* --------------------------------------------------------------------------
+   Header Tabs Container
+   Main wrapper for the tabs at the top of the header.
+-------------------------------------------------------------------------- */
 .header-tabs {
   display: flex;
   justify-content: center;
@@ -8,17 +12,29 @@
   z-index: 100;
 }
 
+/* --------------------------------------------------------------------------
+   Tab Group
+   Container for grouping tab items.
+-------------------------------------------------------------------------- */
 .tab-group {
   display: flex;
   gap: 24px;
 }
 
+/* --------------------------------------------------------------------------
+   Individual Tab
+   Wrapper for each tab and its dropdown.
+-------------------------------------------------------------------------- */
 .tab {
   position: relative;
   display: flex;
   align-items: center;
 }
 
+/* --------------------------------------------------------------------------
+   Tab Button
+   Styles for the clickable tab button.
+-------------------------------------------------------------------------- */
 .tab-btn {
   background: none;
   border: none;
@@ -32,12 +48,18 @@
   outline: none;
 }
 
+/* Tab Button Hover/Focus: color and background feedback */
 .tab-btn:focus,
 .tab-btn:hover {
   background: #266da7;
   color: #fff;
 }
 
+/* --------------------------------------------------------------------------
+   Dropdown Menu
+   Hidden by default, shown on tab hover/focus.
+   Contains additional tab options or links.
+-------------------------------------------------------------------------- */
 .dropdown {
   position: absolute;
   top: 100%;
@@ -52,11 +74,16 @@
   display: none;
 }
 
+/* Show dropdown on tab hover/focus */
 .tab:hover .dropdown,
 .tab:focus-within .dropdown {
   display: flex;
 }
 
+/* --------------------------------------------------------------------------
+   Dropdown Links and Buttons
+   Styles for links and buttons inside the dropdown.
+-------------------------------------------------------------------------- */
 .dropdown a,
 .dropdown .tab-btn {
   color: #5f1d7a;
@@ -71,6 +98,7 @@
   text-align: left;
 }
 
+/* Dropdown Link/Button Hover/Focus: color and background feedback */
 .dropdown a:hover,
 .dropdown a:focus {
   background: #266da7;

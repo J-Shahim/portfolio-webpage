@@ -1,6 +1,18 @@
 import React from "react";
 import "./ArrowButton.css";
 
+/* --------------------------------------------------------------------------
+   ArrowButton Component
+   Reusable button for carousel or profile navigation.
+   Props:
+     - direction: "left" or "right" (arrow direction)
+     - onClick: click handler
+     - onMouseEnter, onMouseLeave: mouse event handlers
+     - ariaLabel: accessibility label
+     - className: additional CSS classes
+     - profile: if true, applies profile-arrow styles
+     - ...props: any other button props
+-------------------------------------------------------------------------- */
 const ArrowButton = ({
   direction = "left", // "left" or "right"
   onClick,
@@ -8,7 +20,7 @@ const ArrowButton = ({
   onMouseLeave,
   ariaLabel = "Arrow",
   className = "",
-  profile = false, // NEW: if true, use profile-arrow styles
+  profile = false, // if true, use profile-arrow styles
   ...props
 }) => (
   <button
@@ -19,6 +31,7 @@ const ArrowButton = ({
     aria-label={ariaLabel}
     {...props}
   >
+    {/* Unicode arrow character based on direction */}
     {direction === "left" ? "\u2190" : "\u2192"}
   </button>
 );

@@ -1,0 +1,288 @@
+/* --- Portal Root ---
+   Styles for the main container of the code editor portal.
+   Sets background gradient, border, rounded corners, and layout. */
+.editor-portal-root {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 1, 1, 0.5) 0%,
+    rgba(189,189,189,0.5) 50%,
+    rgba(117,117,117,0.5) 100%
+  );
+  border: 6px solid #141118;
+  border-radius: 24px;
+  box-shadow:
+    0 4px 16px rgba(120,120,180,0.15),
+    0 8px 24px -4px rgba(180,180,255,0.12);
+  padding: 24px;
+  color: #010c05;
+  min-height: 350px;
+  max-height: 85%;
+  max-width: 98%;
+  margin: 0 auto 32px auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header ---
+   Styles for the top header bar, including language and action buttons. */
+.editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 8px;
+}
+.editor-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #d404f0;
+}
+.editor-lang {
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: #4e4848;
+}
+.run-btn {
+  padding: 10px 24px;
+  font-size: 1rem;
+  background: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s;
+}
+.run-btn:hover {
+  background: #005fa3;
+}
+
+/* --- Split Layout ---
+   Styles for horizontal and vertical split containers. */
+.editor-horizontal-split,
+.editor-horizontal-split > div {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.editor-output-console-split,
+.editor-output-console-split > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* --- Monaco Editor ---
+   Styles for the Monaco code editor pane, including rounded borders and shadow. */
+.editor-pane {
+  margin-right: 12px; /* Gap to gutter */
+}
+.editor-pane .monaco-editor,
+.editor-pane .monaco-editor .overflow-guard {
+  border-radius: 24px;
+  border: 3px solid #141118;
+  box-shadow: 0 4px 16px rgba(120,120,180,0.10);
+  overflow: hidden;
+  background-clip: padding-box;
+}
+
+/* --- Right Pane ---
+   Adds gap between the right pane and its gutter. */
+.editor-right-pane {
+  margin-left: 8px;
+}
+
+/* --- Output & Console Blocks ---
+   Adds spacing between output and console blocks and their gutters. */
+.editor-output-block {
+  margin-bottom: 8px;
+}
+.editor-console-block {
+  margin-top: 8px;
+}
+
+/* --- Title Block ---
+   Styles for the title bar above output and console, rounded top and flat bottom. */
+.editor-title-block {
+  width: 100%;
+  border: 6px solid #141118;
+  border-radius: 16px 16px 0 0; /* Rounded top, flat bottom */
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: bold;
+  padding: 8px 16px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+/* --- Output Block ---
+   Styles for the output display area, including rounded bottom corners. */
+.editor-plot-block {
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  width: 100%;
+  border: 6px solid #010c05;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  overflow: auto;
+}
+.editor-output-block .editor-plot-block {
+  border-radius: 0 0 16px 16px; /* Flat top, rounded bottom */
+  border: 2px solid #28a745;
+  box-shadow: 0 2px 8px rgba(40,167,69,0.08);
+  overflow: hidden;
+}
+
+/* --- Console Block ---
+   Styles for the console output area, including rounded bottom corners. */
+.editor-console-content {
+  border: 6px solid #141118;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 12px;
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.editor-console-block .editor-console-content {
+  border-radius: 0 0 16px 16px; /* Flat top, rounded bottom */
+  border: 2px solid #d32f2f;
+  box-shadow: 0 2px 8px rgba(211,47,47,0.08);
+  overflow: hidden;
+}
+.editor-console-text {
+  background: #464343;
+  color: #fff;
+  font-family: "Fira Mono", "Consolas", monospace;
+  font-size: 1em;
+  border-radius: 8px;
+  padding: 12px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* --- Plot Output Container ---
+   Ensures the plot output container fills available space. */
+#plot-output {
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* --- Media Sizing (SVG, Canvas, Image) ---
+   Ensures SVGs, canvases, and images fill their parent and scale properly. */
+#plot-output svg,
+.editor-plot-block svg,
+.editor-plot-block canvas,
+.editor-plot-block img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* --- Gutters ---
+   Styles for split gutters, including dot icons and padding for easier grabbing. */
+.gutter {
+  padding: 4px;
+  box-sizing: border-box;
+  background: #888;
+  opacity: 0.8;
+  cursor: col-resize;
+  border-radius: 6px;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: 10px;
+  height: 100%;
+  position: relative;
+}
+.gutter.gutter-horizontal {
+  background-image: url("data:image/svg+xml;utf8,<svg width='12' height='32' xmlns='http://www.w3.org/2000/svg'><circle cx='6' cy='8' r='2' fill='%23fff'/><circle cx='6' cy='16' r='2' fill='%23fff'/><circle cx='6' cy='24' r='2' fill='%23fff'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.gutter.gutter-vertical {
+  background: #e0f004;
+  background-image: url("data:image/svg+xml;utf8,<svg width='32' height='12' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='6' r='2' fill='%23000'/><circle cx='16' cy='6' r='2' fill='%23000'/><circle cx='24' cy='6' r='2' fill='%23000'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* --- Custom Scrollbars (Webkit) ---
+   Styles for scrollbars to match portal color scheme and rounding. */
+.editor-plot-block::-webkit-scrollbar,
+.editor-console-content::-webkit-scrollbar,
+.editor-console-text::-webkit-scrollbar,
+.editor-pane .monaco-editor .overflow-guard::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border-radius: 24px;
+}
+.editor-plot-block::-webkit-scrollbar-thumb,
+.editor-console-content::-webkit-scrollbar-thumb,
+.editor-console-text::-webkit-scrollbar-thumb,
+.editor-pane .monaco-editor .overflow-guard::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 1, 1, 0.35) 0%,
+    rgba(189,189,189,0.35) 50%,
+    rgba(117,117,117,0.35) 100%
+  );
+  border-radius: 24px;
+  background-clip: padding-box;
+}
+.editor-plot-block::-webkit-scrollbar-track,
+.editor-console-content::-webkit-scrollbar-track,
+.editor-console-text::-webkit-scrollbar-track,
+.editor-pane .monaco-editor .overflow-guard::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 24px;
+}
+
+/* --- Custom Scrollbars (Firefox) ---
+   Styles for scrollbars in Firefox to match portal color scheme and rounding. */
+.editor-plot-block,
+.editor-console-content,
+.editor-console-text,
+.editor-pane .monaco-editor .overflow-guard {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,1,1,0.35) rgba(189,189,189,0.15);
+  border-radius: 24px;
+}
+
+
+
+
+
+
