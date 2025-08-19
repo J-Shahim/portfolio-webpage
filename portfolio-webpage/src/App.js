@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 
 import ThreeJSViewer from './components/ThreeJSViewer';
 import CodeEditorPortal from "./components/CodeEditorPortal";
@@ -305,7 +305,7 @@ function App() {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <Router>
+    <BrowserRouter basename="/portfolio-webpage">
       <div className="App">
         <RequireContextTest />
         <Routes>
@@ -318,7 +318,7 @@ function App() {
           <Route path="/social" element={<SocialPage collapsed={collapsed} setCollapsed={setCollapsed} />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
