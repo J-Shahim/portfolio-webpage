@@ -2,10 +2,12 @@
   "name": "portfolio-webpage",
   "version": "1.0.0",
   "description": "A personal portfolio webpage to showcase projects and skills.",
-  "main": "src/App.js",
+  "homepage": "https://J-Shahim.github.io/portfolio-webpage",
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },

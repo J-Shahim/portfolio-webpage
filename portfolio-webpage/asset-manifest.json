@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.52efe96b.css",
-    "main.js": "/static/js/main.3b9fb84e.js",
-    "static/media/Screen Recording 2025-02-26 185317.mp4": "/static/media/Screen Recording 2025-02-26 185317.8911c588ef3186237ef5.mp4",
-    "static/media/Foot Morphing and Locking mechanism.mp4": "/static/media/Foot Morphing and Locking mechanism.862045d5c7b5724b9d29.mp4",
-    "static/media/Screen Recording 2025-06-09 114637.mp4": "/static/media/Screen Recording 2025-06-09 114637.47a6ed298fb0ae4fdfc3.mp4",
-    "static/media/Test.JPG": "/static/media/Test.1b5319409804123a1eae.JPG",
-    "static/media/Screenshot 2025-05-18 202340.png": "/static/media/Screenshot 2025-05-18 202340.4d471883bad69cc7f633.png",
-    "static/media/Picture1.png": "/static/media/Picture1.ec9b1d385ef64a45b34c.png",
-    "static/media/Screenshot 2025-05-18 201243.png": "/static/media/Screenshot 2025-05-18 201243.34c503ce40ff65e61257.png",
-    "index.html": "/index.html",
-    "main.52efe96b.css.map": "/static/css/main.52efe96b.css.map",
-    "main.3b9fb84e.js.map": "/static/js/main.3b9fb84e.js.map"
+    "main.css": "/portfolio-webpage/static/css/main.52efe96b.css",
+    "main.js": "/portfolio-webpage/static/js/main.b91a8f83.js",
+    "static/media/Screen Recording 2025-02-26 185317.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-02-26 185317.8911c588ef3186237ef5.mp4",
+    "static/media/Foot Morphing and Locking mechanism.mp4": "/portfolio-webpage/static/media/Foot Morphing and Locking mechanism.862045d5c7b5724b9d29.mp4",
+    "static/media/Screen Recording 2025-06-09 114637.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-06-09 114637.47a6ed298fb0ae4fdfc3.mp4",
+    "static/media/Test.JPG": "/portfolio-webpage/static/media/Test.1b5319409804123a1eae.JPG",
+    "static/media/Screenshot 2025-05-18 202340.png": "/portfolio-webpage/static/media/Screenshot 2025-05-18 202340.4d471883bad69cc7f633.png",
+    "static/media/Picture1.png": "/portfolio-webpage/static/media/Picture1.ec9b1d385ef64a45b34c.png",
+    "static/media/Screenshot 2025-05-18 201243.png": "/portfolio-webpage/static/media/Screenshot 2025-05-18 201243.34c503ce40ff65e61257.png",
+    "index.html": "/portfolio-webpage/index.html",
+    "main.52efe96b.css.map": "/portfolio-webpage/static/css/main.52efe96b.css.map",
+    "main.b91a8f83.js.map": "/portfolio-webpage/static/js/main.b91a8f83.js.map"
   },
   "entrypoints": [
     "static/css/main.52efe96b.css",
-    "static/js/main.3b9fb84e.js"
+    "static/js/main.b91a8f83.js"
   ]
 }
