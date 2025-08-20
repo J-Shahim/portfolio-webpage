@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import MenuBubble from "./MenuBubble";
 import Carousel from "./Carousel";
 import "./Header.css";
@@ -45,17 +46,19 @@ const getIndex = (i, length) => (i + length) % length;
    Displays the animated header with carousel and menu bubble.
    Handles expand/collapse, background transitions, and responsive behavior.
 -------------------------------------------------------------------------- */
-const Header = ({ imageDir = "home", videoDir = "home" }) => {
+const Header = ({ collapsed, setCollapsed, imageDir = "home", videoDir = "home" }) => {
   // Refs for DOM elements
   const headerRef = useRef(null);
   const menuBubbleRef = useRef(null);
 
   // State for header visibility and animation
-  const [collapsed, setCollapsed] = useState(true);
-  const [showMenuBubble, setShowMenuBubble] = useState(false);
+  const location = useLocation();
+  const [showMenuBubble, setShowMenuBubble] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
   const [shrinking, setShrinking] = useState(false);
-
+  useEffect(() => {
+  setCollapsed(true);
+  }, [location.pathname, setCollapsed]);
   /* ------------------------------------------------------------------------
      Show menu bubble on scroll/resize
   ------------------------------------------------------------------------ */
@@ -135,6 +138,7 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
   ------------------------------------------------------------------------ */
   return (
     <>
+      {/* Header (may be collapsed or expanded) */}
       {collapsed ? (
         // Floating expand button (shows when header is collapsed)
         <button
@@ -195,11 +199,11 @@ const Header = ({ imageDir = "home", videoDir = "home" }) => {
           </div>
         </header>
       )}
-
-      {/* Floating menu bubble (always visible) */}
+      {/* MenuBubble always rendered and always visible */}
       <MenuBubble
         collapsed={collapsed}
-        show={showMenuBubble}
+        setCollapsed={setCollapsed}
+        show={true} // <-- Always true!
         tabBubbleRef={menuBubbleRef}
       />
     </>

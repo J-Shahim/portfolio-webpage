@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import "./components/Main.css";
+// Import pages
 import HomePage from "./HomePage";
 import AboutMePage from "./AboutMePage";
 import ProjectsPage from "./ProjectsPage";
@@ -11,16 +12,8 @@ import RoboticArmProjectPage from "./RoboticArmProjectPage";
 import GasDynamicsProjectPage from "./GasDynamicsProjectPage";
 import HTProjectsPage from "./HTProjectsPage";
 import RoboticCircuitryProjectPage from "./RoboticCircuitryProjectPage";
-import EmailPage from "./EmailPage";
 
-import './styles/main.css';
-import './components/Main.css';
-import './components/CodeEditorPortal.css';
-
-import testText from './assets/texts/test.md?raw';
-import examplsText from './assets/texts/exampls.md?raw';
-
-
+import RequireContextTest from "./components/RequireContextTest";
 
 
 function App() {
@@ -29,7 +22,7 @@ function App() {
   return (
     <BrowserRouter basename="/portfolio-webpage">
       <div className="App">
-        <RequireContextTest />
+        {/* <RequireContextTest /> debug tool*/}  
         <Routes>
           <Route path="/" element={<HomePage collapsed={collapsed} setCollapsed={setCollapsed} />} />
           <Route path="/about-me" element={<AboutMePage collapsed={collapsed} setCollapsed={setCollapsed} />} />
@@ -43,7 +36,7 @@ function App() {
             <Route path="ht-projects" element={<HTProjectsPage />} />
             <Route path="robotic-circuitry-project" element={<RoboticCircuitryProjectPage />} />
           </Route>
-          <Route path="/email" element={<EmailPage collapsed={collapsed} setCollapsed={setCollapsed} />} />
+          <Route path="*" element={<HomePage collapsed={collapsed} setCollapsed={setCollapsed} />} />
         </Routes>
       </div>
     </BrowserRouter>

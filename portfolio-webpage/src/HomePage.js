@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Header from './components/Header';
-import TextBlock from './components/TextBlock';
-import testText from './assets/texts/test.md?raw';
+import Header from "./components/Header";
+import TextBlock from "./components/TextBlock";
+import aboutMeText from "./assets/texts/about-me.md?raw";
 
-// --- Profile Media Preload Helper ---
+
+// Helper to import all images/videos from a folder
 function importAll(r, type) {
   return r.keys().map((file) => ({
     type,
@@ -11,18 +12,19 @@ function importAll(r, type) {
   }));
 }
 
+// Import profile images and videos
 const profileImageSet = importAll(
-  require.context('./assets/images/profile', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/),
-  'image'
+  require.context("./assets/images/profile", false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/),
+  "image"
 );
 const profileVideoSet = [
   ...importAll(
-    require.context('./assets/images/profile', false, /\.(mp4|webm|ogg|MP4|WEBM|OGG)$/),
-    'video'
+    require.context("./assets/images/profile", false, /\.(mp4|webm|ogg|MP4|WEBM|OGG)$/),
+    "video"
   ),
   ...importAll(
-    require.context('./assets/videos/profile', false, /\.(mp4|webm|ogg|MP4|WEBM|OGG)$/),
-    'video'
+    require.context("./assets/videos/profile", false, /\.(mp4|webm|ogg|MP4|WEBM|OGG)$/),
+    "video"
   )
 ];
 const profileMediaSet = [...profileImageSet, ...profileVideoSet];
@@ -49,9 +51,11 @@ function HomePage({ collapsed, setCollapsed }) {
       <Header imageDir="home" videoDir="home" collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
+          {/* Main block: markdown content */}
           <main className="main-block">
-            <TextBlock content={testText} format="markdown" />
+            <TextBlock content={aboutMeText} format="markdown" />
           </main>
+          {/* Profile block: image/video carousel */}
           <aside className="profile-block">
             {profileMediaSet.length > 1 && (
               <button
@@ -63,7 +67,7 @@ function HomePage({ collapsed, setCollapsed }) {
               </button>
             )}
             {profileMedia ? (
-              profileMedia.type === 'video' ? (
+              profileMedia.type === "video" ? (
                 <video
                   src={profileMedia.src}
                   className="profile-img"

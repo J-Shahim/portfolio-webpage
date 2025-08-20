@@ -6,7 +6,6 @@ import nasaProjectText from './assets/texts/nasa-project.md?raw'; // adjust path
 function NasaProjectPage({ collapsed, setCollapsed }) {
   return (
     <>
-      <Header imageDir="nasa" videoDir="nasa" collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
           <main className="main-block">

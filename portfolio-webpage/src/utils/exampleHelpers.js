@@ -1,3 +1,6 @@
+
+export const examplesText = ""; // Add example markdown here or leave as empty string for now
+
 export const exampleCodes = {
   javascript: `// Example: 2D Sinusoidal Plot with Plotly.js
 const x = [];

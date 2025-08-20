@@ -6,7 +6,6 @@ import roboticArmText from './assets/texts/robotic-arm-project.md?raw'; // adjus
 function RoboticArmProjectPage({ collapsed, setCollapsed }) {
   return (
     <>
-      <Header imageDir="robotic-arm" videoDir="robotic-arm" collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
           <main className="main-block">

@@ -12,24 +12,21 @@ import "./MenuBubble.css";
 -------------------------------------------------------------------------- */
 export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
   const btnRef = useRef();
-  const [invisible, setInvisible] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
 
   useEffect(() => {
-    if (!collapsed) {
-      // Gallery is expanding: hide button, then fade in after delay
-      setInvisible(true);
-      const timeout = setTimeout(() => setInvisible(false), 1200); // 1.2s delay
-      return () => clearTimeout(timeout);
+    if (show) {
+      console.log("MenuBubble: appeared");
+    } else {
+      console.log("MenuBubble: disappeared");
     }
-  }, [collapsed]);
+  }, [show]);
 
   if (!show) return null;
 
   return (
     <div
-      className={`menu-bubble${collapsed ? " collapsed" : ""}${
-        invisible ? " invisible" : ""
-      }`}
+      className={`menu-bubble${collapsed ? " collapsed" : ""}`}
       ref={tabBubbleRef}
       tabIndex={-1}
     >
@@ -38,7 +35,7 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
         Triggers the dropdown menu.
       ---------------------------------------------------------------------- */}
       <button
-        className={`menu-bubble-btn${invisible ? " invisible" : ""}`}
+        className="menu-bubble-btn"
         ref={btnRef}
         aria-label="Open menu"
       >
@@ -53,11 +50,37 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
       <div className="menu-bubble-dropdown">
         <Link to="/">Home</Link>
         <Link to="/about-me">About Me</Link>
-        <Link to="/skills">Skills</Link>
-        <Link to="/web-projects">Web Projects</Link>
-        <Link to="/class-projects">Class Projects</Link>
-        <Link to="/email">Email</Link>
-        <Link to="/social">Social</Link>
+        <div
+          className="projects-dropdown"
+          onMouseEnter={() => setProjectsOpen(true)}
+          onMouseLeave={() => setProjectsOpen(false)}
+          onClick={() => setProjectsOpen((open) => !open)}
+          style={{ position: "relative" }}
+        >
+          <Link to="/projects">Projects</Link>
+          <div
+            className="projects-dropdown-content"
+            style={{
+              display: projectsOpen ? "block" : "none",
+              position: "absolute",
+              left: "50px",
+              top: "100%",
+              textAlign: "left",
+              background: "transparent",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              zIndex: 10,
+              whiteSpace: "nowrap",
+            }}
+          >
+            <Link to="interactive-coder">Interactive Coder</Link>
+            <Link to="nasa-project">NASA Project</Link>
+            <Link to="dfm-project">DFM Project</Link>
+            <Link to="robotic-arm-project">Robotic Arm Project</Link>
+            <Link to="gas-dynamics-project">GAS Dynamics Project</Link>
+            <Link to="ht-projects">HT Projects</Link>
+            <Link to="robotic-circuitry-project">Robotic Circuitry Project</Link>
+          </div>
+        </div>
       </div>
     </div>
   );

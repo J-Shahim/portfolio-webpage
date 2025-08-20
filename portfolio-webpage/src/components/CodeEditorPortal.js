@@ -200,6 +200,19 @@ svg_output
 
   return (
   <div>
+    <div className="editor-header">
+      <span className="editor-lang">
+        Language: <strong>{language}</strong>
+      </span>
+      <div className="editor-header-actions">
+        <button className="run-btn" onClick={clearAllOutputs}>
+          Clear Output
+        </button>
+        <button className="run-btn" onClick={runCode} style={{ marginLeft: "15px", marginRight: "40px" }}>
+          Run Code
+        </button>
+      </div>
+    </div>
     <div className="editor-portal-root" style={{ height: "80vh", width: "100%" }}>
       <Split
         className="editor-horizontal-split"
@@ -255,20 +268,6 @@ svg_output
           </Split>
         </div>
       </Split>
-    </div>
-    {/* Header below main block */}
-    <div className="editor-header">
-      <span className="editor-lang">
-        Language: <strong>{language}</strong>
-      </span>
-      <div className="editor-header-actions">
-        <button className="run-btn" onClick={clearAllOutputs}>
-          Clear Output
-        </button>
-        <button className="run-btn" onClick={runCode} style={{ marginLeft: "8px" }}>
-          Run Code
-        </button>
-      </div>
     </div>
   </div>
 );

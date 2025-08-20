@@ -31,8 +31,8 @@ const ArrowButton = ({
     aria-label={ariaLabel}
     {...props}
   >
-    {/* Unicode arrow character based on direction */}
-    {direction === "left" ? "\u2190" : "\u2192"}
+    {/* Use < and > for arrows */}
+    {direction === "left" ? "<" : ">"}
   </button>
 );
 

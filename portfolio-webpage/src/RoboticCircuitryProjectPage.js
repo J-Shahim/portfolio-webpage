@@ -6,7 +6,6 @@ import roboticCircuitryText from './assets/texts/robotic-circuitry-project.md?ra
 function RoboticCircuitryProjectPage({ collapsed, setCollapsed }) {
   return (
     <>
-      <Header imageDir="robotic-circuitry" videoDir="robotic-circuitry" collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
           <main className="main-block">

@@ -6,7 +6,6 @@ import gasDynamicsText from './assets/texts/gas-dynamics-project.md?raw'; // adj
 function GasDynamicsProjectPage({ collapsed, setCollapsed }) {
   return (
     <>
-      <Header imageDir="gas-dynamics" videoDir="gas-dynamics" collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
           <main className="main-block">

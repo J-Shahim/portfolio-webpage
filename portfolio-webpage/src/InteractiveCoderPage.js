@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from './components/Header';
 import CodeEditorPortal from './components/CodeEditorPortal';
-import { getExamplesByLanguage, exampleCodes, examplsText } from './utils/exampleHelpers'; // adjust import paths as needed
+import { getExamplesByLanguage, exampleCodes, examplesText } from './utils/exampleHelpers'; // adjust import paths as needed
 
 function InteractiveCoderPage({ collapsed, setCollapsed }) {
   const [language, setLanguage] = useState("javascript");
@@ -9,7 +9,7 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
   const [code, setCode] = useState(exampleCodes["javascript"]);
   const [selectedExample, setSelectedExample] = useState("");
 
-  const examples = getExamplesByLanguage(examplsText, language);
+  const examples = getExamplesByLanguage(examplesText, language);
 
   const handleExampleChange = (e) => {
     const idx = Number(e.target.value);
@@ -32,11 +32,10 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
 
   return (
     <>
-      <Header imageDir="web" videoDir="web" collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
-          <main className="main-block">
-            <h1>Interactive Code Editor Portal</h1>
+          <main className="main-block" style={{ padding: "20px", marginTop: "0"}}>
+            <h1 style={{ margin: "0 0 16px 0", fontSize: "2rem", color: "#d404f0" }}>Interactive Code Editor Portal</h1>
             <label>
               Language:&nbsp;
               <select value={language} onChange={handleLanguageChange}>
