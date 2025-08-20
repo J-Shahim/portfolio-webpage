@@ -1,0 +1,101 @@
+import React, { useState } from "react";
+import Header from './components/Header';
+import TextBlock from './components/TextBlock';
+import testText from './assets/texts/test.md?raw';
+
+// --- Profile Media Preload Helper ---
+function importAll(r, type) {
+  return r.keys().map((file) => ({
+    type,
+    src: r(file).default || r(file),
+  }));
+}
+
+const profileImageSet = importAll(
+  require.context('./assets/images/profile', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/),
+  'image'
+);
+const profileVideoSet = [
+  ...importAll(
+    require.context('./assets/images/profile', false, /\.(mp4|webm|ogg|MP4|WEBM|OGG)$/),
+    'video'
+  ),
+  ...importAll(
+    require.context('./assets/videos/profile', false, /\.(mp4|webm|ogg|MP4|WEBM|OGG)$/),
+    'video'
+  )
+];
+const profileMediaSet = [...profileImageSet, ...profileVideoSet];
+
+function HomePage({ collapsed, setCollapsed }) {
+  const [profileIndex, setProfileIndex] = useState(0);
+
+  const handlePrev = () => {
+    setProfileIndex((prev) =>
+      prev === 0 ? profileMediaSet.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = () => {
+    setProfileIndex((prev) =>
+      prev === profileMediaSet.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const profileMedia = profileMediaSet[profileIndex];
+
+  return (
+    <>
+      <Header imageDir="home" videoDir="home" collapsed={collapsed} setCollapsed={setCollapsed} />
+      <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
+        <div className="main-flex-row">
+          <main className="main-block">
+            <TextBlock content={testText} format="markdown" />
+          </main>
+          <aside className="profile-block">
+            {profileMediaSet.length > 1 && (
+              <button
+                className="profile-arrow arrow-btn-left"
+                onClick={handlePrev}
+                aria-label="Previous profile media"
+              >
+                &lt;
+              </button>
+            )}
+            {profileMedia ? (
+              profileMedia.type === 'video' ? (
+                <video
+                  src={profileMedia.src}
+                  className="profile-img"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={profileMedia.src}
+                  alt="Profile"
+                  className="profile-img"
+                />
+              )
+            ) : (
+              <div className="profile-img-placeholder">No profile media found</div>
+            )}
+            {profileMediaSet.length > 1 && (
+              <button
+                className="profile-arrow arrow-btn-right"
+                onClick={handleNext}
+                aria-label="Next profile media"
+              >
+                &gt;
+              </button>
+            )}
+          </aside>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default HomePage;
