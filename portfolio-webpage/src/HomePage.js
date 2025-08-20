@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import TextBlock from "./components/TextBlock";
-import aboutMeText from "./assets/texts/about-me.md?raw";
+import aboutMeText from "./assets/texts/about/about-me.md?raw";
 
 
 // Helper to import all images/videos from a folder

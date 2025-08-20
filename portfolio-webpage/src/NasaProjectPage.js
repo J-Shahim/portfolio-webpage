@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
-import nasaProjectText from './assets/texts/nasa-project.md?raw'; // adjust path as needed
+import nasaProjectText from "./assets/texts/nasa-project/nasa-project.md"; // adjust path as needed
 
 function NasaProjectPage({ collapsed, setCollapsed }) {
   return (

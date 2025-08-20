@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
-import gasDynamicsText from './assets/texts/gas-dynamics-project.md?raw'; // adjust path as needed
+import gasDynamicsText from "./assets/texts/gas-dynamics-project/gas-dynamics-project.md"; // adjust path as needed
 
 function GasDynamicsProjectPage({ collapsed, setCollapsed }) {
   return (

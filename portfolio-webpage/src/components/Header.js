@@ -18,21 +18,13 @@ function importAll(r, type) {
 const allImageSets = {
     home: importAll(require.context('../assets/images/home', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
     about: importAll(require.context('../assets/images/about', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-    skills: importAll(require.context('../assets/images/skills', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-    web: importAll(require.context('../assets/images/web', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-    mobile: importAll(require.context('../assets/images/mobile', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-    email: importAll(require.context('../assets/images/email', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-    social: importAll(require.context('../assets/images/social', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+
 };
 
 const allVideoSets = {
     home: importAll(require.context('../assets/videos/home', false, /\.(mp4|webm|ogg)$/), 'video'),
     about: importAll(require.context('../assets/videos/about', false, /\.(mp4|webm|ogg)$/), 'video'),
-    skills: importAll(require.context('../assets/videos/skills', false, /\.(mp4|webm|ogg)$/), 'video'),
-    web: importAll(require.context('../assets/videos/web', false, /\.(mp4|webm|ogg)$/), 'video'),
-    mobile: importAll(require.context('../assets/videos/mobile', false, /\.(mp4|webm|ogg)$/), 'video'),
-    email: importAll(require.context('../assets/videos/email', false, /\.(mp4|webm|ogg)$/), 'video'),
-    social: importAll(require.context('../assets/videos/social', false, /\.(mp4|webm|ogg)$/), 'video'),
+
 };
 
 /* --------------------------------------------------------------------------

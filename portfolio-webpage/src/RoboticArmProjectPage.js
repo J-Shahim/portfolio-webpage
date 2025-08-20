@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
-import roboticArmText from './assets/texts/robotic-arm-project.md?raw'; // adjust path as needed
+import roboticArmText from "./assets/texts/robotic-arm-project/robotic-arm-project.md"; // adjust path as needed
 
 function RoboticArmProjectPage({ collapsed, setCollapsed }) {
   return (

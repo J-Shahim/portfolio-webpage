@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
-import htProjectsText from './assets/texts/ht-projects.md?raw'; // adjust path if needed
+import htProjectsText from "./assets/texts/ht-projects/ht-projects.md"; // adjust path if needed
 
 function HTProjectsPage({ collapsed, setCollapsed }) {
   return (

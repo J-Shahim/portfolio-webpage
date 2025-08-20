@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
-import dfmProjectText from './assets/texts/dfm-project.md?raw'; // adjust path as needed
+import dfmProjectText from "./assets/texts/dfm-project/dfm-project.md"; // adjust path as needed
 
 function DFMProjectPage({ collapsed, setCollapsed }) {
   return (

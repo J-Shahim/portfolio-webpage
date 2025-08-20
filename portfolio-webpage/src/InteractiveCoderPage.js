@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from './components/Header';
 import CodeEditorPortal from './components/CodeEditorPortal';
 import { getExamplesByLanguage, exampleCodes, examplesText } from './utils/exampleHelpers'; // adjust import paths as needed
+import interactiveCoderGuide from "./assets/texts/interactive-coder/USER-GUIDE-iteractive code editor portal.md";
 
 function InteractiveCoderPage({ collapsed, setCollapsed }) {
   const [language, setLanguage] = useState("javascript");

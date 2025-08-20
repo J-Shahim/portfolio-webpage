@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
-import aboutMeText from './assets/texts/about-me.md?raw'; // adjust path as needed
+import aboutMeText from "./assets/texts/about/about-me.md"; // adjust path as needed
 
 function AboutMePage({ collapsed, setCollapsed }) {
   return (

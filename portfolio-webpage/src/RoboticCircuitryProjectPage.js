@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
-import roboticCircuitryText from './assets/texts/robotic-circuitry-project.md?raw'; // adjust path as needed
+import roboticCircuitryText from "./assets/texts/robotic-circuitry-project/robotic-circuitry-project.md"; // adjust path as needed
 
 function RoboticCircuitryProjectPage({ collapsed, setCollapsed }) {
   return (
