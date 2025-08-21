@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import TextBlock from "./components/TextBlock";
 import aboutMeText from "./assets/texts/about/about-me.md?raw";
-
+import SMAndCTabs from "./components/SM&Ctabs";
+import "./components/SM&Ctabs.css"; // Import new CSS for tab block
 
 // Helper to import all images/videos from a folder
 function importAll(r, type) {
@@ -47,7 +48,7 @@ function HomePage({ collapsed, setCollapsed }) {
   const profileMedia = profileMediaSet[profileIndex];
 
   return (
-    <>
+    <>  
       <Header imageDir="home" videoDir="home" collapsed={collapsed} setCollapsed={setCollapsed} />
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
@@ -55,47 +56,53 @@ function HomePage({ collapsed, setCollapsed }) {
           <main className="main-block">
             <TextBlock content={aboutMeText} format="markdown" />
           </main>
-          {/* Profile block: image/video carousel */}
-          <aside className="profile-block">
-            {profileMediaSet.length > 1 && (
-              <button
-                className="profile-arrow arrow-btn-left"
-                onClick={handlePrev}
-                aria-label="Previous profile media"
-              >
-                &lt;
-              </button>
-            )}
-            {profileMedia ? (
-              profileMedia.type === "video" ? (
-                <video
-                  src={profileMedia.src}
-                  className="profile-img"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
+          <div className="profile-column">
+            {/* Profile block: image/video carousel */}
+            <aside className="profile-block">
+              {profileMediaSet.length > 1 && (
+                <button
+                  className="profile-arrow arrow-btn-left"
+                  onClick={handlePrev}
+                  aria-label="Previous profile media"
+                >
+                  &lt;
+                </button>
+              )}
+              {profileMedia ? (
+                profileMedia.type === "video" ? (
+                  <video
+                    src={profileMedia.src}
+                    className="profile-img"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={profileMedia.src}
+                    alt="Profile"
+                    className="profile-img"
+                  />
+                )
               ) : (
-                <img
-                  src={profileMedia.src}
-                  alt="Profile"
-                  className="profile-img"
-                />
-              )
-            ) : (
-              <div className="profile-img-placeholder">No profile media found</div>
-            )}
-            {profileMediaSet.length > 1 && (
-              <button
-                className="profile-arrow arrow-btn-right"
-                onClick={handleNext}
-                aria-label="Next profile media"
-              >
-                &gt;
-              </button>
-            )}
-          </aside>
+                <div className="profile-img-placeholder">No profile media found</div>
+              )}
+              {profileMediaSet.length > 1 && (
+                <button
+                  className="profile-arrow arrow-btn-right"
+                  onClick={handleNext}
+                  aria-label="Next profile media"
+                >
+                  &gt;
+                </button>
+              )}
+            </aside>
+            {/* Social Media & Contact Tabs in their own themed block */}
+            <section className="smc-tabs-block">
+              <SMAndCTabs />
+            </section>
+          </div>
         </div>
       </div>
     </>

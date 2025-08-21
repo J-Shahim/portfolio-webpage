@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from './components/Header';
 import CodeEditorPortal from './components/CodeEditorPortal';
 import { getExamplesByLanguage, exampleCodes, examplesText } from './utils/exampleHelpers'; // adjust import paths as needed
-import interactiveCoderGuide from "./assets/texts/interactive-coder/USER-GUIDE-iteractive code editor portal.md";
 
 function InteractiveCoderPage({ collapsed, setCollapsed }) {
   const [language, setLanguage] = useState("javascript");
@@ -35,7 +34,7 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
     <>
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
-          <main className="main-block" style={{ padding: "20px", marginTop: "0"}}>
+          <main className="main-block" style={{ padding: "20px", marginTop: "0", maxWidth: "75%" }}>
             <h1 style={{ margin: "0 0 16px 0", fontSize: "2rem", color: "#d404f0" }}>Interactive Code Editor Portal</h1>
             <label>
               Language:&nbsp;

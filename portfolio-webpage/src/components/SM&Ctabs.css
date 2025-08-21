@@ -1,0 +1,58 @@
+/* Match theme of .main-block from Main.css */
+.smc-tabs-block {
+  flex: 1 1 0;
+  width: 100%;
+  max-width: 480px;
+  min-width: 0;
+  max-height: 1000px;
+  height: 100%;
+  margin: 10px auto 0;
+  padding: 8px 8px;
+  border: 6px solid #141118;
+  border-radius: 24px;
+  background: linear-gradient(
+    120deg,
+    rgba(224, 224, 224, 0.6) 0%,
+    rgba(189, 189, 189, 0.6) 50%,
+    rgba(117, 117, 117, 0.6) 100%
+  );
+  box-sizing: border-box;
+  box-shadow:
+    0 4px 16px rgba(120, 120, 180, 0.15),
+    0 8px 24px -4px rgba(180, 180, 255, 0.12);
+  color: #010c05;
+  text-align: center;
+  font-size: 0.75rem;
+  position: relative;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  transition:
+    border-color 0.4s cubic-bezier(.4, 2, .6, 1),
+    box-shadow 0.4s,
+    transform 2.5s cubic-bezier(.4, 2, .6, 1),
+    margin-top 2.5s cubic-bezier(.4, 2, .6, 1);
+}
+
+.smc-tabs-block > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.smc-tabs-block a {
+  flex: 1 1 80px;
+  min-width: 80px;
+  max-width: 120px;
+  transition: transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #5f1d7a;
+}
+
+.smc-tabs-block a:hover {
+  transform: scale(1.1);
+}

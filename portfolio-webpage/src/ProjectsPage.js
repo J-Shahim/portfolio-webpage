@@ -3,6 +3,8 @@ import { Outlet, useLocation } from "react-router-dom";
 import "./ProjectsPage.css";
 import "./components/Main.css";
 import ProjectsHeaderCarousel from "./components/ProjectsHeaderCarousel";
+import TextBlock from './components/TextBlock';
+import projectsText from "./assets/texts/projects/projects.md?raw";
 
 
 function ProjectsPage({ collapsed, setCollapsed }) {
@@ -17,9 +19,11 @@ function ProjectsPage({ collapsed, setCollapsed }) {
 			/>
 			<div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
 				{isRootProjects && (
-					<main className="main-block">
-						<h1>Projects</h1>
-					</main>
+					<div className="main-flex-row">
+						<main className="main-block">
+							<TextBlock content={projectsText} format="markdown" />
+						</main>
+					</div>
 				)}
 				<Outlet />
 			</div>
