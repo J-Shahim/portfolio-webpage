@@ -1,6 +1,6 @@
+import examplesMd from "../assets/texts/interactive-coder/examples.md";
 
-export const examplesText = ""; // Add example markdown here or leave as empty string for now
-
+export const examplesText = examplesMd;
 export const exampleCodes = {
   javascript: `// Example: 2D Sinusoidal Plot with Plotly.js
 const x = [];

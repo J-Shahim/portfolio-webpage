@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import Split from 'react-split';
 import MonacoEditor from "@monaco-editor/react";
-import PortalOutputViewer from "./PortalOutputViewer";
 import * as THREE from "three";
 import Plotly from "plotly.js-dist-min";
 import { ReactSVG } from 'react-svg';

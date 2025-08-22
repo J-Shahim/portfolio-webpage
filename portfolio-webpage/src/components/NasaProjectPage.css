@@ -1,0 +1,107 @@
+/* Add to your CSS, e.g. src/components/Main.css or NasaProjectPage.css */
+.nasa-models-block {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.nasa-models-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nasa-model-panel {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(95,29,122,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nasa-model-title {
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.nasa-model-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nasa-model-popup-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.nasa-model-popup-content {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  padding: 32px;
+  width: 90vw;
+  height: 80vh;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 1001;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nasa-model-popup-content .threejs-viewer-container {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+}
+
+.nasa-model-popup-content .threejs-viewer-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.nasa-model-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  z-index: 1002;
+}
+
+/* Responsive: stack panels on smaller screens */
+@media (max-width: 900px) {
+  .nasa-models-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .nasa-models-grid {
+    grid-template-columns: 1fr;
+  }
+}
