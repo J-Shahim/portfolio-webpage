@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-webpage/static/css/main.de0944cf.css",
-    "main.js": "/portfolio-webpage/static/js/main.434186d9.js",
+    "main.css": "/portfolio-webpage/static/css/main.e439faab.css",
+    "main.js": "/portfolio-webpage/static/js/main.c38013dd.js",
     "static/media/Screen Recording 2025-02-26 185317.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-02-26 185317.8911c588ef3186237ef5.mp4",
     "static/media/Foot Morphing and Locking mechanism.mp4": "/portfolio-webpage/static/media/Foot Morphing and Locking mechanism.862045d5c7b5724b9d29.mp4",
     "static/media/Screen Recording 2025-06-09 114637.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-06-09 114637.47a6ed298fb0ae4fdfc3.mp4",
@@ -10,11 +10,11 @@
     "static/media/Picture1.png": "/portfolio-webpage/static/media/Picture1.ec9b1d385ef64a45b34c.png",
     "static/media/Screenshot 2025-05-18 201243.png": "/portfolio-webpage/static/media/Screenshot 2025-05-18 201243.34c503ce40ff65e61257.png",
     "index.html": "/portfolio-webpage/index.html",
-    "main.de0944cf.css.map": "/portfolio-webpage/static/css/main.de0944cf.css.map",
-    "main.434186d9.js.map": "/portfolio-webpage/static/js/main.434186d9.js.map"
+    "main.e439faab.css.map": "/portfolio-webpage/static/css/main.e439faab.css.map",
+    "main.c38013dd.js.map": "/portfolio-webpage/static/js/main.c38013dd.js.map"
   },
   "entrypoints": [
-    "static/css/main.de0944cf.css",
-    "static/js/main.434186d9.js"
+    "static/css/main.e439faab.css",
+    "static/js/main.c38013dd.js"
   ]
 }
