@@ -1,4 +1,3 @@
-import React from "react";
 import "./Carousel.css";
 import ArrowButton from "./ArrowButton";
 

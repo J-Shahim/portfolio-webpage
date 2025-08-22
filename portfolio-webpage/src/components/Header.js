@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState, useEffect } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MenuBubble from "./MenuBubble";
 import Carousel from "./Carousel";

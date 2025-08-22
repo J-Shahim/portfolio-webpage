@@ -1,4 +1,3 @@
-import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
 import dfmProjectText from "./assets/texts/dfm-project/dfm-project.md"; // adjust path as needed

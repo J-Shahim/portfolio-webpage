@@ -1,4 +1,3 @@
-import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
 import htProjectsText from "./assets/texts/ht-projects/ht-projects.md"; // adjust path if needed

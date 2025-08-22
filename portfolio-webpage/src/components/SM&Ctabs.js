@@ -1,4 +1,3 @@
-import React from "react";
 
 // Example icon URLs (replace with your own SVGs or images as needed)
 const ICONS = {

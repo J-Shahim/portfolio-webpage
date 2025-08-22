@@ -1,4 +1,3 @@
-import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
 import roboticCircuitryText from "./assets/texts/robotic-circuitry-project/robotic-circuitry-project.md"; // adjust path as needed

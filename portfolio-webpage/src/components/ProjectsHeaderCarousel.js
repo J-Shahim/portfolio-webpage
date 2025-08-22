@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import MenuBubble from "./MenuBubble";

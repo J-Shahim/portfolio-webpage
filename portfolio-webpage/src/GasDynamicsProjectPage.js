@@ -1,4 +1,3 @@
-import React from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
 import gasDynamicsText from "./assets/texts/gas-dynamics-project/gas-dynamics-project.md"; // adjust path as needed

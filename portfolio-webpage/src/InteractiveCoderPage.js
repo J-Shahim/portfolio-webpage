@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CodeEditorPortal from './components/CodeEditorPortal';
 import { getExamplesByLanguage, exampleCodes, examplesText } from './utils/exampleHelpers'; // adjust import paths as needed
 

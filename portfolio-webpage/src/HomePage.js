@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./components/Header";
 import TextBlock from "./components/TextBlock";
 import aboutMeText from "./assets/texts/about/about-me.md?raw";

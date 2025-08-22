@@ -1,25 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from './components/Header';
 import TextBlock from './components/TextBlock';
 import nasaProjectText from "./assets/texts/nasa-project/nasa-project.md";
 import ThreeJSViewer from "./components/ThreeJSViewer";
 import "./components/NasaProjectPage.css";
 
-// PDF Viewer imports
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
 
 // Model paths and markdown descriptions
 const nasaModels = [
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel1.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel2.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel3.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel4.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel5.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel6.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel7.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel8.glb",
-  "/portfolio-webpage/assets/models/nasa-project/NasaModel9.glb",
+  "/portfolio-webpage/assets/models/nasa-project/Ball_Hinge_Bottom_plate.glb",
+  "/portfolio-webpage/assets/models/nasa-project/Base_Plate_V3.glb",
+  "/portfolio-webpage/assets/models/nasa-project/BlackBox_V2.glb",
+  "/portfolio-webpage/assets/models/nasa-project/Foot.glb",
+  "/portfolio-webpage/assets/models/nasa-project/Gimbal Attachment ring.glb",
+  "/portfolio-webpage/assets/models/nasa-project/HousingTopPlate.glb",
+  "/portfolio-webpage/assets/models/nasa-project/legv2.glb",
+  // Add any additional current models here
 ];
 
 // Import markdown descriptions for each model
@@ -45,12 +41,24 @@ const modelDescriptions = [
   model9Desc,
 ];
 
-// PDF path
-const nasaProjectPdf = "/portfolio-webpage/assets/docs/nasa-project/Final Report.pdf";
+// List of available PDFs
+const pdfOptions = [
+  {
+    label: "NASA Final Report",
+    value: "/portfolio-webpage/assets/docs/nasa-project/Final-Report.pdf",
+  },
+  {
+    label: "NASA Proposal",
+    value: "/portfolio-webpage/assets/docs/nasa-project/Proposal.pdf",
+  },
+  // Add more PDFs as needed
+];
 
 function NasaProjectPage({ collapsed, setCollapsed }) {
   const [popupIdx, setPopupIdx] = useState(null);
   const [panelReloadKeys, setPanelReloadKeys] = useState(Array(nasaModels.length).fill(0));
+  // PDF selection state
+  const [selectedPdf, setSelectedPdf] = useState(pdfOptions[0].value);
 
   const handlePanelClick = (idx) => {
     setPopupIdx(idx);
@@ -103,13 +111,30 @@ function NasaProjectPage({ collapsed, setCollapsed }) {
             <div className="nasa-model-popup-backdrop" onClick={closePopup}></div>
           </div>
         )}
-        {/* PDF Viewer below models main block */}
+        {/* Simple PDF Viewer below models main block */}
         <main className="main-block nasa-pdf-block" style={{ maxWidth: "85%", marginTop: "32px" }}>
           <h2>NASA Project PDF</h2>
-          <div style={{ width: "100%", height: "600px" }}>
-            <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}>
-              <Viewer fileUrl={nasaProjectPdf} defaultScale={1.5} />
-            </Worker>
+          {/* Dropdown for PDF selection */}
+          <div style={{ marginBottom: "16px" }}>
+            <label htmlFor="pdf-select" style={{ marginRight: "8px" }}>Select PDF:</label>
+            <select
+              id="pdf-select"
+              value={selectedPdf}
+              onChange={e => setSelectedPdf(e.target.value)}
+            >
+              {pdfOptions.map(pdf => (
+                <option key={pdf.value} value={pdf.value}>{pdf.label}</option>
+              ))}
+            </select>
+          </div>
+          <div style={{ width: "100%", height: "80vh" }}>
+            <iframe
+              src={selectedPdf}
+              title="NASA Project PDF"
+              width="100%"
+              height="100%"
+              style={{ border: "none" }}
+            />
           </div>
         </main>
       </div>

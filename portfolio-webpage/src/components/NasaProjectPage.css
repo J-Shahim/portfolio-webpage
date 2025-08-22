@@ -16,10 +16,18 @@
 }
 
 .nasa-model-panel {
-  background: #f7f7f7;
-  border-radius: 16px;
+  background: linear-gradient(
+    120deg,
+    rgba(224,224,224,0.60) 0%,
+    rgba(189,189,189,0.60) 50%,
+    rgba(117,117,117,0.60) 100%
+  );
+  border: 6px solid #141118;
+  border-radius: 24px;
+  box-shadow:
+    0 4px 16px rgba(120,120,180,0.15),
+    0 8px 24px -4px rgba(180,180,255,0.12);
   padding: 16px;
-  box-shadow: 0 1px 4px rgba(95,29,122,0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +35,7 @@
   min-height: 0;
   width: 100%;
   box-sizing: border-box;
+  color: #010c05;
 }
 
 .nasa-model-title {
@@ -92,6 +101,17 @@
   cursor: pointer;
   color: #333;
   z-index: 1002;
+}
+
+/* New PDF Block Styles */
+.nasa-pdf-block {
+  width: 100%;
+  height: 100%;
+  max-width: 85%;
+  margin: 32px auto 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Responsive: stack panels on smaller screens */
