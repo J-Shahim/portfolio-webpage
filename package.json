@@ -9,7 +9,8 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gh-pages-clean": "rimraf node_modules/.cache/gh-pages"
   },
   "keywords": [
     "portfolio",
@@ -48,6 +49,7 @@
     "jest": "^27.0.6",
     "raw-loader": "^4.0.2",
     "react-scripts": "^5.0.1",
+    "rimraf": "^6.0.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
