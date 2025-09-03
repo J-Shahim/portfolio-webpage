@@ -7,49 +7,51 @@ import "./Carousel.css";
 import "./Header.css";
 import "../components/Main.css";
 import "./ArrowButton.css";
+import "../ProjectsPage.css";
+
+function importAll(r) {
+  const images = {};
+  r.keys().forEach((file) => {
+    const name = file.replace('./', '');
+    images[name] = r(file).default || r(file);
+  });
+  return images;
+}
+
+// Import all project images from src/assets/images
+const projectImages = importAll(
+  require.context("../assets/images", true, /\.(png|jpe?g|gif|svg)$/)
+);
 
 // Keep projects array here
 const projects = [
-    {
+  {
     title: "NASA Project",
-    image: "/portfolio-webpage/assets/images/nasa-project.png",
-    md: "## NASA Project\nA web application showcasing NASA's latest missions and data.",
-    link: "/projects/nasa-project"
+    image: projectImages["nasa-project/NASA-project-panel-img.png"],
+    link: "/projects/nasa-project",
   },
   {
-    title: "Interactive Coder",
-    image: "/portfolio-webpage/assets/images/interactive-coder.png",
-    md: "## Interactive Coder\nA live coding environment for JavaScript.",
+    image: projectImages["interactive-coder.png"],
     link: "/projects/interactive-coder"
   },
   {
-    title: "DFM Project",
-    image: "/portfolio-webpage/assets/images/dfm-project.png",
-    md: "## Design For Manufacturing (DFM) Project\nA project focused on optimizing designs for manufacturability.",
+    image: projectImages["dfm-project.png"],
     link: "/projects/dfm-project"
   },
   {
-    title: "Robotic Arm Project",
-    image: "/portfolio-webpage/assets/images/robotic-arm-project.png",
-    md: "## 3D Robotic Arm Linkage Project\nA simulation and analysis of robotic arm linkages.",
+    image: projectImages["robotic-arm-project.png"],
     link: "/projects/robotic-arm-project"
   },
   {
-    title: "GAS Dynamics Project",
-    image: "/portfolio-webpage/assets/images/gas-dynamics-project.png",
-    md: "## GAS Dynamics Project\nExploring the principles and applications of gas dynamics.",
+    image: projectImages["gas-dynamics-project.png"],
     link: "/projects/gas-dynamics-project"
   },
   {
-    title: "HT Projects",
-    image: "/portfolio-webpage/assets/images/ht-projects.png",
-    md: "## HT Projects\nA collection of heat transfer related projects.",
+    image: projectImages["ht-projects.png"],
     link: "/projects/ht-projects"
   },
   {
-    title: "Robotic Circuitry Project",
-    image: "/portfolio-webpage/assets/images/robotic-circuitry-project.png",
-    md: "## Robotic Circuitry Project\nDesign and implementation of robotic circuitry systems.",
+    image: projectImages["robotic-circuitry-project.png"],
     link: "/projects/robotic-circuitry-project"
   }
 ];
@@ -97,11 +99,13 @@ const ProjectsHeaderCarousel = ({ collapsed, setCollapsed }) => {
         key={uniqueKey}
         to={project.link}
         className={`carousel-item project-panel ${position}${isCenter ? " center" : ""}`}
-        style={{ textDecoration: "none", color: "inherit" }}
+        style={{ textDecoration: "none", color: "inherit"}}
       >
-        <img src={project.image} alt={project.title} />
+              {/* Title above the image, centered */}
+      {project.title && (
         <h2>{project.title}</h2>
-        <ReactMarkdown>{project.md}</ReactMarkdown>
+      )}
+        <img src={project.image} alt={project.title} />
       </Link>
     );
   };
@@ -160,7 +164,7 @@ const ProjectsHeaderCarousel = ({ collapsed, setCollapsed }) => {
           </button>
           <div className={`header-content${contentVisible ? " visible" : ""}`}>
             {/* Use Carousel component for five-panel offset */}
-            <div className="gallery-header-carousel" style={{ position: "relative" }}>
+            <div className="gallery-header-carousel" style={{ position: "relative", height: "350px" }}>
               <ArrowButton direction="left" onClick={handlePrev} ariaLabel="Previous project" className="arrow-btn-left" />
               {renderPanel(projects[farPrevIndex], "far-left")}
               {renderPanel(projects[prevIndex], "left")}

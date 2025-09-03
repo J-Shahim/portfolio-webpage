@@ -125,3 +125,112 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Collapsible section styles */
+.collapsible-section {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.collapsible-content {
+  position: relative;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 24px 24px 24px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-top: 40px;
+  max-width: 80%;
+}
+
+/* Unified collapse button styling */
+.collapse-x {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: linear-gradient(120deg, #172e94 0%, #5f1d7a 40%, #266da7 100%);
+  color: #f3eaff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(38, 109, 167, 0.15);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    border-color 0.4s cubic-bezier(.4,2,.6,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapse-x:hover,
+.collapse-x:focus {
+  background: #266da7;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(38, 109, 167, 0.25);
+  outline: none;
+}
+
+/* Collapsed bar styling to match MenuBubble theme */
+.collapsed-bar {
+  background: rgba(30, 33, 93, 0.85); /* dark blue, semi-transparent */
+  color: #f3eaff;                     /* light purple text */
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 2px solid #5f1d7a;          /* purple border */
+  cursor: pointer;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(219,51,0,0.10);
+  font-size: 1.1em;
+  text-align: justify;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    border-color 0.4s cubic-bezier(.4,2,.6,1);
+  position: relative;
+  max-width: 90%;
+}
+
+/* Hover/focus effect for collapsed bar */
+.collapsed-bar:hover,
+.collapsed-bar:focus {
+  background: #266da7; /* blue highlight */
+  color: #fff;
+  border-color: #266da7;
+  box-shadow: 0 4px 24px rgba(38, 109, 167, 0.15);
+}
+
+/* Optional: animated gradient border for collapsed bar */
+.collapsed-bar::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  z-index: -2;
+  background: linear-gradient(
+    120deg,
+    #172e94 0%,
+    #5f1d7a 40%,
+    #266da7 70%,
+    #1e215d 100%
+  );
+  background-size: 600% 600%;
+  animation: tabBorderMoveReverse 15s ease-in-out infinite;
+  filter: blur(0.5px) brightness(2);
+  opacity: 0.6;
+}
+
+/* Use the same keyframes as MenuBubble for consistency */
+@keyframes tabBorderMoveReverse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
