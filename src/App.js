@@ -28,8 +28,8 @@ function App() {
           <Route path="/about-me" element={<AboutMePage collapsed={collapsed} setCollapsed={setCollapsed} />} />
           {/* Projects grid with nested routes for subtabs */}
           <Route path="/projects" element={<ProjectsPage collapsed={collapsed} setCollapsed={setCollapsed} />}>
-            <Route path="interactive-coder" element={<InteractiveCoderPage />} />
             <Route path="nasa-project" element={<NasaProjectPage />} />
+            <Route path="interactive-coder" element={<InteractiveCoderPage />} />
             <Route path="dfm-project" element={<DFMProjectPage />} />
             <Route path="robotic-arm-project" element={<RoboticArmProjectPage />} />
             <Route path="gas-dynamics-project" element={<GasDynamicsProjectPage />} />

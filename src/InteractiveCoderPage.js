@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CodeEditorPortal from './components/CodeEditorPortal';
 import { getExamplesByLanguage, exampleCodes, examplesText } from './utils/exampleHelpers'; // adjust import paths as needed
+import TextBlock from "./components/TextBlock";
+import InteractiveCodeTxt from "./assets/texts/interactive-coder/README.md"; 
 
 function InteractiveCoderPage({ collapsed, setCollapsed }) {
   const [language, setLanguage] = useState("javascript");
@@ -62,6 +64,13 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
           />
         </div>
       </div>
+            <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
+              <div className="main-flex-row">
+                <main className="main-block">
+                  <TextBlock content={InteractiveCodeTxt} format="markdown" />
+                </main>
+              </div>
+            </div>
     </>
   );
 }

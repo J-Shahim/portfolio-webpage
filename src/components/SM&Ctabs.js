@@ -1,19 +1,17 @@
 
 // Example icon URLs (replace with your own SVGs or images as needed)
 const ICONS = {
-  linkedin: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg",
-  handshake: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Handshake_icon.svg",
-  indeed: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Indeed_logo.svg",
-  discord: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-original.svg",
-  email: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+  linkedin: "https://pngimg.com/uploads/linkedIn/linkedIn_PNG13.png",
+  handshake: "https://cdn-1.webcatalog.io/catalog/handshake/handshake-icon-filled-256.png?v=1709634478577",
+  discord: "https://tse2.mm.bing.net/th/id/OIP.QjSF10Slb25eSCWIUH3w-gHaHa?cb=thfvnext&pid=ImgDet&w=194&h=194&c=7&o=7&rm=3S",
+  email: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
 };
 
 const LINKS = [
-  { label: "LinkedIn", url: "https://www.linkedin.com/in/YOUR_PROFILE", icon: ICONS.linkedin },
-  { label: "Handshake", url: "https://joinhandshake.com/", icon: ICONS.handshake },
-  { label: "Indeed", url: "https://www.indeed.com/", icon: ICONS.indeed },
-  { label: "Discord", url: "https://discord.com/", icon: ICONS.discord },
-  { label: "Email", url: "mailto:your@email.com", icon: ICONS.email }
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/jarel-shahim/", icon: ICONS.linkedin },
+  { label: "Handshake", url: "https://oregonstate.joinhandshake.com/profiles/qycqvc", icon: ICONS.handshake },
+  { label: "Discord", url: "https://discord.com/users/jarel.shahim", icon: ICONS.discord },
+  { label: "Email", url: "mailto:j.shahim25@gmail.com", icon: ICONS.email }
 ];
 
 export default function SMAndCTabs() {

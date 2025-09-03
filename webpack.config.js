@@ -48,6 +48,9 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
+    setupMiddlewares: (middlewares, devServer) => {
+      return middlewares;
+    },
     static: {
       directory: path.join(__dirname, 'public'),
     },

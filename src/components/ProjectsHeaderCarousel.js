@@ -10,17 +10,17 @@ import "./ArrowButton.css";
 
 // Keep projects array here
 const projects = [
+    {
+    title: "NASA Project",
+    image: "/portfolio-webpage/assets/images/nasa-project.png",
+    md: "## NASA Project\nA web application showcasing NASA's latest missions and data.",
+    link: "/projects/nasa-project"
+  },
   {
     title: "Interactive Coder",
     image: "/portfolio-webpage/assets/images/interactive-coder.png",
     md: "## Interactive Coder\nA live coding environment for JavaScript.",
     link: "/projects/interactive-coder"
-  },
-  {
-    title: "NASA Project",
-    image: "/portfolio-webpage/assets/images/nasa-project.png",
-    md: "## NASA Project\nA web application showcasing NASA's latest missions and data.",
-    link: "/projects/nasa-project"
   },
   {
     title: "DFM Project",
