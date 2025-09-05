@@ -1,24 +1,17 @@
-# Create a New Project
+# Welcome to the Projects Home Page!!
 
-Welcome to the project creation page! Here you can start a new project, add details, upload files, and manage your work.
+## Projects Carousel: Folder Icon Operations
 
-## Steps to Create a Project
+- **Expand Gallery:**  
+  Click the folder icon (📁) to expand and reveal the project carousel.
 
-1. **Enter Project Title**  
-   Give your project a clear and descriptive name.
+- **Navigation:**  
+  Use the left and right arrow buttons to scroll through the projects in the carousel.
 
-2. **Add a Description**  
-   Provide a summary of what your project is about.
+- **Project Selection:**  
+  Click on any project panel to navigate to the individual project’s page.
 
-3. **Upload Files**  
-   Attach relevant images, documents, or models to showcase your work.
-
-4. **Set Project Category**  
-   Choose the category that best fits your project (e.g., coding, engineering, research).
-
-5. **Save and Publish**  
-   Review your information and publish your project to share it with others.
+- **Alernatively**
+  You can use the menu dropdown to browse projects.
 
 ---
-
-Feel free to edit this page to match your workflow

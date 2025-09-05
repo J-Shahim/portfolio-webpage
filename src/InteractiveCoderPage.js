@@ -9,6 +9,8 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
   const [transcript, setTranscript] = useState([]);
   const [code, setCode] = useState(exampleCodes["javascript"]);
   const [selectedExample, setSelectedExample] = useState("");
+  const [showEditor, setShowEditor] = useState(true); // Collapsible state for code editor
+  const [showTextBlock, setShowTextBlock] = useState(true); // Collapsible state for text block
 
   const examples = getExamplesByLanguage(examplesText, language);
 
@@ -34,45 +36,86 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
   return (
     <>
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
-        <div className="main-flex-row">
-          <main className="main-block" style={{ padding: "20px", marginTop: "0", maxWidth: "75%" }}>
-            <h1 style={{ margin: "0 0 16px 0", fontSize: "2rem", color: "#d404f0" }}>Interactive Code Editor Portal</h1>
-            <label>
-              Language:&nbsp;
-              <select value={language} onChange={handleLanguageChange}>
-                <option value="javascript">JavaScript</option>
-                <option value="python">Python</option>
-              </select>
-            </label>
-            &nbsp;&nbsp;
-            <label>
-              Example:&nbsp;
-              <select value={selectedExample} onChange={handleExampleChange}>
-                <option value="">-- Select Example --</option>
-                {examples.map((ex, idx) => (
-                  <option key={idx} value={idx}>{ex.title}</option>
-                ))}
-              </select>
-            </label>
-          </main>
+        {/* Selector bar above the code editor */}
+  <div style={{ width: "100%", maxWidth: "90%", margin: "45px auto 0 auto", display: "flex", justifyContent: "center", gap: "24px", alignItems: "center" }}>
+          <label>
+            Language:&nbsp;
+            <select value={language} onChange={handleLanguageChange}>
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+            </select>
+          </label>
+          <label>
+            Example:&nbsp;
+            <select value={selectedExample} onChange={handleExampleChange}>
+              <option value="">-- Select Example --</option>
+              {examples.map((ex, idx) => (
+                <option key={idx} value={idx}>{ex.title}</option>
+              ))}
+            </select>
+          </label>
         </div>
-        <div className="code-editor-portal-wrapper">
-          <CodeEditorPortal
-            language={language}
-            code={code}
-            setCode={setCode}
-          />
+        <div className="collapsible-section">
+          {showEditor ? (
+            <main className="main-block" style={{ padding: "20px", marginTop: "32px", maxWidth: "90%", position: "relative" }}>
+              <button
+                className="collapse-x"
+                onClick={() => setShowEditor(false)}
+                title="Collapse"
+                style={{ top: 8, right: 8 }}
+              >
+                &times;
+              </button>
+              <h1 style={{ margin: "0 0 40px 0", fontSize: "2rem", color: "#d404f0" }}>Interactive Code Editor Portal</h1>
+              <div className="code-editor-portal-wrapper">
+                <CodeEditorPortal
+                  language={language}
+                  code={code}
+                  setCode={setCode}
+                />
+              </div>
+            </main>
+          ) : (
+            <div
+              className="collapsed-bar"
+              onClick={() => setShowEditor(true)}
+              title="Expand"
+              style={{ marginTop: "40px", width: "90%", justifySelf: "center" }}
+            >
+              ► Interactive Code Editor Portal
+            </div>
+          )}
         </div>
       </div>
-            <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
-              <div className="main-flex-row">
-                <main className="main-block">
-                  <TextBlock content={InteractiveCodeTxt} format="markdown" />
-                </main>
+      <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
+        <div style={{ width: "100%" }}>
+          <div className="collapsible-section">
+            {showTextBlock ? (
+              <main className="main-block" style={{ padding: "20px", margin: "0 auto 80px auto", maxWidth: "90%", position: "relative" }}>
+                <button
+                  className="collapse-x"
+                  onClick={() => setShowTextBlock(false)}
+                  title="Collapse"
+                  style={{ top: 8, right: 8 }}
+                >
+                  &times;
+                </button>
+                <TextBlock content={InteractiveCodeTxt} format="markdown" />
+              </main>
+            ) : (
+              <div
+                className="collapsed-bar"
+                onClick={() => setShowTextBlock(true)}
+                title="Expand"
+                style={{ marginTop: "40px", width: "90%", marginLeft: "auto", marginRight: "auto" }}
+              >
+                ► Interactive Coder Info
               </div>
-            </div>
+            )}
+          </div>
+        </div>
+      </div>
     </>
   );
 }
-
 export default InteractiveCoderPage;

@@ -31,7 +31,8 @@ const projects = [
     link: "/projects/nasa-project",
   },
   {
-    image: projectImages["interactive-coder.png"],
+    title: "Interactive Coder",
+    image: projectImages["interactive-coder/interactive-coder.png"],
     link: "/projects/interactive-coder"
   },
   {

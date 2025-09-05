@@ -57,6 +57,26 @@ const pdfOptions = [
     label: "Final Prototype",
     value: "/portfolio-webpage/assets/docs/nasa-project/Final-CAD-Package.pdf",
   },
+    {
+    label: "Engineering Expo Poster",
+    value: "/portfolio-webpage/assets/docs/nasa-project/Engineering-Expo-Poster.pdf",
+  },
+    {
+    label: "Team Check-in Presentation Low-Fidelity Prototyping",
+    value: "/portfolio-webpage/assets/docs/nasa-project/Team-Check-in-Prototyping.pdf",
+  },
+    {
+    label: "Team Check-in Presentation High-Fidelity Prototyping",
+    value: "/portfolio-webpage/assets/docs/nasa-project/Team-Check-in-High-Fidelity-Prototype.pdf",
+  },
+  {
+    label: "Second Term Progress Update #1",
+    value: "/portfolio-webpage/assets/docs/nasa-project/2nd-Term-Progress-Update-1.pdf",
+  },
+    {
+    label: "Second Term Progress Update #2",
+    value: "/portfolio-webpage/assets/docs/nasa-project/2nd-Term-Progress-Update-2.pdf",
+  },
   // Add more PDFs as needed
 ];
 
@@ -85,7 +105,7 @@ function NasaProjectPage({ collapsed, setCollapsed }) {
       {/* Collapsible NASA.md Text Block */}
       <div className="collapsible-section">
         {showTextBlock ? (
-          <main className="main-block" style={{ maxWidth: "80%", position: "relative" }}>
+          <main className="main-block" style={{ maxWidth: "82.25%", position: "relative" }}>
             <button
               className="collapse-x"
               onClick={() => setShowTextBlock(false)}
