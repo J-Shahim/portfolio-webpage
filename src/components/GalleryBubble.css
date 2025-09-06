@@ -1,0 +1,180 @@
+/* GalleryBubble specific styles */
+.gallerybubble-inline-expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 2em;
+  background: transparent;
+  border: 2px solid #5f1d7a;
+  border-radius: 999px;
+  box-shadow:
+    0 0 16px 4px #c0a4e66c,
+    0 4px 16px rgba(120,120,180,0.15),
+    0 8px 24px -4px rgba(180,180,255,0.12);
+  margin-left: 32px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  color: #f3eaff;
+  font-family: 'Playwrite AU QLD', cursive;
+  font-weight: bold;
+  outline: none;
+  background-clip: padding-box;
+  overflow: visible;
+
+  transition: 
+    background 0.2s, 
+    color 0.2s, 
+    box-shadow 0.2s, 
+    border-color 0.4s cubic-bezier(.4,2,.6,1),
+    opacity 0.8s cubic-bezier(.4,2,.6,1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gallerybubble-inline-expand-btn::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  z-index: -2;
+  background: linear-gradient(
+    120deg,
+    #172e94 0%,
+    #5f1d7a 40%,
+    #266da7 70%,
+    #1e215d 100%
+  );
+  background-size: 600% 600%;
+  animation: gallerybubble-tabBorderMoveReverse 15s ease-in-out infinite;
+  filter: blur(0.5px) brightness(2);
+}
+
+.gallerybubble-inline-expand-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    #1e215d 0%,
+    #266da7 40%,
+    #5f1d7a 70%,
+    #172e94 100%
+  );
+  background-size: 600% 600%;
+  animation: gallerybubble-tabBgMove 11s ease-in-out infinite reverse;
+  opacity: 0.95;
+  transition: opacity 0.3s;
+}
+
+.gallerybubble-inline-expand-btn:hover::after,
+.gallerybubble-inline-expand-btn:focus::after {
+  opacity: 1;
+  filter: brightness(2);
+}
+
+@keyframes gallerybubble-tabBorderMoveReverse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gallerybubble-tabBgMove {
+  0% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.gallerybubble-inline-expand-btn svg {
+  display: block;
+  margin: auto;
+  width: 28px;
+  height: 28px;
+}
+
+.gallerybubble-inline-expand-btn::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  z-index: -2;
+  background: linear-gradient(
+    120deg,
+    #172e94 0%,
+    #5f1d7a 40%,
+    #266da7 70%,
+    #1e215d 100%
+  );
+  background-size: 600% 600%;
+  animation: gallerybubble-tabBorderMoveReverse 15s ease-in-out infinite;
+  filter: blur(0.5px) brightness(1.1);
+}
+
+.gallerybubble-inline-expand-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    #1e215d 0%,
+    #266da7 40%,
+    #5f1d7a 70%,
+    #172e94 100%
+  );
+  background-size: 600% 600%;
+  animation: gallerybubble-tabBgMove 11s ease-in-out infinite reverse;
+  opacity: 0.95;
+  transition: opacity 0.3s;
+}
+
+.gallerybubble-inline-expand-btn:hover::after,
+.gallerybubble-inline-expand-btn:focus::after {
+  opacity: 1;
+  filter: brightness(3);
+}
+
+@keyframes gallerybubble-tabBorderMoveReverse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gallerybubble-tabBgMove {
+  0% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.gallerybubble-header {
+  margin: 20px;
+  padding: 20px;
+  border: 6px solid #5e04b3;
+  border-radius: 24px;
+  box-shadow: 
+      0 10px 43px 0px #4a37f3, 
+      0 5px 21px 0px rgba(97, 130, 240, 0.445),
+      0 10px 32px -5px rgba(202, 185, 248, 0.452);
+  background: linear-gradient(
+      120deg,
+      rgba(15, 0, 38, 0.75) 0%,
+      rgba(23, 46, 148, 0.75) 35%,
+      rgba(95, 29, 122, 0.75) 60%,
+      rgba(38, 109, 167, 0.75) 80%,
+      rgba(30, 45, 93, 0.75) 100%);
+  background-size: 600% 600%;
+  animation: gradientMove 15s ease-in-out infinite;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1000;
+  overflow: hidden;
+  transition: border-color 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s, opacity 1.5s cubic-bezier(.4,2,.6,1), transform 1.5s cubic-bezier(.4,2,.6,1);
+  opacity: 1;
+  transform-origin: 56px 80px;
+  transform: scale(1);
+}

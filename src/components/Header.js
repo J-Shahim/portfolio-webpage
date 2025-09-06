@@ -4,28 +4,18 @@ import MenuBubble from "./MenuBubble";
 import Carousel from "./Carousel";
 import "./Header.css";
 
-/* --------------------------------------------------------------------------
-   Asset Import Helpers
-   Dynamically imports all images and videos from asset folders for use in the carousel.
--------------------------------------------------------------------------- */
+// Import all images and videos from all subfolders
 function importAll(r, type) {
-    return r.keys().map((file) => ({
-        type,
-        src: r(file).default || r(file),
-    }));
+  return r.keys().map((file) => ({
+    type,
+    src: r(file).default || r(file),
+  }));
 }
 
-const allImageSets = {
-    home: importAll(require.context('../assets/images/home', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-    about: importAll(require.context('../assets/images/about', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-
-};
-
-const allVideoSets = {
-    home: importAll(require.context('../assets/videos/home', false, /\.(mp4|webm|ogg)$/), 'video'),
-    about: importAll(require.context('../assets/videos/about', false, /\.(mp4|webm|ogg)$/), 'video'),
-
-};
+// Import all images from all subfolders in assets/images
+const allImages = importAll(require.context('../assets/images', true, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image');
+// Import all videos from all subfolders in assets/videos
+const allVideos = importAll(require.context('../assets/videos', true, /\.(mp4|webm|ogg)$/), 'video');
 
 /* --------------------------------------------------------------------------
    Carousel Index Helper
@@ -70,11 +60,10 @@ const Header = ({ collapsed, setCollapsed, imageDir = "home", videoDir = "home" 
   /* ------------------------------------------------------------------------
      Combine images and videos for carousel backgrounds
   ------------------------------------------------------------------------ */
+  // Use all images and videos from all subfolders
   const backgrounds = useMemo(() => {
-    const images = allImageSets[imageDir] || [];
-    const videos = allVideoSets[videoDir] || [];
-    return [...images, ...videos];
-  }, [imageDir, videoDir]);
+    return [...allImages, ...allVideos];
+  }, []);
 
   const hasBackgrounds = backgrounds.length > 0;
 

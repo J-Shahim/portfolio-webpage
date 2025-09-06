@@ -3,6 +3,9 @@ import TextBlock from './components/TextBlock';
 import nasaProjectText from "./assets/texts/nasa-project/nasa-project.md";
 import ThreeJSViewer from "./components/ThreeJSViewer";
 import "./components/NasaProjectPage.css";
+import GalleryBubble from './components/GalleryBubble';
+import { useLocation } from 'react-router-dom';
+import { assetFolderMap } from './utils/assetFolderMap';
 
 // Model paths and markdown descriptions
 const nasaModels = [
@@ -80,7 +83,9 @@ const pdfOptions = [
   // Add more PDFs as needed
 ];
 
-function NasaProjectPage({ collapsed, setCollapsed }) {
+
+function NasaProjectPage() {
+  const [collapsed, setCollapsed] = useState(true);
   const [popupIdx, setPopupIdx] = useState(null);
   const [panelReloadKeys, setPanelReloadKeys] = useState(Array(nasaModels.length).fill(0));
   // PDF selection state
@@ -99,6 +104,9 @@ function NasaProjectPage({ collapsed, setCollapsed }) {
       keys.map((key, i) => (i === popupIdx ? key + 1 : key))
     );
   };
+
+  const location = useLocation();
+  const assetFolder = assetFolderMap[location.pathname] || 'nasa-project';
 
   return (
     <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
@@ -220,7 +228,12 @@ function NasaProjectPage({ collapsed, setCollapsed }) {
           </div>
         )}
       </div>
-
+      {/* Place GalleryBubble here so expand/collapse gallery appears after all sections */}
+      <GalleryBubble
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+        assetFolder={assetFolder}
+      />
       {/* Popup block for model viewer and description */}
       {popupIdx !== null && (
         <div className="nasa-model-popup">
