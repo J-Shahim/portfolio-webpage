@@ -1,6 +1,8 @@
 import { Suspense, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Center } from "@react-three/drei";
+import { useLoader } from '@react-three/fiber';
+import { STLLoader } from 'three-stdlib';
 import * as THREE from "three";
 import "./ThreeJSViewer.css";
 
@@ -31,32 +33,59 @@ const BG_OPTIONS = [
      - url: path to the GLTF model file
 -------------------------------------------------------------------------- */
 function Model({ url, color }) {
-  const { scene } = useGLTF(url);
+  const ext = url.split('.').pop().toLowerCase();
+  if (ext === 'stl') {
+    // STL loading
+    const geometry = useLoader(STLLoader, url);
+    // Center and scale STL geometry
+    const meshRef = useRef();
+    useState(() => {
+      if (meshRef.current) {
+        geometry.center();
+        geometry.computeBoundingBox();
+        const size = geometry.boundingBox.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const scale = maxDim > 0 ? 1.8 / maxDim : 1;
+        meshRef.current.scale.setScalar(scale);
+      }
+    }, [geometry]);
+    return (
+      <Center>
+        <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow>
+          <meshStandardMaterial color={color} />
+        </mesh>
+      </Center>
+    );
+  } else {
+    // GLB/GLTF loading
+    const { scene } = useGLTF(url);
+    scene.traverse((child) => {
+      if (child.isMesh) {
+        child.material.color.set(color);
+      }
+    });
+    // Center and scale model to fit viewer
+    const box = new THREE.Box3().setFromObject(scene);
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale = maxDim > 0 ? 1.8 / maxDim : 1;
+    scene.scale.setScalar(scale);
+    // Center the model
+    const center = box.getCenter(new THREE.Vector3());
+    scene.position.sub(center);
 
-  // Set all mesh materials to selected color
-  scene.traverse((child) => {
-    if (child.isMesh) {
-      child.material.color.set(color);
+    // Apply custom rotation for Esal.gltf only
+    if (url.includes('/Esal.gltf')) {
+      scene.rotation.x = Math.PI;
+    // You can adjust the axis/angle as needed
     }
-  });
 
-  // Center and scale model to fit viewer
-  const box = new THREE.Box3().setFromObject(scene);
-  const size = box.getSize(new THREE.Vector3());
-  const maxDim = Math.max(size.x, size.y, size.z);
-  const scale = maxDim > 0 ? 1.8 / maxDim : 1; // Slightly less than 2 to add margin
-
-  scene.scale.setScalar(scale);
-
-  // Center the model
-  const center = box.getCenter(new THREE.Vector3());
-  scene.position.sub(center);
-
-  return (
-    <Center>
-      <primitive object={scene} />
-    </Center>
-  );
+    return (
+      <Center>
+        <primitive object={scene} />
+      </Center>
+    );
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -85,8 +114,8 @@ export default function ThreeJSViewer({ modelPath }) {
   const [sliderValue, setSliderValue] = useState(50); // 1-100 scale
   const [axis, setAxis] = useState([0, 0, 1]); // Default Z+ axis
   const [controlsOpen, setControlsOpen] = useState(false);
-  const [color, setColor] = useState(COLOR_OPTIONS[0].value);
-  const [bg, setBg] = useState("transparent"); // Set default background to transparent
+  const [color, setColor] = useState(COLOR_OPTIONS[3].value); // Default to Orange
+  const [bg, setBg] = useState(BG_OPTIONS[2].value); // Default to Dark
 
   // Handle gradient and transparent backgrounds
   const containerStyle = {

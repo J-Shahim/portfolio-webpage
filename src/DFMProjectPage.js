@@ -11,25 +11,46 @@ import "./components/NasaProjectPage.css";
 
 // Example DFM models and descriptions (replace with real data)
 const dfmModels = [
-  // Add your DFM .glb model paths here
-  "/portfolio-webpage/assets/models/dfm-project/model1.glb",
-  "/portfolio-webpage/assets/models/dfm-project/model2.glb",
+  "/portfolio-webpage/assets/models/dfm-project/Esal.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Bottom-arm-esal.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Top-arm-esal.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Pallet.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Top-strut-esal.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Hinge-back-plate-esal.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Guide-back-block.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Foot-esal.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Fastner-esal.gltf",
+
 ];
-// Placeholder descriptions for each model (replace with real imports when available)
+
+// Import markdown descriptions for each model (replace with real files as needed)
+import dfmModel1Desc from "./assets/texts/dfm-project/model1.md";
+import dfmModel2Desc from "./assets/texts/dfm-project/model2.md";
+import dfmModel3Desc from "./assets/texts/dfm-project/model3.md";
+import dfmModel4Desc from "./assets/texts/dfm-project/model4.md";
+import dfmModel5Desc from "./assets/texts/dfm-project/model5.md";
+import dfmModel6Desc from "./assets/texts/dfm-project/model6.md";
+import dfmModel7Desc from "./assets/texts/dfm-project/model7.md";
+import dfmModel8Desc from "./assets/texts/dfm-project/model8.md";
+import dfmModel9Desc from "./assets/texts/dfm-project/model9.md";
+
 const modelDescriptions = [
-  'No description available for Model 1.',
-  'No description available for Model 2.'
+  dfmModel1Desc,
+  dfmModel2Desc,
+  dfmModel3Desc,
+  dfmModel4Desc,
+  dfmModel5Desc,
+  dfmModel6Desc,
+  dfmModel7Desc,
+  dfmModel8Desc,
+  dfmModel9Desc,
 ];
 
 // Example PDF options (replace with real data)
 const pdfOptions = [
   {
-    label: "DFM Proposal",
-    value: "/portfolio-webpage/assets/docs/dfm-project/DFM-Proposal.pdf",
-  },
-  {
-    label: "DFM Final Report",
-    value: "/portfolio-webpage/assets/docs/dfm-project/DFM-Final-Report.pdf",
+    label: "Esal DFM CAD Package",
+    value: "/portfolio-webpage/assets/docs/dfm-project/Esal-DFM-Project.pdf",
   },
 ];
 
@@ -70,6 +91,18 @@ function DFMProjectPage() {
             </button>
             <h1>Design For Manufacturing (DFM) Project</h1>
             <TextBlock content={dfmProjectText} format="markdown" />
+            {/* YouTube Video Viewer */}
+            <div style={{ margin: '32px 0', display: 'flex', justifyContent: 'center' }}>
+              <iframe
+                width="720"
+                height="405"
+                src="https://www.youtube.com/embed/Zfte2x9jnOA?si=pXrDkwteVzGz055E"
+                title="DFM Project Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </main>
         ) : (
           <div
@@ -87,10 +120,10 @@ function DFMProjectPage() {
         )}
       </div>
 
-      {/* Collapsible Model Gallery */}
+      {/* Collapsible Model Gallery (matches NASA structure) */}
       <div className="collapsible-section">
         {showModelGallery ? (
-          <main className="main-block dfm-models-block" style={{ maxWidth: "85%", position: "relative" }}>
+          <main className="main-block nasa-models-block" style={{ maxWidth: "85%", position: "relative" }}>
             <button
               className="collapse-x"
               onClick={() => setShowModelGallery(false)}
@@ -98,16 +131,16 @@ function DFMProjectPage() {
             >
               &times;
             </button>
-            <div className="dfm-models-grid">
+            <div className="nasa-models-grid">
               {dfmModels.map((modelPath, idx) => (
                 <div
-                  className="dfm-model-panel"
+                  className="nasa-model-panel"
                   key={idx}
                   onDoubleClick={() => handlePanelClick(idx)}
                   style={{ cursor: "pointer" }}
                 >
                   <ThreeJSViewer key={panelReloadKeys[idx] + "-" + idx} modelPath={modelPath} />
-                  <div className="dfm-model-title">Model {idx + 1}</div>
+                  <div className="nasa-model-title">Model {idx + 1}</div>
                 </div>
               ))}
             </div>
@@ -182,10 +215,10 @@ function DFMProjectPage() {
         setCollapsed={setCollapsed}
         assetFolder={assetFolder}
       />
-      {/* Popup block for model viewer and description */}
+      {/* Popup block for model viewer and description (matches NASA structure) */}
       {popupIdx !== null && (
-        <div className="dfm-model-popup">
-          <div className="dfm-model-popup-content">
+        <div className="nasa-model-popup">
+          <div className="nasa-model-popup-content">
             <button className="collapse-x" onClick={closePopup} title="Close">
               &times;
             </button>
@@ -194,7 +227,7 @@ function DFMProjectPage() {
             </div>
             <TextBlock content={modelDescriptions[popupIdx]} format="markdown" />
           </div>
-          <div className="dfm-model-popup-backdrop" onClick={closePopup}></div>
+          <div className="nasa-model-popup-backdrop" onClick={closePopup}></div>
         </div>
       )}
     </div>
