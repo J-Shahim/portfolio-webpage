@@ -1,3 +1,54 @@
+.nasa-models-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-width: 804px;
+  position: relative;
+  /* Remove min-height to prevent height jump */
+}
+
+
+/* Outgoing panels */
+.fade-out-left {
+  animation: fadeLeftPanel 1.5s cubic-bezier(.4,2,.6,1) both;
+}
+.fade-out-right {
+  animation: fadeRightPanel 1.5s cubic-bezier(.4,2,.6,1) both;
+}
+/* Incoming panels */
+.fade-in-left {
+  animation: fadeInLeftPanel 1.5s cubic-bezier(.4,2,.6,1) both;
+}
+.fade-in-right {
+  animation: fadeInRightPanel 1.5s cubic-bezier(.4,2,.6,1) both;
+}
+
+@keyframes fadeLeftPanel {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-400px) scale(0.95); }
+}
+@keyframes fadeRightPanel {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(400px) scale(0.95); }
+}
+@keyframes fadeInLeftPanel {
+  0% { opacity: 0; transform: translateX(400px) scale(0.95); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes fadeInRightPanel {
+  0% { opacity: 0; transform: translateX(-400px) scale(0.95); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes fadeLeftPanel {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-120px) scale(0.95); }
+}
+@keyframes fadeRightPanel {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(120px) scale(0.95); }
+}
 /* Add to your CSS, e.g. src/components/Main.css or NasaProjectPage.css */
 .nasa-models-block {
   width: 100%;
@@ -36,6 +87,29 @@
   width: 100%;
   box-sizing: border-box;
   color: #010c05;
+  transition:
+    box-shadow 0.7s cubic-bezier(.4,2,.6,1),
+    transform 0.7s cubic-bezier(.4,2,.6,1),
+    border-color 0.4s cubic-bezier(.4,2,.6,1),
+    background 0.7s cubic-bezier(.4,2,.6,1),
+    opacity 0.7s cubic-bezier(.4,2,.6,1);
+  will-change: transform, box-shadow, opacity;
+}
+
+.nasa-model-panel:hover,
+.nasa-model-panel:focus-within {
+  transform: scale(1.045) translateY(-6px);
+  box-shadow:
+    0 12px 36px 0px #5f1d7a99,
+    0 4px 16px rgba(167,38,147,0.25);
+  border-color: #5f1d7a;
+  background: linear-gradient(
+    120deg,
+    rgba(245,245,255,0.85) 0%,
+    rgba(210,210,255,0.85) 50%,
+    rgba(180,180,255,0.85) 100%
+  );
+  z-index: 2;
 }
 
 .nasa-model-title {

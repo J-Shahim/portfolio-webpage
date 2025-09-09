@@ -1,11 +1,11 @@
 import { useState } from "react";
-import TextBlock from './components/TextBlock';
-import nasaProjectText from "./assets/texts/nasa-project/nasa-project.md";
 import ThreeJSViewer from "./components/ThreeJSViewer";
+import ModelGalleryCarousel from "./components/ModelGalleryCarousel";
 import "./components/NasaProjectPage.css";
 import GalleryBubble from './components/GalleryBubble';
 import { useLocation } from 'react-router-dom';
 import { assetFolderMap } from './utils/assetFolderMap';
+import TextBlock from './components/TextBlock';
 
 // Model paths and markdown descriptions
 const nasaModels = [
@@ -53,8 +53,7 @@ import model17Desc from "./assets/texts/nasa-project/model17.md";
 import model18Desc from "./assets/texts/nasa-project/model18.md";
 import model19Desc from "./assets/texts/nasa-project/model19.md";
 import model20Desc from "./assets/texts/nasa-project/model20.md";
-import model21Desc from "./assets/texts/nasa-project/model21.md";
-import model22Desc from "./assets/texts/nasa-project/model22.md";
+
 
 const modelDescriptions = [
   model1Desc, // Ball_Hinge_Bottom_plate.glb
@@ -77,8 +76,7 @@ const modelDescriptions = [
   model18Desc, // Tertiary gear- Straight bevel pinion 48DP70PT 70GT 20PA .25FW-V1.STL
   model19Desc, // Tether_attach_pin.STL
   model20Desc, // thether.STL
-  model21Desc, // (if any extra model)
-  model22Desc, // (if any extra model)
+
 ];
 
 // List of available PDFs
@@ -145,6 +143,8 @@ function NasaProjectPage() {
   };
 
   const location = useLocation();
+  // Carousel state
+  const [carouselIndex, setCarouselIndex] = useState(0);
   const assetFolder = assetFolderMap[location.pathname] || 'nasa-project';
 
   return (
@@ -179,46 +179,12 @@ function NasaProjectPage() {
         )}
       </div>
 
-      {/* Collapsible Model Gallery */}
-      <div className="collapsible-section">
-        {showModelGallery ? (
-          <main className="main-block nasa-models-block" style={{ maxWidth: "85%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
-            <button
-              className="collapse-x"
-              onClick={() => setShowModelGallery(false)}
-              title="Collapse"
-            >
-              &times;
-            </button>
-            <div className="nasa-models-grid">
-              {nasaModels.map((modelPath, idx) => (
-                <div
-                  className="nasa-model-panel"
-                  key={idx}
-                  onDoubleClick={() => handlePanelClick(idx)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <ThreeJSViewer key={panelReloadKeys[idx] + "-" + idx} modelPath={modelPath} />
-                  <div className="nasa-model-title">Model {idx + 1}</div>
-                </div>
-              ))}
-            </div>
-          </main>
-        ) : (
-          <div
-            className="collapsed-bar"
-            onClick={() => setShowModelGallery(true)}
-            title="Expand"
-            style={{
-              width: "90%",
-              justifySelf: "center",
-              fontFamily: "'Times New Roman', Times, serif"
-            }}
-          >
-            ► Model Gallery
-          </div>
-        )}
-      </div>
+      {/* Collapsible Model Gallery (reusable carousel) */}
+      <ModelGalleryCarousel
+        modelPaths={nasaModels}
+        modelDescriptions={modelDescriptions}
+        title="Model Gallery"
+      />
 
       {/* Collapsible PDF Viewer */}
       <div className="collapsible-section">
@@ -275,23 +241,10 @@ function NasaProjectPage() {
         setCollapsed={setCollapsed}
         assetFolder={assetFolder}
       />
-      {/* Popup block for model viewer and description */}
-      {popupIdx !== null && (
-        <div className="nasa-model-popup">
-          <div className="nasa-model-popup-content">
-            <button className="collapse-x" onClick={closePopup} title="Close">
-              &times;
-            </button>
-            <div style={{ width: "100%", height: "75%" }}>
-              <ThreeJSViewer key={nasaModels[popupIdx]} modelPath={nasaModels[popupIdx]} />
-            </div>
-            <TextBlock content={modelDescriptions[popupIdx]} format="markdown" />
-          </div>
-          <div className="nasa-model-popup-backdrop" onClick={closePopup}></div>
-        </div>
-      )}
+  {/* ModelGalleryCarousel handles its own popup */}
     </div>
   );
 }
+
 
 export default NasaProjectPage;

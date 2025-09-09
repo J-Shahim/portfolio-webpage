@@ -122,9 +122,9 @@ export default function ThreeJSViewer({ modelPath }) {
   // Handle gradient and transparent backgrounds
   const containerStyle = {
     width: "100%",
-    minHeight: "400px",
+    height: "100%",
     position: "relative",
-    padding: "8px",
+    padding: 0,
     background: bg === "transparent" ? "transparent" : (bg.includes("gradient") ? undefined : bg),
     backgroundImage: bg.includes("gradient") ? bg : undefined,
     fontFamily: "'Times New Roman', Times, serif"
@@ -197,7 +197,8 @@ export default function ThreeJSViewer({ modelPath }) {
           height: "100%",
           borderRadius: "24px", // Rounded corners
           overflow: "hidden",   // Ensures content stays inside rounded corners
-          boxShadow: "0 2px 16px rgba(21,101,192,0.12)" // Optional: subtle shadow
+          boxShadow: "0 2px 16px rgba(21,101,192,0.12)", // Optional: subtle shadow
+          display: "block"
         }}
       >
         <ambientLight intensity={.25} />

@@ -4,12 +4,13 @@ import { useState } from 'react';
 import TextBlock from './components/TextBlock';
 import dfmProjectText from "./assets/texts/dfm-project/dfm-project.md";
 import ThreeJSViewer from "./components/ThreeJSViewer";
+import ModelGalleryCarousel from "./components/ModelGalleryCarousel";
 import GalleryBubble from './components/GalleryBubble';
 import { useLocation } from 'react-router-dom';
 import { assetFolderMap } from './utils/assetFolderMap';
 import "./components/NasaProjectPage.css";
 
-// Example DFM models and descriptions (replace with real data)
+// DFM models and descriptions
 const dfmModels = [
   "/portfolio-webpage/assets/models/dfm-project/Esal.gltf",
   "/portfolio-webpage/assets/models/dfm-project/Bottom-arm-esal.gltf",
@@ -20,10 +21,8 @@ const dfmModels = [
   "/portfolio-webpage/assets/models/dfm-project/Guide-back-block.gltf",
   "/portfolio-webpage/assets/models/dfm-project/Foot-esal.gltf",
   "/portfolio-webpage/assets/models/dfm-project/Fastner-esal.gltf",
-
 ];
 
-// Import markdown descriptions for each model (replace with real files as needed)
 import dfmModel1Desc from "./assets/texts/dfm-project/model1.md";
 import dfmModel2Desc from "./assets/texts/dfm-project/model2.md";
 import dfmModel3Desc from "./assets/texts/dfm-project/model3.md";
@@ -122,46 +121,12 @@ function DFMProjectPage() {
         )}
       </div>
 
-      {/* Collapsible Model Gallery (matches NASA structure) */}
-      <div className="collapsible-section">
-        {showModelGallery ? (
-          <main className="main-block nasa-models-block" style={{ maxWidth: "85%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
-            <button
-              className="collapse-x"
-              onClick={() => setShowModelGallery(false)}
-              title="Collapse"
-            >
-              &times;
-            </button>
-            <div className="nasa-models-grid">
-              {dfmModels.map((modelPath, idx) => (
-                <div
-                  className="nasa-model-panel"
-                  key={idx}
-                  onDoubleClick={() => handlePanelClick(idx)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <ThreeJSViewer key={panelReloadKeys[idx] + "-" + idx} modelPath={modelPath} />
-                  <div className="nasa-model-title">Model {idx + 1}</div>
-                </div>
-              ))}
-            </div>
-          </main>
-        ) : (
-          <div
-            className="collapsed-bar"
-            onClick={() => setShowModelGallery(true)}
-            title="Expand"
-            style={{
-              width: "90%",
-              justifySelf: "center",
-              fontFamily: "'Times New Roman', Times, serif"
-            }}
-          >
-            ► Model Gallery
-          </div>
-        )}
-      </div>
+      {/* Collapsible Model Gallery (reusable carousel) */}
+      <ModelGalleryCarousel
+        modelPaths={dfmModels}
+        modelDescriptions={modelDescriptions}
+        title="Model Gallery"
+      />
 
       {/* Collapsible PDF Viewer */}
       <div className="collapsible-section">
