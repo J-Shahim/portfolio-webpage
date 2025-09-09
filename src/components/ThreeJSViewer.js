@@ -14,6 +14,8 @@ const COLOR_OPTIONS = [
   { name: "Orange", value: "#f9a825" },
   { name: "Purple", value: "#6a1b9a" },
   { name: "Gray", value: "#607d8b" },
+  { name: "Metallic Silver", value: "#b0b4b9", metallic: 1, roughness: 0.2 },
+  { name: "Metallic Blue", value: "#0e3faa", metallic: 10, roughness: 0.5 },
 ];
 
 const BG_OPTIONS = [
@@ -68,7 +70,7 @@ function Model({ url, color }) {
     const box = new THREE.Box3().setFromObject(scene);
     const size = box.getSize(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z);
-    const scale = maxDim > 0 ? 1.8 / maxDim : 1;
+    const scale = maxDim > 0 ? 12.5 / maxDim : 1;
     scene.scale.setScalar(scale);
     // Center the model
     const center = box.getCenter(new THREE.Vector3());
@@ -114,7 +116,7 @@ export default function ThreeJSViewer({ modelPath }) {
   const [sliderValue, setSliderValue] = useState(50); // 1-100 scale
   const [axis, setAxis] = useState([0, 0, 1]); // Default Z+ axis
   const [controlsOpen, setControlsOpen] = useState(false);
-  const [color, setColor] = useState(COLOR_OPTIONS[3].value); // Default to Orange
+  const [color, setColor] = useState(COLOR_OPTIONS.find(opt => opt.name === "Metallic Blue").value); // Default to Metallic Blue
   const [bg, setBg] = useState(BG_OPTIONS[2].value); // Default to Dark
 
   // Handle gradient and transparent backgrounds
@@ -197,8 +199,8 @@ export default function ThreeJSViewer({ modelPath }) {
           boxShadow: "0 2px 16px rgba(21,101,192,0.12)" // Optional: subtle shadow
         }}
       >
-        <ambientLight intensity={0.8} />
-        <directionalLight position={[2, 2, 2]} intensity={0.6} />
+        <ambientLight intensity={.25} />
+        <directionalLight position={[2, 2, 2]} intensity={1} />
         <Suspense fallback={null}>
           <Model url={modelPath} color={color} />
           <CameraDistanceController sliderValue={sliderValue} axis={axis} />
