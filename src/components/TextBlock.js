@@ -15,12 +15,12 @@ export default function TextBlock({ content, format = "plain" }) {
   switch (format) {
     case "html":
       // Render HTML content safely (be cautious with untrusted input)
-      return <div className="text-block" dangerouslySetInnerHTML={{ __html: content }} />;
+      return <div className="text-block" style={{ fontFamily: "'Times New Roman', Times, serif" }} dangerouslySetInnerHTML={{ __html: content }} />;
     case "markdown":
       // Render markdown content using ReactMarkdown
-      return <div className="text-block"><ReactMarkdown>{content}</ReactMarkdown></div>;
+      return <div className="text-block" style={{ fontFamily: "'Times New Roman', Times, serif" }}><ReactMarkdown>{content}</ReactMarkdown></div>;
     default:
       // Render plain text, wrapped in a paragraph
-      return <div className="text-block"><p>{content}</p></div>;
+      return <div className="text-block" style={{ fontFamily: "'Times New Roman', Times, serif" }}><p>{content}</p></div>;
   }
 }

@@ -64,24 +64,25 @@ function DFMProjectPage() {
   const [showPdfViewer, setShowPdfViewer] = useState(false);
   const location = useLocation();
   const assetFolder = assetFolderMap[location.pathname] || 'home';
-
-  const handlePanelClick = (idx) => {
-    setPopupIdx(idx);
-  };
-
-  const closePopup = () => {
-    setPopupIdx(null);
-    setPanelReloadKeys(keys =>
-      keys.map((key, i) => (i === popupIdx ? key + 1 : key))
-    );
-  };
-
+          <div
+            className="collapsed-bar"
+            onClick={() => setShowTextBlock(true)}
+            title="Expand"
+            style={{
+              marginTop: "120px",
+              width: "90%",
+              justifySelf: "center",
+              fontFamily: "'Times New Roman', Times, serif"
+            }}
+          >
+            ► DFM Project Description
+          </div>
   return (
     <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
       {/* Collapsible DFM.md Text Block */}
       <div className="collapsible-section">
         {showTextBlock ? (
-          <main className="main-block" style={{ maxWidth: "82.25%", position: "relative" }}>
+          <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
             <button
               className="collapse-x"
               onClick={() => setShowTextBlock(false)}
@@ -113,6 +114,7 @@ function DFMProjectPage() {
               marginTop: "120px",
               width: "90%",
               justifySelf: "center",
+              fontFamily: "'Times New Roman', Times, serif",    
             }}
           >
             ► DFM Project Description
@@ -123,7 +125,7 @@ function DFMProjectPage() {
       {/* Collapsible Model Gallery (matches NASA structure) */}
       <div className="collapsible-section">
         {showModelGallery ? (
-          <main className="main-block nasa-models-block" style={{ maxWidth: "85%", position: "relative" }}>
+          <main className="main-block nasa-models-block" style={{ maxWidth: "85%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
             <button
               className="collapse-x"
               onClick={() => setShowModelGallery(false)}
@@ -153,9 +155,10 @@ function DFMProjectPage() {
             style={{
               width: "90%",
               justifySelf: "center",
+              fontFamily: "'Times New Roman', Times, serif"
             }}
           >
-            ► DFM Project Model Gallery
+            ► Model Gallery
           </div>
         )}
       </div>
@@ -163,7 +166,7 @@ function DFMProjectPage() {
       {/* Collapsible PDF Viewer */}
       <div className="collapsible-section">
         {showPdfViewer ? (
-          <main className="main-block dfm-pdf-block" style={{ maxWidth: "85%", marginTop: "32px", position: "relative" }}>
+          <main className="main-block dfm-pdf-block" style={{ maxWidth: "82.5%", marginTop: "32px", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
             <button
               className="collapse-x"
               onClick={() => setShowPdfViewer(false)}
@@ -202,9 +205,10 @@ function DFMProjectPage() {
             style={{
               width: "90%",
               justifySelf: "center",
+              fontFamily: "'Times New Roman', Times, serif"
             }}
           >
-            ► DFM Project PDF Viewer
+            ► PDF Viewer
           </div>
         )}
       </div>

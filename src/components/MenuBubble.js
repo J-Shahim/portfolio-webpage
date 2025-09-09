@@ -72,13 +72,13 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
               whiteSpace: "nowrap",
             }}
           >
-            <Link to="/projects/nasa-project">NASA Project</Link>
+            <Link to="/projects/nasa-project">NASA Psyche</Link>
             <Link to="/projects/interactive-coder">Interactive Coder</Link>
-            <Link to="/projects/dfm-project">DFM Project</Link>
-            <Link to="/projects/robotic-arm-project">Robotic Arm Project</Link>
-            <Link to="/projects/gas-dynamics-project">GAS Dynamics Project</Link>
-            <Link to="/projects/ht-projects">HT Projects</Link>
-            <Link to="/projects/robotic-circuitry-project">Robotic Circuitry Project</Link>
+            <Link to="/projects/dfm-project">Design for Manufacturing</Link>
+            <Link to="/projects/robotic-arm-project">Robotic Arm</Link>
+            <Link to="/projects/gas-dynamics-project">GAS Dynamics</Link>
+            <Link to="/projects/ht-projects">Heat Transfer</Link>
+            <Link to="/projects/robotic-circuitry-project">Mechatronic Systems</Link>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ function GasDynamicsProjectPage({ collapsed, setCollapsed }) {
     <>
       <div className={`main-content${collapsed ? " header-collapsed" : ""}`}>
         <div className="main-flex-row">
-          <main className="main-block">
+          <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
             <h1>GAS Dynamics Project</h1>
             <TextBlock content={gasDynamicsText} format="markdown" />
             {/* Add more GAS Dynamics project UI/components here */}

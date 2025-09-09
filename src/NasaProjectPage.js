@@ -16,7 +16,20 @@ const nasaModels = [
   "/portfolio-webpage/assets/models/nasa-project/Gimbal Attachment ring.glb",
   "/portfolio-webpage/assets/models/nasa-project/HousingTopPlate.glb",
   "/portfolio-webpage/assets/models/nasa-project/legv2.glb",
-  // Add any additional current models here
+  // STL files
+  "/portfolio-webpage/assets/models/nasa-project/drive_shaft.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Latch Gear-Straight bevel pinion 48DP70PT 70GT 20PA .25FW -V2.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Latchgear.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Leg Rotation Shaft - Rack-spur - rectangular 120DP 20PA .1FW .25PH 1.5L.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Leg Shaft Drive Gear - Spur gear 120DP 20T 20PA .125FW ---S20O0.1H.25L0.03125N-V1.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Main Drive Gear-Straight bevel gear 20DP80PT 35GT 20PA 1FW.STL",
+  "/portfolio-webpage/assets/models/nasa-project/mounting plate.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Secondary Drive Gear- Straight bevel pinion 20DP35PT 80GT 20PA 1FW.STL",
+  "/portfolio-webpage/assets/models/nasa-project/swivel base.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Swivel-washer.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Tertiary gear- Straight bevel pinion 48DP70PT 70GT 20PA .25FW-V1.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Tether_attach_pin.STL",
+  "/portfolio-webpage/assets/models/nasa-project/thether.STL",
 ];
 
 // Import markdown descriptions for each model
@@ -29,17 +42,43 @@ import model6Desc from "./assets/texts/nasa-project/model6.md";
 import model7Desc from "./assets/texts/nasa-project/model7.md";
 import model8Desc from "./assets/texts/nasa-project/model8.md";
 import model9Desc from "./assets/texts/nasa-project/model9.md";
+import model10Desc from "./assets/texts/nasa-project/model10.md";
+import model11Desc from "./assets/texts/nasa-project/model11.md";
+import model12Desc from "./assets/texts/nasa-project/model12.md";
+import model13Desc from "./assets/texts/nasa-project/model13.md";
+import model14Desc from "./assets/texts/nasa-project/model14.md";
+import model15Desc from "./assets/texts/nasa-project/model15.md";
+import model16Desc from "./assets/texts/nasa-project/model16.md";
+import model17Desc from "./assets/texts/nasa-project/model17.md";
+import model18Desc from "./assets/texts/nasa-project/model18.md";
+import model19Desc from "./assets/texts/nasa-project/model19.md";
+import model20Desc from "./assets/texts/nasa-project/model20.md";
+import model21Desc from "./assets/texts/nasa-project/model21.md";
+import model22Desc from "./assets/texts/nasa-project/model22.md";
 
 const modelDescriptions = [
-  model1Desc,
-  model2Desc,
-  model3Desc,
-  model4Desc,
-  model5Desc,
-  model6Desc,
-  model7Desc,
-  model8Desc,
-  model9Desc,
+  model1Desc, // Ball_Hinge_Bottom_plate.glb
+  model2Desc, // Base_Plate_V3.glb
+  model3Desc, // BlackBox_V2.glb
+  model4Desc, // Foot.glb
+  model5Desc, // Gimbal Attachment ring.glb
+  model6Desc, // HousingTopPlate.glb
+  model7Desc, // legv2.glb
+  model8Desc, // drive_shaft.STL
+  model9Desc, // Latch Gear-Straight bevel pinion 48DP70PT 70GT 20PA .25FW -V2.STL
+  model10Desc, // Latchgear.STL
+  model11Desc, // Leg Rotation Shaft - Rack-spur - rectangular 120DP 20PA .1FW .25PH 1.5L.STL
+  model12Desc, // Leg Shaft Drive Gear - Spur gear 120DP 20T 20PA .125FW ---S20O0.1H.25L0.03125N-V1.STL
+  model13Desc, // Main Drive Gear-Straight bevel gear 20DP80PT 35GT 20PA 1FW.STL
+  model14Desc, // mounting plate.STL
+  model15Desc, // Secondary Drive Gear- Straight bevel pinion 20DP35PT 80GT 20PA 1FW.STL
+  model16Desc, // swivel base.STL
+  model17Desc, // Swivel-washer.STL
+  model18Desc, // Tertiary gear- Straight bevel pinion 48DP70PT 70GT 20PA .25FW-V1.STL
+  model19Desc, // Tether_attach_pin.STL
+  model20Desc, // thether.STL
+  model21Desc, // (if any extra model)
+  model22Desc, // (if any extra model)
 ];
 
 // List of available PDFs
@@ -113,7 +152,7 @@ function NasaProjectPage() {
       {/* Collapsible NASA.md Text Block */}
       <div className="collapsible-section">
         {showTextBlock ? (
-          <main className="main-block" style={{ maxWidth: "82.25%", position: "relative" }}>
+          <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
             <button
               className="collapse-x"
               onClick={() => setShowTextBlock(false)}
@@ -121,7 +160,6 @@ function NasaProjectPage() {
             >
               &times;
             </button>
-            <h1>NASA Project</h1>
             <TextBlock content={nasaProjectText} format="markdown" />
           </main>
         ) : (
@@ -133,9 +171,10 @@ function NasaProjectPage() {
               marginTop: "120px",
               width: "90%",
               justifySelf: "center",
+              fontFamily: "'Times New Roman', Times, serif",
             }}
           >
-            ► NASA Project Description
+            ► NASA Psyche Project Portal Description
           </div>
         )}
       </div>
@@ -143,7 +182,7 @@ function NasaProjectPage() {
       {/* Collapsible Model Gallery */}
       <div className="collapsible-section">
         {showModelGallery ? (
-          <main className="main-block nasa-models-block" style={{ maxWidth: "85%", position: "relative" }}>
+          <main className="main-block nasa-models-block" style={{ maxWidth: "85%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
             <button
               className="collapse-x"
               onClick={() => setShowModelGallery(false)}
@@ -173,9 +212,10 @@ function NasaProjectPage() {
             style={{
               width: "90%",
               justifySelf: "center",
+              fontFamily: "'Times New Roman', Times, serif"
             }}
           >
-            ► NASA Project Model Gallery
+            ► Model Gallery
           </div>
         )}
       </div>
@@ -183,7 +223,7 @@ function NasaProjectPage() {
       {/* Collapsible PDF Viewer */}
       <div className="collapsible-section">
         {showPdfViewer ? (
-          <main className="main-block nasa-pdf-block" style={{ maxWidth: "85%", marginTop: "32px", position: "relative" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: "85%", marginTop: "32px", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
             <button
               className="collapse-x"
               onClick={() => setShowPdfViewer(false)}
@@ -191,7 +231,7 @@ function NasaProjectPage() {
             >
               &times;
             </button>
-            <h2>NASA Project PDF</h2>
+            <h2>NASA Psyche Project PDF's</h2>
             <div style={{ marginBottom: "16px" }}>
               <label htmlFor="pdf-select" style={{ marginRight: "8px" }}>Select PDF:</label>
               <select
@@ -222,9 +262,10 @@ function NasaProjectPage() {
             style={{
               width: "90%",
               justifySelf: "center",
+              fontFamily: "'Times New Roman', Times, serif"
             }}
           >
-            ► NASA Project PDF Viewer
+            ► PDF Viewer
           </div>
         )}
       </div>

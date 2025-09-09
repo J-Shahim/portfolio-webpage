@@ -49,7 +49,7 @@ const Carousel = ({
         </>
       ) : (
         <div className="carousel-placeholder">
-          <p style={{ color: "#fff", padding: "40px" }}>
+          <p style={{ color: "#fff", padding: "40px", fontFamily: "'Times New Roman', Times, serif" }}>
             No images or videos found for this section.
           </p>
         </div>

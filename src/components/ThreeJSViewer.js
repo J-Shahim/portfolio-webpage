@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useRef } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Center } from "@react-three/drei";
 import { useLoader } from '@react-three/fiber';
@@ -70,7 +70,7 @@ function Model({ url, color }) {
     const box = new THREE.Box3().setFromObject(scene);
     const size = box.getSize(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z);
-    const scale = maxDim > 0 ? 12.5 / maxDim : 1;
+    const scale = maxDim > 0 ? 15 / maxDim : 1;
     scene.scale.setScalar(scale);
     // Center the model
     const center = box.getCenter(new THREE.Vector3());
@@ -126,7 +126,8 @@ export default function ThreeJSViewer({ modelPath }) {
     position: "relative",
     padding: "8px",
     background: bg === "transparent" ? "transparent" : (bg.includes("gradient") ? undefined : bg),
-    backgroundImage: bg.includes("gradient") ? bg : undefined
+    backgroundImage: bg.includes("gradient") ? bg : undefined,
+    fontFamily: "'Times New Roman', Times, serif"
   };
 
   return (
@@ -231,7 +232,8 @@ function AxisSelector({ onSelect, currentAxis }) {
       display: "flex",
       flexDirection: "column",
       gap: "6px",
-      marginBottom: "12px"
+      marginBottom: "12px",
+      fontFamily: "'Times New Roman', Times, serif"
     }}>
       {axes.map(axis => (
         <button
@@ -246,7 +248,8 @@ function AxisSelector({ onSelect, currentAxis }) {
             padding: "4px 12px",
             cursor: "pointer",
             fontSize: "1em",
-            boxShadow: "0 2px 8px rgba(120,120,180,0.10)"
+            boxShadow: "0 2px 8px rgba(120,120,180,0.10)",
+            fontFamily: "'Times New Roman', Times, serif"
           }}
           onClick={() => onSelect(axis.vec)}
         >
@@ -266,8 +269,8 @@ function AxisSelector({ onSelect, currentAxis }) {
 -------------------------------------------------------------------------- */
 function ColorSelector({ color, setColor }) {
   return (
-    <div style={{ marginBottom: "12px", display: "flex", flexDirection: "column", gap: "4px" }}>
-      <label style={{ color: "#5f1d7a", fontWeight: "bold", marginBottom: "4px" }}>Model Color</label>
+    <div style={{ marginBottom: "12px", display: "flex", flexDirection: "column", gap: "4px", fontFamily: "'Times New Roman', Times, serif" }}>
+      <label style={{ color: "#5f1d7a", fontWeight: "bold", marginBottom: "4px", fontFamily: "'Times New Roman', Times, serif" }}>Model Color</label>
       <select
         value={color}
         onChange={e => setColor(e.target.value)}
@@ -278,7 +281,8 @@ function ColorSelector({ color, setColor }) {
           color: "#5f1d7a",
           background: "#f8faff",
           fontSize: "1em",
-          boxShadow: "0 2px 8px rgba(120,120,180,0.10)"
+          boxShadow: "0 2px 8px rgba(120,120,180,0.10)",
+          fontFamily: "'Times New Roman', Times, serif"
         }}
       >
         {COLOR_OPTIONS.map(opt => (
@@ -298,8 +302,8 @@ function ColorSelector({ color, setColor }) {
 -------------------------------------------------------------------------- */
 function BackgroundSelector({ bg, setBg }) {
   return (
-    <div style={{ marginBottom: "12px", display: "flex", flexDirection: "column", gap: "4px" }}>
-      <label style={{ color: "#5f1d7a", fontWeight: "bold", marginBottom: "4px" }}>Background</label>
+    <div style={{ marginBottom: "12px", display: "flex", flexDirection: "column", gap: "4px", fontFamily: "'Times New Roman', Times, serif" }}>
+      <label style={{ color: "#5f1d7a", fontWeight: "bold", marginBottom: "4px", fontFamily: "'Times New Roman', Times, serif" }}>Background</label>
       <select
         value={bg}
         onChange={e => setBg(e.target.value)}
@@ -310,7 +314,8 @@ function BackgroundSelector({ bg, setBg }) {
           color: "#5f1d7a",
           background: "#f8faff",
           fontSize: "1em",
-          boxShadow: "0 2px 8px rgba(120,120,180,0.10)"
+          boxShadow: "0 2px 8px rgba(120,120,180,0.10)",
+          fontFamily: "'Times New Roman', Times, serif"
         }}
       >
         {BG_OPTIONS.map(opt => (

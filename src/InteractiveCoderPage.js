@@ -57,7 +57,7 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
         </div>
         <div className="collapsible-section">
           {showEditor ? (
-            <main className="main-block" style={{ padding: "20px", marginTop: "32px", maxWidth: "90%", position: "relative" }}>
+            <main className="main-block" style={{ padding: "20px", marginTop: "32px", maxWidth: "90%", position: "relative", fontFamily: "'Playwrite AU QLD', Arial, sans-serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowEditor(false)}
@@ -66,7 +66,7 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
               >
                 &times;
               </button>
-              <h1 style={{ margin: "0 0 40px 0", fontSize: "2rem", color: "#d404f0" }}>Interactive Code Editor Portal</h1>
+              <h1 style={{ margin: "0 0 40px 0", fontSize: "2rem", color: "#d404f0", fontFamily: "'Playwrite AU QLD', Arial, sans-serif" }}>Interactive Code Editor Portal</h1>
               <div className="code-editor-portal-wrapper">
                 <CodeEditorPortal
                   language={language}
@@ -80,7 +80,7 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
               className="collapsed-bar"
               onClick={() => setShowEditor(true)}
               title="Expand"
-              style={{ marginTop: "40px", width: "90%", justifySelf: "center" }}
+              style={{ marginTop: "40px", width: "90%", justifySelf: "center", fontFamily: "'Times New Roman', Times, serif" }}
             >
               ► Interactive Code Editor Portal
             </div>
@@ -91,7 +91,7 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
         <div style={{ width: "100%" }}>
           <div className="collapsible-section">
             {showTextBlock ? (
-              <main className="main-block" style={{ padding: "20px", margin: "0 auto 80px auto", maxWidth: "90%", position: "relative" }}>
+              <main className="main-block" style={{ padding: "20px", margin: "0 auto 80px auto", maxWidth: "90%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
                 <button
                   className="collapse-x"
                   onClick={() => setShowTextBlock(false)}
@@ -107,7 +107,7 @@ function InteractiveCoderPage({ collapsed, setCollapsed }) {
                 className="collapsed-bar"
                 onClick={() => setShowTextBlock(true)}
                 title="Expand"
-                style={{ marginTop: "40px", width: "90%", marginLeft: "auto", marginRight: "auto" }}
+                style={{ marginTop: "40px", width: "90%", marginLeft: "auto", marginRight: "auto", fontFamily: "'Times New Roman', Times, serif" }}
               >
                 ► Interactive Coder Info
               </div>
