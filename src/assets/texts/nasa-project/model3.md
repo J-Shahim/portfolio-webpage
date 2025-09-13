@@ -1,4 +1,3 @@
-# NASA Model 3
+# Base-Plate-V4
 
-This is a generic description for NASA Model 3.  
-Replace this text with specific details about the model as needed.
+Description for Base-Plate-V4. Replace with details about this part.

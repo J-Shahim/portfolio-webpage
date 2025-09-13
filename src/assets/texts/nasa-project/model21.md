@@ -1,3 +1,3 @@
-# Tether_attach_pin.STL
+# Main Motor Drive Shaft
 
-This model is the tether attach pin, used to secure the tether to the main assembly.
+Description for Main Motor Drive Shaft. Replace with details about this part.

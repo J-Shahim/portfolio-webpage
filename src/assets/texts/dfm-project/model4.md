@@ -1,3 +1,3 @@
-# Model 4 Description
+# Foot-Esal
 
-This is a placeholder for the DFM model 4 description.
+Description for Foot-Esal. Replace with details about this part.

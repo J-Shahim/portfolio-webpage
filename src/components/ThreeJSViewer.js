@@ -39,23 +39,26 @@ function Model({ url, color }) {
   if (ext === 'stl') {
     // STL loading
     const geometry = useLoader(STLLoader, url);
-    // Center and scale STL geometry
-    const meshRef = useRef();
-    useState(() => {
-      if (meshRef.current) {
-        geometry.center();
-        geometry.computeBoundingBox();
-        const size = geometry.boundingBox.getSize(new THREE.Vector3());
-        const maxDim = Math.max(size.x, size.y, size.z);
-        const scale = maxDim > 0 ? 1.8 / maxDim : 1;
-        meshRef.current.scale.setScalar(scale);
-      }
-    }, [geometry]);
+    // Center and scale STL geometry to fit viewer (like GLB)
+    geometry.center();
+    geometry.computeBoundingBox();
+    const size = geometry.boundingBox.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale = maxDim > 0 ? 15 / maxDim : 1;
+    // Center the model
+    const center = geometry.boundingBox.getCenter(new THREE.Vector3());
+    // Custom rotation for Esal-Project.stl
+  const isEsalProject = url.toLowerCase().includes('esal-project.stl');
+  // Flip upside down: 180deg about X only
+  const rotation = isEsalProject ? [Math.PI, 0, 0] : [0, 0, 0];
+    // Use a group to apply scale, position, and rotation
     return (
       <Center>
-        <mesh ref={meshRef} geometry={geometry} castShadow receiveShadow>
-          <meshStandardMaterial color={color} />
-        </mesh>
+        <group scale={[scale, scale, scale]} position={[-center.x, -center.y, -center.z]} rotation={rotation}>
+          <mesh geometry={geometry} castShadow receiveShadow>
+            <meshStandardMaterial color={color} />
+          </mesh>
+        </group>
       </Center>
     );
   } else {
@@ -66,22 +69,21 @@ function Model({ url, color }) {
         child.material.color.set(color);
       }
     });
-    // Center and scale model to fit viewer
+    // Scale and center the whole scene
     const box = new THREE.Box3().setFromObject(scene);
     const size = box.getSize(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z);
     const scale = maxDim > 0 ? 15 / maxDim : 1;
     scene.scale.setScalar(scale);
-    // Center the model
     const center = box.getCenter(new THREE.Vector3());
     scene.position.sub(center);
 
-    // Apply custom rotation for Esal.gltf only
-    if (url.includes('/Esal.gltf')) {
+    // Custom rotation for Esal-Project.stl (DFM project)
+    if (url.toLowerCase().includes('esal-project.stl')) {
       scene.rotation.x = Math.PI;
-    // You can adjust the axis/angle as needed
+      scene.rotation.y = 0;
+      scene.rotation.z = Math.PI;
     }
-
     return (
       <Center>
         <primitive object={scene} />
@@ -138,55 +140,55 @@ export default function ThreeJSViewer({ modelPath }) {
         style={{
           position: "absolute",
           top: 12,
-          right: 16,
+          right: 12,
+          zIndex: 2
         }}
         onClick={() => setControlsOpen((open) => !open)}
-        aria-label={controlsOpen ? "Hide Controls" : "Show Controls"}
+        aria-label="Open viewer controls"
       >
-        <span style={{ fontSize: "0.9em" }}>&#9776;</span>
+        ☰
       </button>
       {/* Controls Panel */}
       {controlsOpen && (
-        <div style={{
-          position: "absolute",
-          top: 72,
-          right: 16,
-          zIndex: 9999, // very high value to ensure it's always on top
-          background: "rgba(255,255,255,0.95)",
-          border: "2px solid #5f1d7a",
-          borderRadius: "18px",
-          boxShadow: "0 0 16px 4px #c0a4e66c, 0 4px 16px rgba(120,120,180,0.15), 0 8px 24px -4px rgba(180,180,255,0.12)",
-          padding: "16px 18px",
-          minWidth: "140px",
-          color: "#22223b",
-          backdropFilter: "blur(4px)"
-        }}>
-          {/* Axis selector */}
-          <AxisSelector onSelect={setAxis} currentAxis={axis} />
-          {/* Camera distance slider */}
-          <div style={{ marginTop: "10px" }}>
-            <input
-              id="camera-distance-slider"
-              type="range"
-              min={1}
-              max={1500}
-              step={1}
-              value={sliderValue}
-              onChange={e => setSliderValue(Number(e.target.value))}
-              style={{
-                width: "100%",
-                accentColor: "#5f1d7a", // modern browsers
-                background: "#f8faff",
-                borderRadius: "8px",
-                border: "2px solid #5f1d7a",
-                boxShadow: "0 2px 8px rgba(120,120,180,0.10)"
-              }}
-            />
+        <div
+          className="viewer-controls-panel"
+          style={{
+            position: "absolute",
+            top: 76,
+            right: 12,
+            zIndex: 1000,
+            background: "#fff",
+            border: "2px solid #5f1d7a",
+            borderRadius: "16px",
+            boxShadow: "0 4px 24px rgba(21,101,192,0.18)",
+            padding: "24px 28px 20px 28px",
+            minWidth: 120,
+            maxWidth: 220,
+            fontFamily: "'Times New Roman', Times, serif"
+          }}
+        >
+          <button
+            style={{
+              position: "absolute",
+              top: 8,
+              right: 12,
+              background: "none",
+              border: "none",
+              fontSize: 22,
+              cursor: "pointer",
+              color: "#5f1d7a"
+            }}
+            onClick={() => setControlsOpen(false)}
+            aria-label="Close menu"
+          >
+            &times;
+          </button>
+          <div style={{ marginTop: 16 }}>
+            {/* Color selector */}
+            <ColorSelector color={color} setColor={setColor} />
+            {/* Background selector */}
+            <BackgroundSelector bg={bg} setBg={setBg} />
           </div>
-          {/* Color selector */}
-          <ColorSelector color={color} setColor={setColor} />
-          {/* Background selector */}
-          <BackgroundSelector bg={bg} setBg={setBg} />
         </div>
       )}
       {/* 3D Canvas */}
@@ -213,53 +215,6 @@ export default function ThreeJSViewer({ modelPath }) {
   );
 }
 
-/* --------------------------------------------------------------------------
-   AxisSelector Component
-   Renders buttons to select camera orientation along the X, Y, or Z axis.
-   Props:
-     - onSelect: callback function to call with the new camera position
--------------------------------------------------------------------------- */
-function AxisSelector({ onSelect, currentAxis }) {
-  const axes = [
-    { label: "X+", vec: [1, 0, 0] },
-    { label: "X-", vec: [-1, 0, 0] },
-    { label: "Y+", vec: [0, 1, 0] },
-    { label: "Y-", vec: [0, -1, 0] },
-    { label: "Z+", vec: [0, 0, 1] },
-    { label: "Z-", vec: [0, 0, -1] },
-  ];
-  return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      gap: "6px",
-      marginBottom: "12px",
-      fontFamily: "'Times New Roman', Times, serif"
-    }}>
-      {axes.map(axis => (
-        <button
-          key={axis.label}
-          style={{
-            background: currentAxis[0] === axis.vec[0] && currentAxis[1] === axis.vec[1] && currentAxis[2] === axis.vec[2]
-              ? "#e3d7f7"
-              : "#f8faff",
-            color: "#5f1d7a",
-            border: "2px solid #5f1d7a",
-            borderRadius: "8px",
-            padding: "4px 12px",
-            cursor: "pointer",
-            fontSize: "1em",
-            boxShadow: "0 2px 8px rgba(120,120,180,0.10)",
-            fontFamily: "'Times New Roman', Times, serif"
-          }}
-          onClick={() => onSelect(axis.vec)}
-        >
-          {axis.label}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 /* --------------------------------------------------------------------------
    ColorSelector Component

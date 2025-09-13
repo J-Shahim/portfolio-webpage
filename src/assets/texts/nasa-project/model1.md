@@ -1,4 +1,3 @@
-# NASA Model 1
+# Ball-Hinge-Bottom-Plate
 
-This is a generic description for NASA Model 1.  
-Replace this text with specific details about the model as needed.
+Description for Ball-Hinge-Bottom-Plate. Replace with details about this part.

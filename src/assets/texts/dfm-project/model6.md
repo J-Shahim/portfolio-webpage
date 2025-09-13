@@ -1,3 +1,3 @@
-# Model 6 Description
+# Hinge-Back-Plate-Esal
 
-This is a placeholder for the DFM model 6 description.
+Description for Hinge-Back-Plate-Esal. Replace with details about this part.

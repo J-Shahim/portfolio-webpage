@@ -1,3 +1,3 @@
-# Latchgear.STL
+# Leg Rotation Shaft
 
-This model represents the main latch gear, responsible for engaging and securing the mechanism during operation.
+Description for Leg Rotation Shaft. Replace with details about this part.

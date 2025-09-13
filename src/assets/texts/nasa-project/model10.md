@@ -1,3 +1,3 @@
-# drive_shaft.STL
+# Latch-Gear-Straight-Bevel-Pinion-V4
 
-This model represents the drive shaft component of the NASA project. It is a key part of the mechanical transmission system.
+Description for Latch-Gear-Straight-Bevel-Pinion-V4. Replace with details about this part.

@@ -1,3 +1,3 @@
-# swivel base.STL
+# Main Drive Gear (2)
 
-This model represents the swivel base, allowing rotational movement for the attached components.
+Description for Main Drive Gear (2). Replace with details about this part.

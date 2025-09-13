@@ -1,4 +1,3 @@
-# NASA Model 6
+# Gimbal-Attachment-Ring-V2
 
-This is a generic description for NASA Model 6.  
-Replace this text with specific details about the model as needed.
+Description for Gimbal-Attachment-Ring-V2. Replace with details about this part.

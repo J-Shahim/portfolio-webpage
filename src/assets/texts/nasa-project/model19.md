@@ -1,3 +1,3 @@
-# Swivel-washer.STL
+# Main Drive Gear
 
-This model is a washer for the swivel mechanism, providing smooth rotation and reducing friction.
+Description for Main Drive Gear. Replace with details about this part.

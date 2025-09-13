@@ -1,4 +1,3 @@
-# NASA Model 9
+# Latch-Gear-Straight-Bevel-Pinion-V2
 
-This is a generic description for NASA Model 9.  
-Replace this text with specific details about the model as needed.
+Description for Latch-Gear-Straight-Bevel-Pinion-V2. Replace with details about this part.

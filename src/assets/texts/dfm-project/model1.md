@@ -1,3 +1,3 @@
-# Model 1 Description
+# Bottom-Arm-Esal
 
-This is a placeholder for the DFM model 1 description.
+Description for Bottom-Arm-Esal. Replace with details about this part.

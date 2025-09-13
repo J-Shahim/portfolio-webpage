@@ -1,3 +1,3 @@
-# mounting plate.STL
+# Leg Cap V1
 
-This model represents the mounting plate, which serves as a base for attaching other components in the assembly.
+Description for Leg Cap V1. Replace with details about this part.

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ThreeJSViewer from './ThreeJSViewer';
 import TextBlock from './TextBlock';
 import './NasaProjectPage.css';
+import ArrowButton from './ArrowButton';
 
 /**
  * ModelGalleryCarousel - a reusable carousel for 3D models with markdown popups.
@@ -34,21 +35,23 @@ function ModelGalleryCarousel({ modelPaths, modelDescriptions, title = 'Model Ga
   return (
     <div className="collapsible-section">
       {showGallery ? (
-        <main className={`main-block nasa-models-block ${panelClass}`} style={{ maxWidth: '85%', height: '65%', minHeight: '800px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
+        <main className={`main-block nasa-models-block ${panelClass}`} style={{ maxWidth: '86%', height: '65%', minHeight: '600px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
           <button className="collapse-x" onClick={() => setShowGallery(false)} title="Collapse">&times;</button>
           {title && <h2 style={{ textAlign: 'center', marginBottom: 16 }}>{title}</h2>}
           <div
             className="nasa-models-carousel"
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24,
-              minWidth: 3 * 260 + 2 * 24,
+
             }}
           >
-            <button
-              aria-label="Previous Model"
-              style={{ fontSize: 32, background: 'none', border: 'none', cursor: 'pointer', color: '#5f1d7a', padding: 8 }}
+            <ArrowButton
+              direction="left"
+              ariaLabel="Previous Model"
               onClick={handlePrev}
-            >&#8592;</button>
+              className="arrow-btn arrow-btn-left"
+              style={{ fontSize: 24, justifySelf: 'center' }}
+            />
             {[-1, 0, 1].map(offset => {
               const i = (carouselIndex + offset + modelPaths.length) % modelPaths.length;
               return (
@@ -57,11 +60,11 @@ function ModelGalleryCarousel({ modelPaths, modelDescriptions, title = 'Model Ga
                   className="nasa-model-panel"
                   onDoubleClick={() => handlePanelClick(i)}
                   style={{
-                    minWidth: 260, maxWidth: 520, maxHeight: 720, width: '100%', height: 720, flex: 1,
+                    minWidth: 130, maxWidth: 520, maxHeight: 520, width: '100%', height: 620, flex: 1,
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box',
                   }}
                 >
-                  <div style={{ width: '100%', height: '100%', maxWidth: 520, maxHeight: 520 }}>
+                  <div style={{ width: '100%', height: '100%', maxWidth: 520, maxHeight: 420 }}>
                     <ThreeJSViewer modelPath={modelPaths[i]} />
                   </div>
                   <div className="nasa-model-title" style={{ marginTop: 8 }}>Model {i + 1}</div>
@@ -72,11 +75,13 @@ function ModelGalleryCarousel({ modelPaths, modelDescriptions, title = 'Model Ga
                 </div>
               );
             })}
-            <button
-              aria-label="Next Model"
-              style={{ fontSize: 32, background: 'none', border: 'none', cursor: 'pointer', color: '#5f1d7a', padding: 8 }}
+            <ArrowButton
+              direction="right"
+              ariaLabel="Next Model"
               onClick={handleNext}
-            >&#8594;</button>
+              className="arrow-btn arrow-btn-right"
+              style={{ fontSize: 24, justrifySelf: 'center' }}
+            />
           </div>
         </main>
       ) : (

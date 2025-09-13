@@ -1,3 +1,3 @@
-# Model 9 Description
+# Slider-guide
 
-This is a placeholder for the DFM model 9 description.
+Description for Slider-guide. Replace with details about this part.

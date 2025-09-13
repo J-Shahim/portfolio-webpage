@@ -1,4 +1,3 @@
-# NASA Model 8
+# Housing-Top-Plate
 
-This is a generic description for NASA Model 8.  
-Replace this text with specific details about the model as needed.
+Description for Housing-Top-Plate. Replace with details about this part.

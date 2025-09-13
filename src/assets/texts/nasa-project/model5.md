@@ -1,4 +1,3 @@
-# NASA Model 5
+# Drive-shaft
 
-This is a generic description for NASA Model 5.  
-Replace this text with specific details about the model as needed.
+Description for Drive-shaft. Replace with details about this part.

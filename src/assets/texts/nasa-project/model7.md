@@ -1,4 +1,3 @@
-# NASA Model 7
+# Half-Inch-Nut
 
-This is a generic description for NASA Model 7.  
-Replace this text with specific details about the model as needed.
+Description for Half-Inch-Nut. Replace with details about this part.

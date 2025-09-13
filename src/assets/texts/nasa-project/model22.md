@@ -1,3 +1,3 @@
-# thether.STL
+# mock_leg
 
-This model represents the tether component, providing a flexible connection for the system.
+Description for mock_leg. Replace with details about this part.

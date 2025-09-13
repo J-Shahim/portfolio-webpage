@@ -1,3 +1,3 @@
-# Model 7 Description
+# Hinge-Plate-Esal
 
-This is a placeholder for the DFM model 7 description.
+Description for Hinge-Plate-Esal. Replace with details about this part.

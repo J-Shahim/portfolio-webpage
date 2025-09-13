@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 import TextBlock from './components/TextBlock';
 import dfmProjectText from "./assets/texts/dfm-project/dfm-project.md";
@@ -12,15 +10,18 @@ import "./components/NasaProjectPage.css";
 
 // DFM models and descriptions
 const dfmModels = [
-  "/portfolio-webpage/assets/models/dfm-project/Esal.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Bottom-arm-esal.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Top-arm-esal.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Pallet.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Top-strut-esal.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Hinge-back-plate-esal.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Guide-back-block.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Foot-esal.gltf",
-  "/portfolio-webpage/assets/models/dfm-project/Fastner-esal.gltf",
+  "/portfolio-webpage/assets/models/dfm-project/Esal-Project.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Bottom-Arm-Esal.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Fastener-Esal.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Foot-Esal.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Guide-Back-Block.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Hinge-Back-Plate-Esal.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Hinge-Plate-Esal.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Pallet.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Slider-guide.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Top-Arm-Esal.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Top-Strut-Esal.stl",
+  "/portfolio-webpage/assets/models/dfm-project/Wedge.stl"
 ];
 
 import dfmModel1Desc from "./assets/texts/dfm-project/model1.md";
@@ -34,15 +35,16 @@ import dfmModel8Desc from "./assets/texts/dfm-project/model8.md";
 import dfmModel9Desc from "./assets/texts/dfm-project/model9.md";
 
 const modelDescriptions = [
-  dfmModel1Desc,
-  dfmModel2Desc,
-  dfmModel3Desc,
-  dfmModel4Desc,
-  dfmModel5Desc,
-  dfmModel6Desc,
-  dfmModel7Desc,
-  dfmModel8Desc,
-  dfmModel9Desc,
+  dfmModel2Desc, // Esal-Project.stl
+  dfmModel1Desc, // Bottom-Arm-Esal.stl
+  dfmModel3Desc, // Fastener-Esal.stl
+  dfmModel4Desc, // Foot-Esal.stl
+  dfmModel5Desc, // Guide-Back-Block.stl
+  dfmModel6Desc, // Hinge-Back-Plate-Esal.stl
+  dfmModel7Desc, // Hinge-Plate-Esal.stl
+  dfmModel8Desc, // Pallet.stl
+  dfmModel9Desc, // Slider-guide.stl
+  // Add more as needed for Top-Arm-Esal, Top-Strut-Esal, Wedge
 ];
 
 // Example PDF options (replace with real data)
@@ -192,7 +194,7 @@ function DFMProjectPage() {
               &times;
             </button>
             <div style={{ width: "100%", height: "75%" }}>
-              <ThreeJSViewer key={dfmModels[popupIdx]} modelPath={dfmModels[popupIdx]} />
+              <ThreeJSViewer key={dfmModels[popupIdx]} modelPath={dfmModels[popupIdx]} rotation={popupIdx === 1 ? [Math.PI / 2, 0, 0] : undefined} />
             </div>
             <TextBlock content={modelDescriptions[popupIdx]} format="markdown" />
           </div>

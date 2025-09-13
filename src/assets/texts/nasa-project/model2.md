@@ -1,4 +1,3 @@
-# NASA Model 2
+# Ball_Hinge_top_plate
 
-This is a generic description for NASA Model 2.  
-Replace this text with specific details about the model as needed.
+Description for Ball_Hinge_top_plate. Replace with details about this part.

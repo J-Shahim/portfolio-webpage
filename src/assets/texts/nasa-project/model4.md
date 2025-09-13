@@ -1,4 +1,3 @@
-# NASA Model 4
+# Black-Box-V2
 
-This is a generic description for NASA Model 4.  
-Replace this text with specific details about the model as needed.
+Description for Black-Box-V2. Replace with details about this part.

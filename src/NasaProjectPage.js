@@ -9,27 +9,38 @@ import TextBlock from './components/TextBlock';
 
 // Model paths and markdown descriptions
 const nasaModels = [
-  "/portfolio-webpage/assets/models/nasa-project/Ball_Hinge_Bottom_plate.glb",
-  "/portfolio-webpage/assets/models/nasa-project/Base_Plate_V3.glb",
-  "/portfolio-webpage/assets/models/nasa-project/BlackBox_V2.glb",
-  "/portfolio-webpage/assets/models/nasa-project/Foot.glb",
-  "/portfolio-webpage/assets/models/nasa-project/Gimbal Attachment ring.glb",
-  "/portfolio-webpage/assets/models/nasa-project/HousingTopPlate.glb",
-  "/portfolio-webpage/assets/models/nasa-project/legv2.glb",
-  // STL files
-  "/portfolio-webpage/assets/models/nasa-project/drive_shaft.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Latch Gear-Straight bevel pinion 48DP70PT 70GT 20PA .25FW -V2.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Latchgear.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Leg Rotation Shaft - Rack-spur - rectangular 120DP 20PA .1FW .25PH 1.5L.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Leg Shaft Drive Gear - Spur gear 120DP 20T 20PA .125FW ---S20O0.1H.25L0.03125N-V1.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Main Drive Gear-Straight bevel gear 20DP80PT 35GT 20PA 1FW.STL",
-  "/portfolio-webpage/assets/models/nasa-project/mounting plate.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Secondary Drive Gear- Straight bevel pinion 20DP35PT 80GT 20PA 1FW.STL",
-  "/portfolio-webpage/assets/models/nasa-project/swivel base.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Swivel-washer.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Tertiary gear- Straight bevel pinion 48DP70PT 70GT 20PA .25FW-V1.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Tether_attach_pin.STL",
-  "/portfolio-webpage/assets/models/nasa-project/thether.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Ball-Hinge-Bottom-Plate.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Ball_Hinge_top_plate.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Base-Plate-V4.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Black-Box-V2.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Drive-shaft.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Gimbal-Attachment-Ring-V2.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Half-Inch-Nut.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Housing-Top-Plate.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Latch-Gear-Straight-Bevel-Pinion-V2.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Latch-Gear-Straight-Bevel-Pinion-V4.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Latch-Gear.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Leg-Axle-V1.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Leg-Axle-V2.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Leg-Axle-V3.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Leg-Pin.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Leg_Cap_V1.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Main-Drive-Gear-Straight-Bevel.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Main-Motor-Bracket.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Main-Motor-Drive-Shaft.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Mock-Leg-V1.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Mock-Leg-V2.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Mounting-Plate.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Secondary-Drive-Gear-Straight-Bevel-Pinion.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Spur-Rack-Key-V1.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Spur-Rack-Key-V2.STL",
+  "/portfolio-webpage/assets/models/nasa-project/SupportCapV3.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Swivel-Base.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Swivel-Washer.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Tertiary-Gear-Straight-Bevel-Pinion-V1.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Tether-Attachment-Pin.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Tether.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Tertiary-Gear-Straight-Bevel-Pinion-V4.STL"
 ];
 
 // Import markdown descriptions for each model
@@ -53,30 +64,26 @@ import model17Desc from "./assets/texts/nasa-project/model17.md";
 import model18Desc from "./assets/texts/nasa-project/model18.md";
 import model19Desc from "./assets/texts/nasa-project/model19.md";
 import model20Desc from "./assets/texts/nasa-project/model20.md";
-
+import model21Desc from "./assets/texts/nasa-project/model21.md";
+import model22Desc from "./assets/texts/nasa-project/model22.md";
+import model23Desc from "./assets/texts/nasa-project/model23.md";
+import model24Desc from "./assets/texts/nasa-project/model24.md";
+import model25Desc from "./assets/texts/nasa-project/model25.md";
+import model26Desc from "./assets/texts/nasa-project/model26.md";
+import model27Desc from "./assets/texts/nasa-project/model27.md";
+import model28Desc from "./assets/texts/nasa-project/model28.md";
+import model29Desc from "./assets/texts/nasa-project/model29.md";
+import model30Desc from "./assets/texts/nasa-project/model30.md";
+import model31Desc from "./assets/texts/nasa-project/model31.md";
+import model32Desc from "./assets/texts/nasa-project/model32.md";
+import model33Desc from "./assets/texts/nasa-project/model33.md";
+import nasaProjectText from "./assets/texts/nasa-project/nasa-project.md";
 
 const modelDescriptions = [
-  model1Desc, // Ball_Hinge_Bottom_plate.glb
-  model2Desc, // Base_Plate_V3.glb
-  model3Desc, // BlackBox_V2.glb
-  model4Desc, // Foot.glb
-  model5Desc, // Gimbal Attachment ring.glb
-  model6Desc, // HousingTopPlate.glb
-  model7Desc, // legv2.glb
-  model8Desc, // drive_shaft.STL
-  model9Desc, // Latch Gear-Straight bevel pinion 48DP70PT 70GT 20PA .25FW -V2.STL
-  model10Desc, // Latchgear.STL
-  model11Desc, // Leg Rotation Shaft - Rack-spur - rectangular 120DP 20PA .1FW .25PH 1.5L.STL
-  model12Desc, // Leg Shaft Drive Gear - Spur gear 120DP 20T 20PA .125FW ---S20O0.1H.25L0.03125N-V1.STL
-  model13Desc, // Main Drive Gear-Straight bevel gear 20DP80PT 35GT 20PA 1FW.STL
-  model14Desc, // mounting plate.STL
-  model15Desc, // Secondary Drive Gear- Straight bevel pinion 20DP35PT 80GT 20PA 1FW.STL
-  model16Desc, // swivel base.STL
-  model17Desc, // Swivel-washer.STL
-  model18Desc, // Tertiary gear- Straight bevel pinion 48DP70PT 70GT 20PA .25FW-V1.STL
-  model19Desc, // Tether_attach_pin.STL
-  model20Desc, // thether.STL
-
+  model1Desc, model2Desc, model3Desc, model4Desc, model5Desc, model6Desc, model7Desc, model8Desc, model9Desc, model10Desc,
+  model11Desc, model12Desc, model13Desc, model14Desc, model15Desc, model16Desc, model17Desc, model18Desc, model19Desc, model20Desc,
+  model21Desc, model22Desc, model23Desc, model24Desc, model25Desc, model26Desc, model27Desc, model28Desc, model29Desc, model30Desc,
+  model31Desc, model32Desc, model33Desc
 ];
 
 // List of available PDFs
