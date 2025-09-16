@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-webpage/static/css/main.1cc7484e.css",
-    "main.js": "/portfolio-webpage/static/js/main.230f0a1c.js",
+    "main.css": "/portfolio-webpage/static/css/main.4519a179.css",
+    "main.js": "/portfolio-webpage/static/js/main.accc9ccb.js",
     "static/media/Screen Recording 2025-02-26 185317.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-02-26 185317.8911c588ef3186237ef5.mp4",
     "static/media/Foot Morphing and Locking mechanism.mp4": "/portfolio-webpage/static/media/Foot Morphing and Locking mechanism.862045d5c7b5724b9d29.mp4",
     "static/media/Screen Recording 2025-06-09 114637.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-06-09 114637.47a6ed298fb0ae4fdfc3.mp4",
@@ -24,11 +24,11 @@
     "static/media/draw_planar_arm_individual_links_prismatic.jpg": "/portfolio-webpage/static/media/draw_planar_arm_individual_links_prismatic.8d9fed54dca7461aa6ad.jpg",
     "static/media/draw_3D_arm.jpg": "/portfolio-webpage/static/media/draw_3D_arm.06e61e596ba2910712ef.jpg",
     "index.html": "/portfolio-webpage/index.html",
-    "main.1cc7484e.css.map": "/portfolio-webpage/static/css/main.1cc7484e.css.map",
-    "main.230f0a1c.js.map": "/portfolio-webpage/static/js/main.230f0a1c.js.map"
+    "main.4519a179.css.map": "/portfolio-webpage/static/css/main.4519a179.css.map",
+    "main.accc9ccb.js.map": "/portfolio-webpage/static/js/main.accc9ccb.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cc7484e.css",
-    "static/js/main.230f0a1c.js"
+    "static/css/main.4519a179.css",
+    "static/js/main.accc9ccb.js"
   ]
 }
