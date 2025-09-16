@@ -3,8 +3,10 @@
    Fixed position bubble menu on the left side of the page.
    Contains the menu button and dropdown links.
 -------------------------------------------------------------------------- */
+
+
 .menu-bubble {
-  position:fixed;
+  position: fixed;
   left: 32px;
   top: 440px;
   z-index: 3002;
@@ -14,6 +16,11 @@
   transition: top 0.3s, opacity 0.6s cubic-bezier(.4,2,.6,1), visibility 0.6s;
   opacity: 1;
   visibility: visible;
+}
+
+/* For skill pages, override top to 32px */
+.skills-page .menu-bubble {
+  top: 32px;
 }
 
 /* Hide menu bubble (used for transitions/animations) */

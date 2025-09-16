@@ -18,24 +18,18 @@ const allImageSets = {
   'home': importAll(require.context('../assets/images/home', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
   'about': importAll(require.context('../assets/images/about', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
   'nasa-project': importAll(require.context('../assets/images/nasa-project', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-  'gas-dynamics-project': importAll(require.context('../assets/images/gas-dynamics-project', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-  'ht-projects': importAll(require.context('../assets/images/ht-projects', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
   'interactive-coder': importAll(require.context('../assets/images/interactive-coder', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
   'profile': importAll(require.context('../assets/images/profile', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
   'robotic-arm-project': importAll(require.context('../assets/images/robotic-arm-project', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
-  'robotic-circuitry-project': importAll(require.context('../assets/images/robotic-circuitry-project', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
 };
 
 const allVideoSets = {
   'home': importAll(require.context('../assets/videos/home', false, /\.(mp4|webm|ogg)$/), 'video'),
   'about': importAll(require.context('../assets/videos/about', false, /\.(mp4|webm|ogg)$/), 'video'),
   'nasa-project': importAll(require.context('../assets/videos/nasa-project', false, /\.(mp4|webm|ogg)$/), 'video'),
-  'gas-dynamics-project': importAll(require.context('../assets/videos/gas-dynamics-project', false, /\.(mp4|webm|ogg)$/), 'video'),
-  'ht-projects': importAll(require.context('../assets/videos/ht-projects', false, /\.(mp4|webm|ogg)$/), 'video'),
   'interactive-coder': importAll(require.context('../assets/videos/interactive-coder', false, /\.(mp4|webm|ogg)$/), 'video'),
   'profile': importAll(require.context('../assets/videos/profile', false, /\.(mp4|webm|ogg)$/), 'video'),
   'robotic-arm-project': importAll(require.context('../assets/videos/robotic-arm-project', false, /\.(mp4|webm|ogg)$/), 'video'),
-  'robotic-circuitry-project': importAll(require.context('../assets/videos/robotic-circuitry-project', false, /\.(mp4|webm|ogg)$/), 'video'),
   'dfm-project': importAll(require.context('../assets/videos/dfm-project', false, /\.(mp4|webm|ogg)$/), 'video'),
 };
 
