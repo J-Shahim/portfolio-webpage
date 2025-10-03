@@ -1,20 +1,33 @@
 {
   "files": {
-    "main.css": "/portfolio-webpage/static/css/main.1cc7484e.css",
-    "main.js": "/portfolio-webpage/static/js/main.230f0a1c.js",
+    "main.css": "/portfolio-webpage/static/css/main.4519a179.css",
+    "main.js": "/portfolio-webpage/static/js/main.4303502a.js",
     "static/media/Screen Recording 2025-02-26 185317.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-02-26 185317.8911c588ef3186237ef5.mp4",
     "static/media/Foot Morphing and Locking mechanism.mp4": "/portfolio-webpage/static/media/Foot Morphing and Locking mechanism.862045d5c7b5724b9d29.mp4",
+    "static/media/Screen Recording 2025-03-19 152605.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-03-19 152605.c472222f02ff4cc70599.mp4",
     "static/media/Screen Recording 2025-06-09 114637.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-06-09 114637.47a6ed298fb0ae4fdfc3.mp4",
+    "static/media/Screen Recording 2025-03-19 152732.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-03-19 152732.f1cbcb87715605b57b81.mp4",
+    "static/media/img9.jpg": "/portfolio-webpage/static/media/img9.7c1aaf44010ed12cd472.jpg",
+    "static/media/20250312_194128.jpg": "/portfolio-webpage/static/media/20250312_194128.d19e943338301176d5b7.jpg",
+    "static/media/20250313_181814.jpg": "/portfolio-webpage/static/media/20250313_181814.9b3c5681ca4e815ccbad.jpg",
+    "static/media/img8.jpg": "/portfolio-webpage/static/media/img8.c12596d600cdd7ac5265.jpg",
     "static/media/Test.JPG": "/portfolio-webpage/static/media/Test.1b5319409804123a1eae.JPG",
+    "static/media/img1.jpg": "/portfolio-webpage/static/media/img1.ac540a8555eeff46b076.jpg",
+    "static/media/img3.jpg": "/portfolio-webpage/static/media/img3.103144e3d76fd2dbd1de.jpg",
+    "static/media/img5.jpg": "/portfolio-webpage/static/media/img5.e9ef0460b7b4ccf8f6d2.jpg",
     "static/media/trace_circle_prismatic.mp4": "/portfolio-webpage/static/media/trace_circle_prismatic.f1fddf26928e5d2cc9b5.mp4",
     "static/media/interactive-coder.png": "/portfolio-webpage/static/media/interactive-coder.5285d32e5f488d5dec43.png",
-    "static/media/Screenshot 2025-05-18 202340.png": "/portfolio-webpage/static/media/Screenshot 2025-05-18 202340.4d471883bad69cc7f633.png",
+    "static/media/DFM-project-panel-img.png": "/portfolio-webpage/static/media/DFM-project-panel-img.8769fb0001b12030e5c7.png",
+    "static/media/Snapchat-1450755795.jpg": "/portfolio-webpage/static/media/Snapchat-1450755795.5d0878106b0bfe5aca76.jpg",
+    "static/media/GT-project-panel.jpg": "/portfolio-webpage/static/media/GT-project-panel.8533af8cd3d0bd3a9e77.jpg",
+    "static/media/img7.png": "/portfolio-webpage/static/media/img7.4d471883bad69cc7f633.png",
     "static/media/NASA-project-panel-img.png": "/portfolio-webpage/static/media/NASA-project-panel-img.31184f82beed5a8a658d.png",
     "static/media/falling_prismatic_arm.mp4": "/portfolio-webpage/static/media/falling_prismatic_arm.14ad3d217e10a21f7a3b.mp4",
+    "static/media/img4.png": "/portfolio-webpage/static/media/img4.e1542edc098a5c7f23e4.png",
     "static/media/falling_arm.mp4": "/portfolio-webpage/static/media/falling_arm.ed077dccd2bac5f10a40.mp4",
     "static/media/Robot_Arm_Tracing_Cirlce.mp4": "/portfolio-webpage/static/media/Robot_Arm_Tracing_Cirlce.d0312e24f1652ddd65eb.mp4",
-    "static/media/Picture1.png": "/portfolio-webpage/static/media/Picture1.ec9b1d385ef64a45b34c.png",
-    "static/media/Screenshot 2025-05-18 201243.png": "/portfolio-webpage/static/media/Screenshot 2025-05-18 201243.34c503ce40ff65e61257.png",
+    "static/media/img2.png": "/portfolio-webpage/static/media/img2.631ac4e96ade6b93ab6d.png",
+    "static/media/img6.png": "/portfolio-webpage/static/media/img6.34c503ce40ff65e61257.png",
     "static/media/draw_3D_arm_with_Jacobian.jpg": "/portfolio-webpage/static/media/draw_3D_arm_with_Jacobian.ce2dcde3cbcd0b55c458.jpg",
     "static/media/draw_planar_arm_with_Jacobian.jpg": "/portfolio-webpage/static/media/draw_planar_arm_with_Jacobian.dfdc899c69a12a753cb1.jpg",
     "static/media/draw_planar_arm.jpg": "/portfolio-webpage/static/media/draw_planar_arm.16eb13b2acfaa9ef7bb1.jpg",
@@ -24,11 +37,11 @@
     "static/media/draw_planar_arm_individual_links_prismatic.jpg": "/portfolio-webpage/static/media/draw_planar_arm_individual_links_prismatic.8d9fed54dca7461aa6ad.jpg",
     "static/media/draw_3D_arm.jpg": "/portfolio-webpage/static/media/draw_3D_arm.06e61e596ba2910712ef.jpg",
     "index.html": "/portfolio-webpage/index.html",
-    "main.1cc7484e.css.map": "/portfolio-webpage/static/css/main.1cc7484e.css.map",
-    "main.230f0a1c.js.map": "/portfolio-webpage/static/js/main.230f0a1c.js.map"
+    "main.4519a179.css.map": "/portfolio-webpage/static/css/main.4519a179.css.map",
+    "main.4303502a.js.map": "/portfolio-webpage/static/js/main.4303502a.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cc7484e.css",
-    "static/js/main.230f0a1c.js"
+    "static/css/main.4519a179.css",
+    "static/js/main.4303502a.js"
   ]
 }
