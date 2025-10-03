@@ -1,3 +1,3 @@
-# Swivel Base
+# Tether Attachment Pin
 
-Description for Swivel Base. Replace with details about this part.
+Attaches base of carbon theter to gimbal/anchor. Allows rotational motion about the tether. and distributes load translated from tether to the gimbal.

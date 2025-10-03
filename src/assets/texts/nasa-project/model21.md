@@ -1,3 +1,3 @@
-# Main Motor Drive Shaft
+# Mounting plate
 
-Description for Main Motor Drive Shaft. Replace with details about this part.
+Serperates geared transmission section from the electronics section inside the main housing. 

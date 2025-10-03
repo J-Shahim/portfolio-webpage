@@ -1,3 +1,3 @@
-# Leg Rotation Shaft
+# Leg Shaft
 
-Description for Leg Rotation Shaft. Replace with details about this part.
+First iteratation linear actuated leg shaft.

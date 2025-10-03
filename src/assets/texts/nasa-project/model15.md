@@ -1,3 +1,3 @@
-# Leg-axle V2
+# Leg Cap
 
-Description for Leg-axle V2. Replace with details about this part.
+Supports/constrains legs rotation. Access hole for assembly, encloses legs  driving mechanisms.   

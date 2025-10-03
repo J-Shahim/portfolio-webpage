@@ -1,3 +1,3 @@
-# Spur Rack Key
+# Gimbal 
 
-Description for Spur Rack Key. Replace with details about this part.
+Two axis gimbal, allows for the main body of the anchor to rotate about its centerline axis as well as about the rotational axis perpendicular to the tether's face.

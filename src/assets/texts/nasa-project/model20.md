@@ -1,3 +1,3 @@
-# Main Motor Bracket
+# Leg
 
-Description for Main Motor Bracket. Replace with details about this part.
+Final iteration of leg with locking mechanism and attachment point for ball ankle.

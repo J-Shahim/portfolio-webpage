@@ -1,3 +1,3 @@
-# Tether Attach Pin
+# Foot
 
-Description for Tether Attach Pin. Replace with details about this part.
+This component provides the base for the electrostatic anchor attacment. It allows for differnatial slope compliance based on astroid surface structure.

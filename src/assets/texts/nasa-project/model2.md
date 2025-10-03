@@ -1,3 +1,3 @@
-# Ball_Hinge_top_plate
+# Ball Hinge Top Plate
 
-Description for Ball_Hinge_top_plate. Replace with details about this part.
+Fixes to the ball hinge bottom plate to constrain ball ankle.

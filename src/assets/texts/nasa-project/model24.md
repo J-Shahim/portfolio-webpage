@@ -1,3 +1,3 @@
-# mounting plate
+# Secondary Motor Linear Transfer Drive Gear V2
 
-Description for mounting plate. Replace with details about this part.
+Final First iteration, Transfers rotational motion of the motor into linear motion of the leg shaft.

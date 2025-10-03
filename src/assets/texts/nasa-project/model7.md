@@ -1,3 +1,3 @@
-# Half-Inch-Nut
+# 1/2" -Nut
 
-Description for Half-Inch-Nut. Replace with details about this part.
+locks the gimbal's central rotation axis in place to top plate, constrains bearings for gimbal.

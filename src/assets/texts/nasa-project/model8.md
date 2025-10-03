@@ -1,3 +1,3 @@
-# Housing-Top-Plate
+# Housing Top Plate
 
-Description for Housing-Top-Plate. Replace with details about this part.
+Top plate supports the gimbal assembly and encloses the black box outter shell. Smoothly transfers load from gimbal to the main body of the anchor.

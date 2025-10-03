@@ -11,7 +11,7 @@ const COLOR_OPTIONS = [
   { name: "Blue", value: "#1565c0" },
   { name: "Red", value: "#c62828" },
   { name: "Green", value: "#2e7d32" },
-  { name: "Orange", value: "#f9a825" },
+  { name: "Orange", value: "#ff6600" },
   { name: "Purple", value: "#6a1b9a" },
   { name: "Gray", value: "#607d8b" },
   { name: "Metallic Silver", value: "#b0b4b9", metallic: 1, roughness: 0.2 },
@@ -118,7 +118,7 @@ export default function ThreeJSViewer({ modelPath }) {
   const [sliderValue, setSliderValue] = useState(50); // 1-100 scale
   const [axis, setAxis] = useState([0, 0, 1]); // Default Z+ axis
   const [controlsOpen, setControlsOpen] = useState(false);
-  const [color, setColor] = useState(COLOR_OPTIONS.find(opt => opt.name === "Metallic Blue").value); // Default to Metallic Blue
+  const [color, setColor] = useState(COLOR_OPTIONS.find(opt => opt.name === "Orange").value); // Default to Orange
   const [bg, setBg] = useState(BG_OPTIONS[2].value); // Default to Dark
 
   // Handle gradient and transparent backgrounds

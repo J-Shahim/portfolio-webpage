@@ -1,3 +1,3 @@
-# Secondary Drive Gear
+# Support Cap
 
-Description for Secondary Drive Gear. Replace with details about this part.
+Encloses the leg shafts linear rack gear portion with the secondary linear transfer gear, supports and constrains the shaft.

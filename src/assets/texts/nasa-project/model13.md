@@ -1,3 +1,3 @@
-# Leg Shaft Drive Gear
+# Leg Shaft V2
 
-Description for Leg Shaft Drive Gear. Replace with details about this part.
+Second iteration drive shaft, increase teeth size and included locking mechanism.

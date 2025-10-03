@@ -1,3 +1,3 @@
-# Tertiary Gear
+# Tertiary Drive Gear
 
-Description for Tertiary Gear. Replace with details about this part.
+Meshes with latch gear straight bevel pinion V4 and is press fit onto main drive shaft.

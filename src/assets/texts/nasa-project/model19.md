@@ -1,3 +1,3 @@
-# Main Drive Gear
+# Mock Leg
 
-Description for Main Drive Gear. Replace with details about this part.
+First iteration leg with locking interface. Helped in fine tuning locking mechism.

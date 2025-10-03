@@ -1,3 +1,3 @@
-# Support Cap V3
+# Washer
 
-Description for Support Cap V3. Replace with details about this part.
+Works inconjuction with the 1/2" nut to constrain gimbal/ bearings to top plate 

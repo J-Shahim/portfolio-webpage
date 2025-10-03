@@ -32,6 +32,20 @@ function ModelGalleryCarousel({ modelPaths, modelDescriptions, title = 'Model Ga
     setCarouselIndex(i => (i + 3) % modelPaths.length);
   };
 
+  // Helper to extract the model name from the first line of the markdown
+  const getModelName = (md) => {
+    if (typeof md === 'string') {
+      const match = md.match(/^#\s*(.+)/m);
+      return match ? match[1].trim() : '';
+    }
+    // If md is a module with a default export (e.g., imported as a file)
+    if (md && typeof md.default === 'string') {
+      const match = md.default.match(/^#\s*(.+)/m);
+      return match ? match[1].trim() : '';
+    }
+    return '';
+  };
+
   return (
     <div className="collapsible-section">
       {showGallery ? (
@@ -42,7 +56,6 @@ function ModelGalleryCarousel({ modelPaths, modelDescriptions, title = 'Model Ga
             className="nasa-models-carousel"
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24,
-
             }}
           >
             <ArrowButton
@@ -60,16 +73,16 @@ function ModelGalleryCarousel({ modelPaths, modelDescriptions, title = 'Model Ga
                   className="nasa-model-panel"
                   onDoubleClick={() => handlePanelClick(i)}
                   style={{
-                    minWidth: 130, maxWidth: 520, maxHeight: 520, width: '100%', height: 620, flex: 1,
+                    minWidth: 130, maxWidth: 520, maxHeight: 600, width: '100%', height: 700, flex: 1,
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box',
                   }}
                 >
-                  <div style={{ width: '100%', height: '100%', maxWidth: 520, maxHeight: 420 }}>
+                  <div style={{ width: '100%', height: 480, maxWidth: 520, maxHeight: 480 }}>
                     <ThreeJSViewer modelPath={modelPaths[i]} />
                   </div>
-                  <div className="nasa-model-title" style={{ marginTop: 8 }}>Model {i + 1}</div>
+                  <div className="nasa-model-title" style={{ marginTop: 8, minHeight: 28, textAlign: 'center', lineHeight: 1.2 }}>{getModelName(modelDescriptions[i])}</div>
                   <button
-                    style={{ marginTop: 8, fontSize: 14, background: '#5f1d7a', color: '#fff', border: 'none', borderRadius: 8, padding: '4px 12px', cursor: 'pointer' }}
+                    style={{ marginTop: 24, fontSize: 14, background: '#5f1d7a', color: '#fff', border: 'none', borderRadius: 8, padding: '4px 12px', cursor: 'pointer' }}
                     onClick={() => handlePanelClick(i)}
                   >View Details</button>
                 </div>

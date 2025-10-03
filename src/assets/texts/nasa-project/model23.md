@@ -1,3 +1,3 @@
-# mock_legv2
+# Secondary Motor Linear Transfer Drive Gear V1
 
-Description for mock_legv2. Replace with details about this part.
+First iteration, Transfers rotational motion of the motor into linear motion of the leg shaft.

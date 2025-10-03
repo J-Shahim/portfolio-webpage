@@ -1,3 +1,3 @@
-# Drive-shaft
+# Drive Shaft
 
-Description for Drive-shaft. Replace with details about this part.
+Main drive shaft, press/thermal fits into bearings and drive gears, allowing local surface conditions to be naturaly cold welded while in space transit. 

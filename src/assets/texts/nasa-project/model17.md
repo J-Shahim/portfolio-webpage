@@ -1,3 +1,3 @@
-# Leg Pin
+# Main Motor Mount
 
-Description for Leg Pin. Replace with details about this part.
+Supports main drive motor, giving room for geared transmission.

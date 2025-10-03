@@ -1,3 +1,3 @@
-# Gimbal-Attachment-Ring-V2
+# Gimbal Attachment Ring
 
-Description for Gimbal-Attachment-Ring-V2. Replace with details about this part.
+This ring acts to constrain the the 2 axis gimbal, and transfers load from gimbal into top plate.

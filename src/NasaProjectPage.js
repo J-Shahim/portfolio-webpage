@@ -23,7 +23,6 @@ const nasaModels = [
   "/portfolio-webpage/assets/models/nasa-project/Leg-Axle-V1.STL",
   "/portfolio-webpage/assets/models/nasa-project/Leg-Axle-V2.STL",
   "/portfolio-webpage/assets/models/nasa-project/Leg-Axle-V3.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Leg-Pin.STL",
   "/portfolio-webpage/assets/models/nasa-project/Leg_Cap_V1.STL",
   "/portfolio-webpage/assets/models/nasa-project/Main-Drive-Gear-Straight-Bevel.STL",
   "/portfolio-webpage/assets/models/nasa-project/Main-Motor-Bracket.STL",
@@ -37,10 +36,10 @@ const nasaModels = [
   "/portfolio-webpage/assets/models/nasa-project/SupportCapV3.STL",
   "/portfolio-webpage/assets/models/nasa-project/Swivel-Base.STL",
   "/portfolio-webpage/assets/models/nasa-project/Swivel-Washer.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Tertiary-Gear-Straight-Bevel-Pinion-V1.STL",
   "/portfolio-webpage/assets/models/nasa-project/Tether-Attachment-Pin.STL",
   "/portfolio-webpage/assets/models/nasa-project/Tether.STL",
-  "/portfolio-webpage/assets/models/nasa-project/Tertiary-Gear-Straight-Bevel-Pinion-V4.STL"
+  "/portfolio-webpage/assets/models/nasa-project/Tertiary-Gear-Straight-Bevel-Pinion-V4.STL",
+  "/portfolio-webpage/assets/models/nasa-project/Foot.STL"
 ];
 
 // Import markdown descriptions for each model
@@ -75,25 +74,23 @@ import model28Desc from "./assets/texts/nasa-project/model28.md";
 import model29Desc from "./assets/texts/nasa-project/model29.md";
 import model30Desc from "./assets/texts/nasa-project/model30.md";
 import model31Desc from "./assets/texts/nasa-project/model31.md";
-import model32Desc from "./assets/texts/nasa-project/model32.md";
-import model33Desc from "./assets/texts/nasa-project/model33.md";
 import nasaProjectText from "./assets/texts/nasa-project/nasa-project.md";
 
 const modelDescriptions = [
   model1Desc, model2Desc, model3Desc, model4Desc, model5Desc, model6Desc, model7Desc, model8Desc, model9Desc, model10Desc,
   model11Desc, model12Desc, model13Desc, model14Desc, model15Desc, model16Desc, model17Desc, model18Desc, model19Desc, model20Desc,
   model21Desc, model22Desc, model23Desc, model24Desc, model25Desc, model26Desc, model27Desc, model28Desc, model29Desc, model30Desc,
-  model31Desc, model32Desc, model33Desc
+  model31Desc,
 ];
 
 // List of available PDFs
 const pdfOptions = [
   {
-    label: "NASA Proposal",
+    label: "NASA Psyche Space Elevator Anchor Proposal",
     value: "/portfolio-webpage/assets/docs/nasa-project/Design-Proposal.pdf",
   },
     {
-    label: "NASA Final Report",
+    label: "NASA Psyche Space Elevator Anchor Final Report",
     value: "/portfolio-webpage/assets/docs/nasa-project/Final-Report.pdf",
   },
   {

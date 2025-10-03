@@ -1,3 +1,3 @@
-# Latchgear
+# Latch 
 
-This model is a straight bevel pinion gear used in the latching mechanism. It features 48DP, 70PT, 20PA, and a .25 face width.
+First iteration latch ring ment to be welded to linear actuated leg shaft on opposite side of the latch gear. To hold and lock leg while disengageing from central driving mechanism.

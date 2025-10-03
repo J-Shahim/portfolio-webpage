@@ -1,3 +1,3 @@
-# Leg-axle V3
+# Leg Shaft V3
 
-This model is a spur gear for the leg shaft drive, with 120DP, 20 teeth, 20PA, and .125 face width.
+Third iteration leg shaft, increased tooth size and changed locking mechanism. 

@@ -1,3 +1,3 @@
-# mock_leg
+# Primary Drive Gear 
 
-Description for mock_leg. Replace with details about this part.
+Meshes with Main gear,is press fit onto the main drive shaft.
