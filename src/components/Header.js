@@ -6,12 +6,14 @@ import "./Header.css";
 
 // Import all images and videos from all subfolders
 function importAll(r, type) {
-  return r.keys().map((file) => ({
-    type,
-    src: r(file).default || r(file),
-  }));
+  // Exclude any files from 'profile' folders
+  return r.keys()
+    .filter((file) => !file.toLowerCase().includes('profile'))
+    .map((file) => ({
+      type,
+      src: r(file).default || r(file),
+    }));
 }
-
 // Import all images from all subfolders in assets/images
 const allImages = importAll(require.context('../assets/images', true, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image');
 // Import all videos from all subfolders in assets/videos
@@ -57,13 +59,28 @@ const Header = ({ collapsed, setCollapsed, imageDir = "home", videoDir = "home" 
     };
   }, []);
 
-  /* ------------------------------------------------------------------------
-     Combine images and videos for carousel backgrounds
+/* ------------------------------------------------------------------------
+     Combine images and videos for carousel backgrounds (randomized)
   ------------------------------------------------------------------------ */
-  // Use all images and videos from all subfolders
+  // Shuffle array utility
+  function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
+  // Exclude profile images and videos from the header gallery (robust path check)
+  const filterProfile = (mediaArr) => mediaArr.filter(m => {
+    const src = m.src.toLowerCase();
+    return !src.includes('profile');
+  });
   const backgrounds = useMemo(() => {
-    return [...allImages, ...allVideos];
+    return shuffle([...filterProfile(allImages), ...filterProfile(allVideos)]);
   }, []);
+
 
   const hasBackgrounds = backgrounds.length > 0;
 
