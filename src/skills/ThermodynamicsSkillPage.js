@@ -11,8 +11,32 @@ function ThermodynamicsSkillPage() {
   const [showPdf, setShowPdf] = useState(false);
   const pdfOptions = [
     {
-      label: "Thermodynamics Overview",
-      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/overview.pdf',
+      label: "Heat Transfer Notes",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/HT-notes.pdf',
+    },
+    {
+      label: "Thermodynamoics Notes",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/TD-notes.pdf',
+    },
+    {
+      label: "Mini Project 1 - Heat Transfer",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/MP1-HT.pdf',
+    },
+    {
+      label: "Mini Project 2 - Heat Transfer",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/MP2-HT.pdf'
+    },
+    {
+      label: "HW1 - Thermodynamics",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/TD-HW1.pdf',
+    },
+    {
+       label: "HW2 - Thermodynamics",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/TD-HW2.pdf',
+    },
+    {
+      label: "HW3 - Thermodynamics",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/thermo-dynamics/TD-HW3.pdf',
     },
     // Add more PDFs here if needed
   ];
@@ -23,7 +47,7 @@ function ThermodynamicsSkillPage() {
       <div className="main-content">
         <div className="collapsible-section">
           {showTextBlock ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: '90%', marginTop: '32px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowTextBlock(false)}
@@ -52,7 +76,7 @@ function ThermodynamicsSkillPage() {
         {/* Collapsible PDF Section (dynamic) */}
         <div className="collapsible-section">
           {showPdf ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif", marginTop: "24px" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: '90%', marginTop: '32px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowPdf(false)}

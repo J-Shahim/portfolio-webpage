@@ -26,7 +26,7 @@ function GasDynamicsSkillPage() {
       <div className="main-content">
         <div className="collapsible-section">
           {showTextBlock ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: '90%', marginTop: '32px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowTextBlock(false)}
@@ -55,7 +55,7 @@ function GasDynamicsSkillPage() {
         {/* Collapsible PDF Section (dynamic) */}
         <div className="collapsible-section">
           {showPdf ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif", marginTop: "24px" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: '90%', marginTop: '32px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowPdf(false)}

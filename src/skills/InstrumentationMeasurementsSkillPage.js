@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import TextBlock from '../components/TextBlock';
 import MenuBubble from '../components/MenuBubble';
+import GalleryBubble from '../components/GalleryBubble';
+import { useLocation } from 'react-router-dom';
+import { assetFolderMap } from '../utils/assetFolderMap';
 import instrMeasText from '../assets/texts/skills/instrumentation-&-measurements/Instrumentation_and_Measurement.md';
 
 
@@ -9,6 +12,9 @@ import instrMeasText from '../assets/texts/skills/instrumentation-&-measurements
 function InstrumentationMeasurementsSkillPage() {
   const [showTextBlock, setShowTextBlock] = useState(false);
   const [showPdf, setShowPdf] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+  const location = useLocation();
+  const assetFolder = assetFolderMap[location.pathname] || 'home';
   const pdfOptions = [
     {
       label: "Instrumentation & Measurements Overview",
@@ -23,7 +29,7 @@ function InstrumentationMeasurementsSkillPage() {
       <div className="main-content">
         <div className="collapsible-section">
           {showTextBlock ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: '90%', marginTop: '32px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowTextBlock(false)}
@@ -32,6 +38,17 @@ function InstrumentationMeasurementsSkillPage() {
                 &times;
               </button>
               <TextBlock content={instrMeasText} format="markdown" />
+              <div style={{ margin: '32px 0', display: 'flex', justifyContent: 'center' }}>
+                <iframe
+                  width="720"
+                  height="405"
+                  src="https://www.youtube.com/embed/Y-EJppDuWSI?si=21Tndzj9gAZ8dHNw"
+                  title="Instrumentation and Measurement Skills Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </main>
           ) : (
             <div
@@ -49,58 +66,14 @@ function InstrumentationMeasurementsSkillPage() {
             </div>
           )}
         </div>
-        {/* Collapsible PDF Section (dynamic) */}
-        <div className="collapsible-section">
-          {showPdf ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif", marginTop: "24px" }}>
-              <button
-                className="collapse-x"
-                onClick={() => setShowPdf(false)}
-                title="Collapse"
-              >
-                &times;
-              </button>
-              <h2>Instrumentation & Measurements PDF</h2>
-              <div style={{ marginBottom: "16px" }}>
-                <label htmlFor="pdf-select" style={{ marginRight: "8px" }}>Select PDF:</label>
-                <select
-                  id="pdf-select"
-                  value={selectedPdf}
-                  onChange={e => setSelectedPdf(e.target.value)}
-                >
-                  {pdfOptions.map(pdf => (
-                    <option key={pdf.value} value={pdf.value}>{pdf.label}</option>
-                  ))}
-                </select>
-              </div>
-              <div style={{ width: "100%", height: "80vh" }}>
-                <iframe
-                  src={selectedPdf}
-                  title="Instrumentation & Measurements PDF"
-                  width="100%"
-                  height="100%"
-                  style={{ border: '1px solid #ccc', marginTop: 0 }}
-                />
-              </div>
-            </main>
-          ) : (
-            <div
-              className="collapsed-bar"
-              onClick={() => setShowPdf(true)}
-              title="Expand PDF"
-              style={{
-                marginTop: "24px",
-                width: "90%",
-                justifySelf: "center",
-                fontFamily: "'Times New Roman', Times, serif",
-              }}
-            >
-              ► Instrumentation & Measurements PDF
-            </div>
-          )}
-        </div>
       </div>
-  </div>
+      {/* GalleryBubble for instrumentation skills */}
+      <GalleryBubble
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+        assetFolder={assetFolder}
+      />
+    </div>
   );
 }
 

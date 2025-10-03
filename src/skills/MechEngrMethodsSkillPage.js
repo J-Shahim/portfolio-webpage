@@ -11,10 +11,33 @@ function MechEngrMethodsSkillPage() {
   const [showPdf, setShowPdf] = useState(false);
   const pdfOptions = [
     {
-      label: "Mechanical Engineering Methods Overview",
-      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/overview.pdf',
+      label: "Assignment 1",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/As1.pdf',
     },
-    // Add more PDFs here if needed
+    {
+      label: "Assignment 2",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/As2.pdf',
+    },
+    {
+      label: "Assignment 3",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/As3.pdf',
+    },
+    {
+      label: "Assignment 4",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/As4.pdf',
+    },
+    {
+      label: "MEMs Notes 1",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/MEMs-notes1.pdf',
+    },
+    {
+      label: "MEMs Notes 2",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/MEMs-notes2.pdf',
+    },
+    {
+      label: "MEMs Notes 3",
+      value: process.env.PUBLIC_URL + '/assets/docs/skills/mech-engr-methods/MEMs-notes3.pdf',
+    },
   ];
   const [selectedPdf, setSelectedPdf] = useState(pdfOptions[0].value);
   return (
@@ -23,7 +46,7 @@ function MechEngrMethodsSkillPage() {
       <div className="main-content">
         <div className="collapsible-section">
           {showTextBlock ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: '90%', marginTop: '32px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowTextBlock(false)}
@@ -52,7 +75,7 @@ function MechEngrMethodsSkillPage() {
         {/* Collapsible PDF Section (dynamic) */}
         <div className="collapsible-section">
           {showPdf ? (
-            <main className="main-block" style={{ maxWidth: "82.25%", position: "relative", fontFamily: "'Times New Roman', Times, serif", marginTop: "24px" }}>
+          <main className="main-block nasa-pdf-block" style={{ maxWidth: '90%', marginTop: '32px', position: 'relative', fontFamily: "'Times New Roman', Times, serif" }}>
               <button
                 className="collapse-x"
                 onClick={() => setShowPdf(false)}
