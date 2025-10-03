@@ -36,25 +36,20 @@ const projects = [
     link: "/projects/interactive-coder"
   },
   {
-    image: projectImages["dfm-project.png"],
+    title: "Design for Manufacturing",
+    image: projectImages["dfm-project/DFM-project-panel-img.png"],
     link: "/projects/dfm-project"
   },
   {
-    image: projectImages["robotic-arm-project.png"],
+    title: "Robotic Arm",
+    image: projectImages["robotic-arm-project/RA-project-panel.png"],
     link: "/projects/robotic-arm-project"
   },
   {
-    image: projectImages["gas-dynamics-project.png"],
-    link: "/projects/gas-dynamics-project"
+    title: "Geothermal Energy",
+    image: projectImages["geothermal-project/GT-project-panel.jpg"],
+    link: "/projects/geothermal-project"
   },
-  {
-    image: projectImages["ht-projects.png"],
-    link: "/projects/ht-projects"
-  },
-  {
-    image: projectImages["robotic-circuitry-project.png"],
-    link: "/projects/robotic-circuitry-project"
-  }
 ];
 
 const getIndex = (i, length) => (i + length) % length;
