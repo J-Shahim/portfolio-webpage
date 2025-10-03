@@ -18,6 +18,7 @@ import ThermodynamicsSkillPage from "./skills/ThermodynamicsSkillPage";
 import FluidMechanicsSkillPage from "./skills/FluidMechanicsSkillPage";
 import MechEngrMethodsSkillPage from "./skills/MechEngrMethodsSkillPage";
 import InstrumentationMeasurementsSkillPage from "./skills/InstrumentationMeasurementsSkillPage";
+import SDCSkillPage from "./skills/SDCSkillPage";
 
 // Removed SkillsPage overview to prevent wide underlined tab
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/skills/fluid-mechanics" element={<FluidMechanicsSkillPage />} />
           <Route path="/skills/mech-engr-methods" element={<MechEngrMethodsSkillPage />} />
           <Route path="/skills/instrumentation-&-measurements" element={<InstrumentationMeasurementsSkillPage />} />
+          <Route path="/skills/sdc" element={<SDCSkillPage />} />
           {/* Projects grid with nested routes for subtabs */}
           <Route
             path="/projects"

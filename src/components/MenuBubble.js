@@ -111,6 +111,7 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
             <Link to="/skills/fluid-mechanics">Fluid Mechanics</Link>
             <Link to="/skills/mech-engr-methods">Mechanical Engineering Methods</Link>
             <Link to="/skills/instrumentation-&-measurements">Instrumentation & Measurements</Link>
+            <Link to="/skills/sdc">System Dynamics & Controls</Link>
           </div>
         </div>
         {/* Projects dropdown always appears as a floating dropdown, not inline */}
@@ -130,8 +131,8 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
           onClick={() => setProjectsOpen((open) => !open)}
           style={{ 
             position: "relative",
-            // 6 subtabs * (height + gap) + extra gap after last subtab
-            marginTop: skillsOpen ? `${(42 + 9) * 6 }px` : "0px"
+            // 7 subtabs * (height + gap) + extra gap after last subtab
+            marginTop: skillsOpen ? `${(42 + 9) * 7 }px` : "0px"
           }}>
           <Link to="/projects">Projects</Link>
           <div
