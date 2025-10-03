@@ -21,6 +21,7 @@ const allImageSets = {
   'interactive-coder': importAll(require.context('../assets/images/interactive-coder', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
   'profile': importAll(require.context('../assets/images/profile', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
   'robotic-arm-project': importAll(require.context('../assets/images/robotic-arm-project', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
+  'dfm-project': importAll(require.context('../assets/images/dfm-project', false, /\.(png|jpe?g|gif|PNG|JPG|JPEG|GIF)$/), 'image'),
 };
 
 const allVideoSets = {

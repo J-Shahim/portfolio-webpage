@@ -1,9 +1,9 @@
 // utils/assetFolderMap.js
 export const assetFolderMap = {
-  '/nasa-project': 'nasa-project',
-  '/interactive-coder': 'interactive-coder',
-  '/dfm-project': 'dfm-project',
-  '/robotic-arm-project': 'robotic-arm-project',
+  '/projects/nasa-project': 'nasa-project',
+  '/projects/interactive-coder': 'interactive-coder',
+  '/projects/dfm-project': 'dfm-project',
+  '/projects/robotic-arm-project': 'robotic-arm-project',
   '/about-me': 'about-me',
   '/': 'home',
   // Skills pages
@@ -13,4 +13,5 @@ export const assetFolderMap = {
   '/skills/fluid-mechanics': 'skills/fluid-mechanics',
   '/skills/mech-engr-methods': 'skills/mech-engr-methods',
   '/skills/instrumentation-&-measurements': 'skills/instrumentation-&-measurements',
+  '/skills/sdc': 'skills/SDC',
 };
