@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-webpage/static/css/main.4519a179.css",
-    "main.js": "/portfolio-webpage/static/js/main.3f1ef70f.js",
+    "main.js": "/portfolio-webpage/static/js/main.bd3017e4.js",
     "static/media/Screen Recording 2025-02-26 185317.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-02-26 185317.8911c588ef3186237ef5.mp4",
     "static/media/Foot Morphing and Locking mechanism.mp4": "/portfolio-webpage/static/media/Foot Morphing and Locking mechanism.862045d5c7b5724b9d29.mp4",
     "static/media/Screen Recording 2025-03-19 152605.mp4": "/portfolio-webpage/static/media/Screen Recording 2025-03-19 152605.c472222f02ff4cc70599.mp4",
@@ -39,10 +39,10 @@
     "static/media/draw_3D_arm.jpg": "/portfolio-webpage/static/media/draw_3D_arm.06e61e596ba2910712ef.jpg",
     "index.html": "/portfolio-webpage/index.html",
     "main.4519a179.css.map": "/portfolio-webpage/static/css/main.4519a179.css.map",
-    "main.3f1ef70f.js.map": "/portfolio-webpage/static/js/main.3f1ef70f.js.map"
+    "main.bd3017e4.js.map": "/portfolio-webpage/static/js/main.bd3017e4.js.map"
   },
   "entrypoints": [
     "static/css/main.4519a179.css",
-    "static/js/main.3f1ef70f.js"
+    "static/js/main.bd3017e4.js"
   ]
 }
