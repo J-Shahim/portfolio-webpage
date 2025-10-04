@@ -1,3 +1,3 @@
 # Pallet
 
-Description for Pallet. Replace with details about this part.
+Pallet is thermo-formed ABS using a vaccum former and negative mold.

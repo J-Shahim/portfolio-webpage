@@ -1,3 +1,3 @@
-# Guide-Back-Block
+# Guide Back Block
 
-Description for Guide-Back-Block. Replace with details about this part.
+Guide block the forms to the easel arms, helps hold in place the top support strut.

@@ -1,3 +1,3 @@
-# Esal-Project
+# Easel Project
 
-Description for Esal-Project. Replace with details about this part.
+Full assembly of Easel project shows how it would be set up for use.

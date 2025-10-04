@@ -11,34 +11,34 @@ designs more practical, efficient, and cost-effective.
 
 ## What I Did
 
--   Applied **DFMA principles** to simplify part design, reduce assembly
-    steps, and minimize material waste.\
+-   Applied **DFMA principles** to simplify part design and packaging 
+    foot print, reduce assembly steps, and minimize material waste.
 -   Created **technical drawings** with tolerances, GD&T, and material
-    specifications to guide manufacturing.\
+    specifications to guide manufacturing.
 -   Explored multiple **plastic forming techniques**, including:
     -   **Thermoforming** -- heating sheets of plastic and shaping them
-        over molds.\
+        over molds.
     -   **Casting** -- pouring liquid resins into molds for simple,
-        low-volume parts.\
+        low-volume parts.
     -   **Injection molding concepts** -- understanding gating, cooling,
-        and tooling considerations for mass production.\
+        and tooling considerations for mass production.
     -   **Extrusion principles** -- continuous forming of plastics into
-        profiles.\
+        profiles.
 -   Worked with **woodworking and milling techniques** to fabricate
-    structural and precision components.\
+    structural and precision components.
 -   Evaluated **metal joining techniques**, including:
     -   **Welding** -- permanent fusion of metals for structural
-        strength.\
+        strength.
     -   **Mechanical fastening** -- screws, bolts, and rivets for
-        modular, serviceable designs.\
+        modular, serviceable designs.
     -   **Adhesives and bonding** -- useful for joining dissimilar
-        materials (metal-to-plastic, composites).\
+        materials (metal-to-plastic, composites).
     -   **Brazing and soldering** -- lower-temperature joining methods
-        for specific applications.\
+        for specific applications.
 -   Studied **glass and ceramics processing** for thermal/chemical
-    resistance applications and their shaping limitations.\
+    resistance applications and their shaping limitations.
 -   Explored **composites** (lamination, fiber layup techniques) for
-    lightweight, high-strength designs.\
+    lightweight, high-strength designs.
 -   Integrated multiple fabrication methods into a project that combined
     **plastics, wood, and machined parts** into a prototype.
 
@@ -63,7 +63,7 @@ designs more practical, efficient, and cost-effective.
 
 ## Project Outcome
 
-Although my prototype was not fully completed, the process was an
+Although my prototype was not fully completed in its fabrication, the process was an
 invaluable learning experience. As shown in my project video, the
 partial build demonstrated my ability to apply **plastics forming,
 milling, and joining techniques** while designing for manufacturability.

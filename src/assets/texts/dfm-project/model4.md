@@ -1,3 +1,3 @@
-# Foot-Esal
+# Foot
 
-Description for Foot-Esal. Replace with details about this part.
+Casted ABS plast foot. Supports the Easel stand structure by slipping over the edge of a desk, allows pallet to be mounted.

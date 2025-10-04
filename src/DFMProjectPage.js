@@ -33,6 +33,10 @@ import dfmModel6Desc from "./assets/texts/dfm-project/model6.md";
 import dfmModel7Desc from "./assets/texts/dfm-project/model7.md";
 import dfmModel8Desc from "./assets/texts/dfm-project/model8.md";
 import dfmModel9Desc from "./assets/texts/dfm-project/model9.md";
+import dfmModel10Desc from "./assets/texts/dfm-project/model10.md";
+import dfmModel11Desc from "./assets/texts/dfm-project/model11.md";
+import dfmModel12Desc from "./assets/texts/dfm-project/model12.md";
+
 
 const modelDescriptions = [
   dfmModel2Desc, // Esal-Project.stl
@@ -44,13 +48,15 @@ const modelDescriptions = [
   dfmModel7Desc, // Hinge-Plate-Esal.stl
   dfmModel8Desc, // Pallet.stl
   dfmModel9Desc, // Slider-guide.stl
-  // Add more as needed for Top-Arm-Esal, Top-Strut-Esal, Wedge
+  dfmModel10Desc, // Top-Arm-Esal.stl
+  dfmModel11Desc, // Top-Strut-Esal.stl
+  dfmModel12Desc, // Wedge.stl
 ];
 
 // Example PDF options (replace with real data)
 const pdfOptions = [
   {
-    label: "Esal DFM CAD Package",
+    label: "Easel DFM CAD Package",
     value: "/portfolio-webpage/assets/docs/dfm-project/Esal-DFM-Project.pdf",
   },
 ];

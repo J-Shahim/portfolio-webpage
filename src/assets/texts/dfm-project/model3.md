@@ -1,3 +1,3 @@
-# Fastener-Esal
+# Fastener Knob 
 
-Description for Fastener-Esal. Replace with details about this part.
+Fastener knob for tightening the adjustable top support strut inplace.  

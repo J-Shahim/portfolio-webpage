@@ -1,3 +1,3 @@
-# Hinge-Back-Plate-Esal
+# Hinge Back Plate
 
-Description for Hinge-Back-Plate-Esal. Replace with details about this part.
+Hinge plate, sandwiches the hinge points on the arms, allows for folding. 
