@@ -154,6 +154,7 @@ export default function MenuBubble({ collapsed, show, tabBubbleRef }) {
             <Link to="/projects/dfm-project">Design for Manufacturing</Link>
             <Link to="/projects/robotic-arm-project">Robotic Arm</Link>
             <Link to="/projects/geothermal-project">Geothermal</Link>
+            <Link to="/projects/turbojet-project">Turbojet Simulation</Link>
           </div>
         </div>
       </div>

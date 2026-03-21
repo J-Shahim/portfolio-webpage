@@ -4,6 +4,7 @@ export const assetFolderMap = {
   '/projects/interactive-coder': 'interactive-coder',
   '/projects/dfm-project': 'dfm-project',
   '/projects/robotic-arm-project': 'robotic-arm-project',
+  '/projects/turbojet-project': 'turbojet-project',
   '/about-me': 'about-me',
   '/': 'home',
   // Skills pages

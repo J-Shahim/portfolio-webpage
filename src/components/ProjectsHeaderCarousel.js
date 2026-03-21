@@ -50,6 +50,11 @@ const projects = [
     image: projectImages["geothermal-project/GT-project-panel.jpg"],
     link: "/projects/geothermal-project"
   },
+  {
+    title: "Turbojet Simulation",
+    image: projectImages["turbojet-project/turbojet-panel.png"],
+    link: "/projects/turbojet-project"
+  },
 ];
 
 const getIndex = (i, length) => (i + length) % length;

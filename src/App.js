@@ -10,6 +10,7 @@ import NasaProjectPage from "./NasaProjectPage";
 import DFMProjectPage from "./DFMProjectPage";
 import RoboticArmProjectPage from "./RoboticArmProjectPage";
 import GeothermalProjectPage from "./GeothermalProjectPage";
+import TurbojetProjectPage from "./TurbojetProjectPage";
 import RequireContextTest from "./components/RequireContextTest";
 // Import skill pages
 import GasDynamicsSkillPage from "./skills/GasDynamicsSkillPage";
@@ -52,6 +53,7 @@ function App() {
             <Route path="dfm-project" element={<DFMProjectPage />} />
             <Route path="robotic-arm-project" element={<RoboticArmProjectPage />} />
             <Route path="geothermal-project" element={<GeothermalProjectPage />} />
+            <Route path="turbojet-project" element={<TurbojetProjectPage />} />
           </Route>
           <Route
             path="*"
